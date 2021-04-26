@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TetrisModule } from '@fstodulski/ngx-tetris';
+import { NgxTetrisModule } from '@fstodulski/ngx-tetris';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,7 @@ import { TetrisModule } from '@fstodulski/ngx-tetris';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    TetrisModule
+    NgxTetrisModule
   ],
   providers: [],
   bootstrap: [AppComponent]
