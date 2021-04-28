@@ -12,7 +12,7 @@
     "test": "ng test",
     "lint": "ng lint --fix",
     "e2e": "ng e2e",
-    "semantic-release": "semantic-release",
+    "release": "semantic-release",
     "dev:ssr": "ng run twoje-windy:serve-ssr",
     "serve:ssr": "node dist/twoje-windy/server/main.js",
     "build:ssr": "ng build --prod && ng run twoje-windy:server:production",
