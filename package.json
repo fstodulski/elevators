@@ -31,7 +31,7 @@
     "@angular/router": "~11.2.11",
     "@angular/service-worker": "~11.2.11",
     "@briebug/jest-schematic": "^3.1.0",
-    "@fstodulski/ngx-tetris": "^3.0.0",
+    "@fstodulski/ngx-tetris": "^4.1.0",
     "@ngneat/dialog": "1.6.0",
     "@ngneat/svg-icon": "3.1.1",
     "@ngneat/tailwind": "^7.0.3",
