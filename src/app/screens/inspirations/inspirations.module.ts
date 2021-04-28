@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
-import { InspirationsRoutingModule } from './inspirations-routing.module';
 import { InspirationsComponent } from './inspirations.component';
+import { InspirationsRoutingModule } from './inspirations-routing.module';
 
 
 @NgModule({

@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
-import { ElevatorsRoutingModule } from './elevators-routing.module';
 import { ElevatorsComponent } from './elevators.component';
+import { ElevatorsRoutingModule } from './elevators-routing.module';
 
 
 @NgModule({
