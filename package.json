@@ -12,11 +12,11 @@
     "test": "ng test",
     "lint": "ng lint --fix",
     "e2e": "ng e2e",
-    "release": "semantic-release",
     "dev:ssr": "ng run twoje-windy:serve-ssr",
     "serve:ssr": "node dist/twoje-windy/server/main.js",
     "build:ssr": "ng build --prod && ng run twoje-windy:server:production",
-    "prerender": "ng run twoje-windy:prerender"
+    "prerender": "ng run twoje-windy:prerender",
+    "release": "standard-version"
   },
   "private": true,
   "dependencies": {
@@ -74,7 +74,7 @@
     "karma-coverage": "~2.0.3",
     "prettier": "^2.2.1",
     "protractor": "~7.0.0",
-    "semantic-release": "^17.4.2",
+    "standard-version": "^9.2.0",
     "tailwindcss": "2.1.2",
     "ts-node": "~8.3.0",
     "typescript": "~4.1.5"
