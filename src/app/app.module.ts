@@ -2,10 +2,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { SvgIconsModule } from '@ngneat/svg-icon';
+import { TopBarHeaderModule } from '@shared/containers';
 
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+
+const modules = [TopBarHeaderModule];
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +21,7 @@ import { AppRoutingModule } from './app-routing.module';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000',
     }),
+    ...modules,
     SvgIconsModule.forRoot({
       sizes: {
         sm: '16px',

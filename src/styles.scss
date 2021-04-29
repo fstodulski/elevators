@@ -4,3 +4,12 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "~@fstodulski/ngx-tetris/styles/tetrisly";
+@import "./styles/colors";
+@import "./styles/content";
+@import "./styles/shadows";
+@import "./styles/typography";
+
+body,
+html {
+  font-family: "Montserrat", sans-serif;
+}
