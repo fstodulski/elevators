@@ -1,1 +1,2 @@
-export * from './inspiration-category/inspiration-category.service';
+export * from './cabins-hero';
+export * from './inspiration-category';

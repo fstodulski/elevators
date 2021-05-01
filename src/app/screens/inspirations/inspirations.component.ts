@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { InspirationCategoryDto } from '@core/models';
-import { InspirationCategoryService } from '@core/repository';
+import { InspirationCategoryRepositoryService } from '@core/repository';
 import { Observable, of } from 'rxjs';
 
 @Component({
@@ -22,7 +22,7 @@ export class InspirationsComponent implements OnInit {
   public categories$: Observable<Array<InspirationCategoryDto>>;
 
   constructor(
-    public readonly inspirationCategoryService: InspirationCategoryService
+    public readonly inspirationCategoryService: InspirationCategoryRepositoryService
   ) {
     this.categories$ = of([]);
   }

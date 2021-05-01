@@ -5,7 +5,7 @@ import { Observable, of } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class InspirationCategoryService {
+export class InspirationCategoryRepositoryService {
   constructor() {}
 
   public inspirationCategories(): Observable<Array<InspirationCategoryDto>> {
