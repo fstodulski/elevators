@@ -170,6 +170,6 @@
   },
   "defaultProject": "twoje-windy",
   "cli": {
-    "defaultCollection": "@angular-eslint/schematics"
+    "defaultCollection": "@datorama/akita"
   }
 }
