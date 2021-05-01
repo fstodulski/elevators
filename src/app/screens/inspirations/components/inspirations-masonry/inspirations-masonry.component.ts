@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgxMasonryOptions } from 'ngx-masonry';
 
 @Component({
@@ -30,7 +30,7 @@ import { NgxMasonryOptions } from 'ngx-masonry';
   `,
   styleUrls: ['./inspirations-masonry.component.scss'],
 })
-export class InspirationsMasonryComponent implements OnInit {
+export class InspirationsMasonryComponent {
   public readonly options: NgxMasonryOptions;
   public masonryItems: Array<any> = [
     { img: 'el1.png' },
@@ -50,6 +50,4 @@ export class InspirationsMasonryComponent implements OnInit {
       gutter: 20,
     };
   }
-
-  ngOnInit(): void {}
 }
