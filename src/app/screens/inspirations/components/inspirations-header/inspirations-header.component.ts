@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-inspirations-header',
@@ -14,8 +14,6 @@ import { Component, OnInit } from '@angular/core';
   `,
   styleUrls: ['./inspirations-header.component.scss'],
 })
-export class InspirationsHeaderComponent implements OnInit {
+export class InspirationsHeaderComponent {
   constructor() {}
-
-  ngOnInit(): void {}
 }

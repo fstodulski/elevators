@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-top-bar-header',
@@ -23,8 +23,6 @@ import { Component, OnInit } from '@angular/core';
   `,
   styleUrls: ['./top-bar-header.component.scss'],
 })
-export class TopBarHeaderComponent implements OnInit {
+export class TopBarHeaderComponent {
   constructor() {}
-
-  ngOnInit(): void {}
 }

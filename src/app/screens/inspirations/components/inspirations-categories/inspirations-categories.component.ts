@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { InspirationCategoryDto } from '@core/models';
 
 @Component({
@@ -17,7 +17,7 @@ import { InspirationCategoryDto } from '@core/models';
   `,
   styleUrls: ['./inspirations-categories.component.scss'],
 })
-export class InspirationsCategoriesComponent implements OnInit {
+export class InspirationsCategoriesComponent {
   @Input() public categories: Array<InspirationCategoryDto>;
   @Output() public selected: EventEmitter<any>;
 
@@ -25,6 +25,4 @@ export class InspirationsCategoriesComponent implements OnInit {
     this.categories = [];
     this.selected = new EventEmitter();
   }
-
-  public ngOnInit(): void {}
 }

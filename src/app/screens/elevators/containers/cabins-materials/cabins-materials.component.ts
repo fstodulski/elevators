@@ -1,6 +1,5 @@
 import { CdkDragMove } from '@angular/cdk/drag-drop';
 import {
-  AfterViewInit,
   Component,
   ElementRef,
   OnInit,
@@ -82,7 +81,7 @@ import { CabinsMaterialsService } from './cabins-materials.service';
   `,
   styleUrls: ['./cabins-materials.component.scss'],
 })
-export class CabinsMaterialsComponent implements OnInit, AfterViewInit {
+export class CabinsMaterialsComponent implements OnInit {
   @ViewChild('leftMask') public readonly leftMask: ElementRef | undefined;
 
   constructor(
@@ -96,10 +95,7 @@ export class CabinsMaterialsComponent implements OnInit, AfterViewInit {
     this.cabinsMaterialsService.cabinsHero();
   }
 
-  public ngAfterViewInit(): void {}
-
   public moved(event: CdkDragMove): void {
-    console.log(event.distance);
     this.renderer.setStyle(
       this.leftMask?.nativeElement,
       'transform',
