@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
-import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { SvgIconsModule } from '@ngneat/svg-icon';
 import { FooterModule } from '@shared/components';
 import { TopBarHeaderModule } from '@shared/containers';
@@ -41,8 +39,6 @@ const modules = [TopBarHeaderModule, FooterModule];
     }),
     GraphQLModule,
     HttpClientModule,
-    AkitaNgRouterStoreModule,
-    environment.production ? [] : AkitaNgDevtools.forRoot(),
     TranslocoRootModule,
   ],
   providers: [],
