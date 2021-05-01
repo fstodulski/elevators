@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-footer',
   template: `
     <footer class="flex items-center px-8 py-7 border-t mt-16">
-      <figure class="mr-12">
+      <figure [routerLink]="['/windy']" class="mr-12 cursor-pointer">
         <img src="assets/icons/logo.svg" alt="" />
       </figure>
 

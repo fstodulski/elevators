@@ -9,6 +9,8 @@ import { TopBarHeaderModule } from '@shared/containers';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { GraphQLModule } from './graphql.module';
+import { HttpClientModule } from '@angular/common/http';
 
 const modules = [TopBarHeaderModule, FooterModule];
 
@@ -34,6 +36,8 @@ const modules = [TopBarHeaderModule, FooterModule];
       },
       defaultSize: 'md',
     }),
+    GraphQLModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
