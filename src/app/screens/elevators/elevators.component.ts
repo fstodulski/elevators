@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
     <main>
       <app-cabins-hero></app-cabins-hero>
       <app-cabins-realisation></app-cabins-realisation>
+      <app-cabins-materials></app-cabins-materials>
     </main>
   `,
   styleUrls: ['./elevators.component.scss'],
