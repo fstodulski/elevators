@@ -13,6 +13,7 @@ import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { GraphQLModule } from './graphql.module';
+import { TranslocoRootModule } from './transloco/transloco-root.module';
 
 const modules = [TopBarHeaderModule, FooterModule];
 
@@ -42,6 +43,7 @@ const modules = [TopBarHeaderModule, FooterModule];
     HttpClientModule,
     AkitaNgRouterStoreModule,
     environment.production ? [] : AkitaNgDevtools.forRoot(),
+    TranslocoRootModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

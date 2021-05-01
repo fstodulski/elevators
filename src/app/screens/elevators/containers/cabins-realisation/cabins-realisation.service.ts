@@ -32,7 +32,6 @@ export class CabinsRealisationService {
       const data = await this.cabinsRealisationRepositoryService
         .cabinRealisation()
         .toPromise();
-      console.log(data);
 
       this.data$.next(data);
     } finally {

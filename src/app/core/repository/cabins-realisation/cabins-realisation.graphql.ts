@@ -5,8 +5,8 @@ export interface CabinsRealisationQuery {
   cabinsRealisations: Array<CabinsRealisationDto>;
 }
 export const cabinsRealisationsQuery = gql`
-  query cabinsRealisations {
-    cabinsRealisations {
+  query cabinsRealisations($lang: Locale!) {
+    cabinsRealisations(locales: [$lang]) {
       id
       title
       subTitle

@@ -24,6 +24,7 @@ import { CabinsRealisationService } from './cabins-realisation.service';
           <nav class="flex flex-wrap mt-10">
             <a
               chip
+              size="sm"
               *ngFor="let category of cabinsRealisation.inspirationCategories"
               >{{ category.title }}</a
             >

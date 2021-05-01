@@ -28,7 +28,6 @@ export class CabinsHeroService {
       const data = await this.cabinsHeroRepositoryService
         .cabinsHero()
         .toPromise();
-      console.log(data);
 
       this.data$.next(data);
     } finally {

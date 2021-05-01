@@ -1,32 +1,37 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LanguageGuard } from '@core/guards';
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: '/inspirations',
+    redirectTo: 'pl/inspiracje',
   },
   {
     path: ':lang/elevators',
     loadChildren: async () =>
       (await import('./screens/elevators/elevators.module')).ElevatorsModule,
+    resolve: [LanguageGuard],
   },
   {
     path: ':lang/windy',
     loadChildren: async () =>
       (await import('./screens/elevators/elevators.module')).ElevatorsModule,
+    resolve: [LanguageGuard],
   },
   //
   {
     path: ':lang/companies',
     loadChildren: async () =>
       (await import('./screens/companies/companies.module')).CompaniesModule,
+    resolve: [LanguageGuard],
   },
   {
-    path: ':lang/firmy',
+    path: ':lang/katalog-firm',
     loadChildren: async () =>
       (await import('./screens/companies/companies.module')).CompaniesModule,
+    resolve: [LanguageGuard],
   },
   //
   {
@@ -34,12 +39,14 @@ const routes: Routes = [
     loadChildren: async () =>
       (await import('./screens/inspirations/inspirations.module'))
         .InspirationsModule,
+    resolve: [LanguageGuard],
   },
   {
     path: ':lang/inspiracje',
     loadChildren: async () =>
       (await import('./screens/inspirations/inspirations.module'))
         .InspirationsModule,
+    resolve: [LanguageGuard],
   },
 ];
 
