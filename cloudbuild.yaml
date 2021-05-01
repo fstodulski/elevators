@@ -3,6 +3,14 @@ steps:
     entrypoint: npm
     args: ['install']
 
+  - name: node:13
+    entrypoint: npm
+    args: [ 'run', 'config' ]
+    env:
+      - 'GRAPHQL_TOKEN=${_GRAPHQL_TOKEN}'
+      - 'BASE_URL=${_BASE_URL}'
+      - 'PRODUCTION=${_PRODUCTION}'
+
   - name: node:12
     entrypoint: npm
     args: ['run', 'build:ssr']
