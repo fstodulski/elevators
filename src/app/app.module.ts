@@ -3,13 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { SvgIconsModule } from '@ngneat/svg-icon';
+import { FooterModule } from '@shared/components';
 import { TopBarHeaderModule } from '@shared/containers';
 
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-const modules = [TopBarHeaderModule];
+const modules = [TopBarHeaderModule, FooterModule];
 
 @NgModule({
   declarations: [AppComponent],

@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ButtonsModule, tAlert } from '@fstodulski/ngx-tetris';
 import { SvgIconsModule } from '@ngneat/svg-icon';
-import { PaginationModule } from '@shared/components';
+import { FooterModule, PaginationModule } from '@shared/components';
 import { TopBarHeaderModule } from '@shared/containers';
 
 import { InspirationsCategoriesModule } from './components/inspirations-categories/inspirations-categories.module';
@@ -19,6 +19,7 @@ export const modules = [
   InspirationsCategoriesModule,
   InspirationsMasonryModule,
   PaginationModule,
+  FooterModule,
 ];
 
 @NgModule({
