@@ -1,0 +1,25 @@
+:host {
+  padding: 0.625rem 1rem;
+  border-radius: 9999px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--gray100);
+  transition: 0.2s;
+  color: var(--gray900);
+  margin-right: 1rem;
+  cursor: pointer;
+
+  &.sm {
+    padding: 0.5rem 0.75rem;
+  }
+
+  &:hover {
+    background-color: var(--main50);
+  }
+
+  &.selected {
+    background-color: var(--main800);
+    color: var(--white);
+  }
+}

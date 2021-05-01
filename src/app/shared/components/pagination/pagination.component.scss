@@ -1,0 +1,9 @@
+.single-page {
+  padding: 0.75rem 1.25rem;
+  border-radius: 4px;
+  border: 1px solid transparent;
+
+  &.selected {
+    border: 1px solid var(--gray200);
+  }
+}

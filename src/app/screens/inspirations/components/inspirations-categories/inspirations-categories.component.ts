@@ -18,24 +18,13 @@ import { InspirationCategoryDto } from '@core/models';
   styleUrls: ['./inspirations-categories.component.scss'],
 })
 export class InspirationsCategoriesComponent implements OnInit {
-  @Input() public readonly categories: Array<InspirationCategoryDto>;
-  @Output() public readonly selected: EventEmitter<any>;
+  @Input() public categories: Array<InspirationCategoryDto>;
+  @Output() public selected: EventEmitter<any>;
 
   constructor() {
-    this.categories = [
-      {
-        id: '',
-        title: 'Wszystkie Inspiracje',
-        slug: 'wszystkie-inspiracje',
-      },
-      {
-        id: '',
-        title: 'Gastronomia',
-        slug: 'gastronomia',
-      },
-    ];
+    this.categories = [];
     this.selected = new EventEmitter();
   }
 
-  ngOnInit(): void {}
+  public ngOnInit(): void {}
 }
