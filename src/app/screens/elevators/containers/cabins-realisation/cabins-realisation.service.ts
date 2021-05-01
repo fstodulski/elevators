@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { CabinsHeroDto } from '@core/models';
-import { CabinsHeroRepositoryService as CabinsHeroServiceRepository } from '@core/repository';
+import { CabinsRealisationDto } from '@core/models';
+import { CabinsRealisationRepositoryService } from '@core/repository';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
@@ -8,22 +8,30 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class CabinsRealisationService {
   public readonly isLoading$: BehaviorSubject<boolean>;
-  private readonly data$: BehaviorSubject<CabinsHeroDto | undefined>;
+  private readonly data$: BehaviorSubject<CabinsRealisationDto | undefined>;
 
-  constructor(private readonly cabinsHeroService: CabinsHeroServiceRepository) {
-    this.data$ = new BehaviorSubject<CabinsHeroDto | undefined>(undefined);
+  constructor(
+    private readonly cabinsRealisationRepositoryService: CabinsRealisationRepositoryService
+  ) {
+    this.data$ = new BehaviorSubject<CabinsRealisationDto | undefined>(
+      undefined
+    );
     this.isLoading$ = new BehaviorSubject<boolean>(false);
   }
 
-  public get cabinsHero$(): Observable<CabinsHeroDto | undefined> {
+  public get cabinsRealisation$(): Observable<
+    CabinsRealisationDto | undefined
+  > {
     return this.data$.asObservable();
   }
 
-  public async cabinsHero(): Promise<void> {
+  public async cabinsRealisation(): Promise<void> {
     try {
       this.isLoading$.next(true);
 
-      const data = await this.cabinsHeroService.cabinsHero().toPromise();
+      const data = await this.cabinsRealisationRepositoryService
+        .cabinRealisation()
+        .toPromise();
       console.log(data);
 
       this.data$.next(data);

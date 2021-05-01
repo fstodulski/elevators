@@ -1,23 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 
+import { CabinsRealisationService } from './cabins-realisation.service';
+
 @Component({
   selector: 'app-cabins-realisation',
   template: `
-    <section class="grid grid-cols-2 gap-6 px-8 py-6">
+    <section
+      class="grid grid-cols-2 gap-6 px-8 py-6"
+      *ngIf="
+        cabinsRealisationService.cabinsRealisation$ | async as cabinsRealisation
+      "
+    >
       <article class="flex items-center justify-center">
         <div class="flex flex-col max-w-lg">
           <h2 class="text-h500 text-gray-900">
-            Kabiny wind dla najbardziej wymagających i te o ekonomicznym
-            charakterze.
+            {{ cabinsRealisation.title }}
           </h2>
           <div class="separator"></div>
           <p class="text-body:lg text-gray-600">
-            Wszystkie je mamy! Indywidualny charakter Twojemu urządzeniu nadaje
-            dobrze zaprojektowana i wykonana kabina windy.
+            {{ cabinsRealisation.subTitle }}
           </p>
 
           <nav class="flex flex-wrap mt-10">
-            <a chip>Wszystkie inspiracje</a>
+            <a
+              chip
+              *ngFor="let category of cabinsRealisation.inspirationCategories"
+              >{{ category.title }}</a
+            >
           </nav>
         </div>
       </article>
@@ -25,7 +34,7 @@ import { Component, OnInit } from '@angular/core';
       <figure class="flex items-center">
         <img
           class="w-full"
-          src="assets/inspirations/el1.png"
+          [src]="cabinsRealisation.image[0].url"
           loading="lazy"
           alt=""
         />
@@ -35,7 +44,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cabins-realisation.component.scss'],
 })
 export class CabinsRealisationComponent implements OnInit {
-  constructor() {}
+  constructor(
+    public readonly cabinsRealisationService: CabinsRealisationService
+  ) {}
 
-  ngOnInit(): void {}
+  public ngOnInit(): void {
+    this.cabinsRealisationService.cabinsRealisation();
+  }
 }

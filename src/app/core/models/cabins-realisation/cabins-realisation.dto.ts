@@ -1,9 +1,9 @@
 import { ImageDto, InspirationCategoryDto } from '@core/models';
 
-export interface CabinRealisationDto {
+export interface CabinsRealisationDto {
   id: string;
   title: string;
   subTitle: string;
   inspirationCategories: Array<InspirationCategoryDto>;
-  image: ImageDto;
+  image: Array<ImageDto>;
 }

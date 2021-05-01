@@ -1,1 +1,1 @@
-export * from './cabin-realisation.dto';
+export * from './cabins-realisation.dto';

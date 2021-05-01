@@ -8,35 +8,35 @@ const routes: Routes = [
     redirectTo: '/inspirations',
   },
   {
-    path: 'elevators',
+    path: ':lang/elevators',
     loadChildren: async () =>
       (await import('./screens/elevators/elevators.module')).ElevatorsModule,
   },
   {
-    path: 'windy',
+    path: ':lang/windy',
     loadChildren: async () =>
       (await import('./screens/elevators/elevators.module')).ElevatorsModule,
   },
   //
   {
-    path: 'companies',
+    path: ':lang/companies',
     loadChildren: async () =>
       (await import('./screens/companies/companies.module')).CompaniesModule,
   },
   {
-    path: 'firmy',
+    path: ':lang/firmy',
     loadChildren: async () =>
       (await import('./screens/companies/companies.module')).CompaniesModule,
   },
   //
   {
-    path: 'inspirations',
+    path: ':lang/inspirations',
     loadChildren: async () =>
       (await import('./screens/inspirations/inspirations.module'))
         .InspirationsModule,
   },
   {
-    path: 'inspiracje',
+    path: ':lang/inspiracje',
     loadChildren: async () =>
       (await import('./screens/inspirations/inspirations.module'))
         .InspirationsModule,
