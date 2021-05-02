@@ -2,17 +2,15 @@ import ErrnoException = NodeJS.ErrnoException;
 
 const { writeFile } = require('fs');
 const { config } = require('dotenv');
-// Configure Angular `environment.ts` file path
 
 const targetPath = './src/environments/environment.ts';
-// Load node modules
 const colors = require('colors');
 config();
 
 // `environment.ts` file structure
 const envConfigFile = `export const environment = {
     baseUrl: '${process.env.BASE_URL}',
-    production: '${process.env.PRODUCTION}',
+    production: ${Boolean(process.env.PRODUCTION0 as string)},
     graphqlToken: '${process.env.GRAPHQL_TOKEN}',
 };
 `;
