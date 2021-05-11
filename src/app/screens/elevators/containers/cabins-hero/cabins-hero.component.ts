@@ -6,7 +6,7 @@ import { CabinsHeroService } from './cabins-hero.service';
   selector: 'app-cabins-hero',
   template: `
     <section
-      class="grid grid-cols-2 gap-6 px-8 py-6"
+      class="grid grid-cols-2 gap-6 px-8 py-6 max-w-screen-xl mx-auto"
       *ngIf="cabinsHeroService.cabinsHero$ | async as cabinsHero"
     >
       <figure class="flex items-center">
@@ -32,9 +32,10 @@ import { CabinsHeroService } from './cabins-hero.service';
           <a
             [href]="cabinsHero.buttonTargetLink"
             t-button
+            variant="icon-right"
             size="lg"
             class="mt-8 mr-auto"
-            icon="arrow_circle_right"
+            icon="arrow-right"
           >
             {{ cabinsHero.buttonLabel }}
           </a>

@@ -6,7 +6,7 @@ import { CabinsRealisationService } from './cabins-realisation.service';
   selector: 'app-cabins-realisation',
   template: `
     <section
-      class="grid grid-cols-2 gap-6 px-8 py-6"
+      class="grid grid-cols-2 gap-6 px-8 py-6 max-w-screen-xl mx-auto"
       *ngIf="
         cabinsRealisationService.cabinsRealisation$ | async as cabinsRealisation
       "

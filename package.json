@@ -17,7 +17,8 @@
     "serve:ssr": "node dist/twoje-windy/server/main.js",
     "build:ssr": "ng build --prod && ng run twoje-windy:server:production",
     "prerender": "ng run twoje-windy:prerender",
-    "release": "standard-version"
+    "release": "standard-version",
+    "postinstall": "ngcc"
   },
   "private": true,
   "dependencies": {
@@ -36,7 +37,7 @@
     "@briebug/jest-schematic": "^3.1.0",
     "@datorama/akita": "^6.1.3",
     "@datorama/akita-ng-router-store": "^6.0.0",
-    "@fstodulski/ngx-tetris": "^4.1.1",
+    "@fstodulski/ngx-tetris": "file:../ngx-tetris/dist/fstodulski/ngx-tetris/fstodulski-ngx-tetris-1.0.0.tgz",
     "@ngneat/dialog": "1.6.0",
     "@ngneat/svg-icon": "3.1.1",
     "@ngneat/tailwind": "^7.0.3",

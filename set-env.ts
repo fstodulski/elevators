@@ -10,7 +10,7 @@ config();
 // `environment.ts` file structure
 const envConfigFile = `export const environment = {
     baseUrl: '${process.env.BASE_URL}',
-    production: ${Boolean(process.env.PRODUCTION0 as string)},
+    production: ${Boolean(process.env.PRODUCTION as string)},
     graphqlToken: '${process.env.GRAPHQL_TOKEN}',
 };
 `;

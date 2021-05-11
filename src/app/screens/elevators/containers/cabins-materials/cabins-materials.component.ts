@@ -13,7 +13,7 @@ import { CabinsMaterialsService } from './cabins-materials.service';
   selector: 'app-cabins-materials',
   template: `
     <section
-      class="grid grid-cols-2 gap-6 px-8 py-6"
+      class="grid grid-cols-2 gap-6 px-8 py-6 max-w-screen-xl mx-auto"
       *ngIf="cabinsMaterialsService.cabinsHero$ | async as cabinsMaterials"
     >
       <figure class="images-preview">
@@ -26,7 +26,7 @@ import { CabinsMaterialsService } from './cabins-materials.service';
           t-icon-button
           (cdkDragMoved)="moved($event)"
           type="button"
-          icon="drag_indicator"
+          icon="drag-indicator"
           class="drag"
         ></button>
         <img
@@ -71,7 +71,7 @@ import { CabinsMaterialsService } from './cabins-materials.service';
                 t-icon-button
                 tWithContrast
                 size="sm"
-                icon="open_in_new"
+                icon="open-in-new"
               ></button>
             </div>
           </nav>
