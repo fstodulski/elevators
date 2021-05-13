@@ -1,5 +1,5 @@
 import { DataSource } from '@angular/cdk/collections';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 export interface PeriodicElement {
@@ -63,7 +63,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   `,
   styleUrls: ['./table-one.component.scss'],
 })
-export class TableOneComponent implements OnInit {
+export class TableOneComponent {
   public readonly displayedColumns: string[] = [
     'position',
     'name',
@@ -73,8 +73,6 @@ export class TableOneComponent implements OnInit {
   ];
   public dataSource = new ExampleDataSource();
   constructor() {}
-
-  ngOnInit(): void {}
 }
 
 export class ExampleDataSource extends DataSource<PeriodicElement> {
