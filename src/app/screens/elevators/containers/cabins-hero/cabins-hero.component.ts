@@ -20,24 +20,24 @@ import { CabinsHeroService } from './cabins-hero.service';
 
       <article class="flex items-center justify-center">
         <div class="flex flex-col max-w-lg">
-          <h2 class="text-h500 text-gray-900">
+          <h2 class="cabins-hero-title">
             {{ cabinsHero.title }}
           </h2>
 
           <div class="separator"></div>
 
-          <p class="text-body:lg text-gray-600 ">
+          <p class="cabins-hero-subtitle ">
             {{ cabinsHero.subTitle }}
           </p>
           <a
             [href]="cabinsHero.buttonTargetLink"
-            t-button
-            variant="icon-right"
-            size="lg"
+            nbButton
+            size="large"
             class="mt-8 mr-auto"
-            icon="arrow-right"
+            status="primary"
           >
             {{ cabinsHero.buttonLabel }}
+            <nb-icon icon="chevron-right-outline"></nb-icon>
           </a>
         </div>
       </article>

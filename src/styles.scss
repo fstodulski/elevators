@@ -1,9 +1,15 @@
+@import "themes";
+
+@import "~@nebular/theme/styles/globals";
+
+@include nb-install() {
+  @include nb-theme-global();
+}
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 /* You can add global styles to this file, and also import other style files */
 
-@import "~@fstodulski/ngx-tetris/styles/tetrisly";
 @import "./styles/colors";
 @import "./styles/content";
 @import "./styles/shadows";
@@ -12,6 +18,7 @@
 body,
 html {
   font-family: "Montserrat", sans-serif;
+  background-color: var(--white100);
 }
 
 .separator {
@@ -27,4 +34,8 @@ html {
     width: 5.75rem;
     background-color: var(--main800);
   }
+}
+
+.nb-theme-default a {
+  text-decoration: none;
 }

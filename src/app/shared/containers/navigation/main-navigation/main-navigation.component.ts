@@ -9,7 +9,7 @@ import { TranslocoService } from '@ngneat/transloco';
       <a
         [routerLink]="[link.path]"
         routerLinkActive="active"
-        class="link text-body:lg"
+        class="link"
         *ngFor="let link of links"
         >{{ link.label }}</a
       >

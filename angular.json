@@ -34,12 +34,7 @@
             ],
             "styles": ["src/styles.scss"],
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "src/styles/colors.scss",
-                "src/styles/content.scss",
-                "src/styles/shadows.scss",
-                "src/styles/typography.scss"
-              ]
+              "includePaths": ["src/styles"]
             },
             "scripts": []
           },

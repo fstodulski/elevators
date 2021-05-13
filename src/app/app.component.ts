@@ -3,9 +3,13 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-    <app-top-bar-header></app-top-bar-header>
-    <router-outlet></router-outlet>
-    <app-footer></app-footer>
+    <nb-layout>
+      <nb-layout-column>
+        <app-top-bar-header></app-top-bar-header>
+        <router-outlet></router-outlet>
+        <app-footer></app-footer>
+      </nb-layout-column>
+    </nb-layout>
   `,
   styleUrls: ['./app.component.scss'],
 })

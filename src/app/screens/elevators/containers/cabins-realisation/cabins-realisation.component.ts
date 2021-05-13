@@ -13,21 +13,24 @@ import { CabinsRealisationService } from './cabins-realisation.service';
     >
       <article class="flex items-center justify-center">
         <div class="flex flex-col max-w-lg">
-          <h2 class="text-h500 text-gray-900">
+          <h2 class="cabins-hero-title">
             {{ cabinsRealisation.title }}
           </h2>
           <div class="separator"></div>
-          <p class="text-body:lg text-gray-600">
+          <p class="cabins-hero-subtitle">
             {{ cabinsRealisation.subTitle }}
           </p>
 
           <nav class="flex flex-wrap mt-10">
-            <a
-              chip
-              size="sm"
-              *ngFor="let category of cabinsRealisation.inspirationCategories"
-              >{{ category.title }}</a
-            >
+            <nb-tag-list>
+              <nb-tag
+                class="tag"
+                status="primary"
+                appearance="outline"
+                [text]="category.title"
+                *ngFor="let category of cabinsRealisation.inspirationCategories"
+              ></nb-tag>
+            </nb-tag-list>
           </nav>
         </div>
       </article>

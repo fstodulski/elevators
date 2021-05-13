@@ -5,6 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { NbLayoutModule, NbThemeModule } from '@nebular/theme';
 import { SvgIconsModule } from '@ngneat/svg-icon';
 import { FooterModule } from '@shared/components';
 import { TopBarHeaderModule } from '@shared/containers';
@@ -44,6 +46,9 @@ const modules = [TopBarHeaderModule, FooterModule];
     TranslocoRootModule,
     environment.production ? [] : AkitaNgDevtools.forRoot(),
     AkitaNgRouterStoreModule,
+    NbThemeModule.forRoot({ name: 'default' }),
+    NbLayoutModule,
+    NbEvaIconsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

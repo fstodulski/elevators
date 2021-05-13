@@ -1,7 +1,17 @@
+@import "typography";
+
+:host {
+  height: 100%;
+}
+
 .link {
   padding: 1.5rem 2.5rem;
   position: relative;
   transition: 0.3s;
+  font-size: 1rem;
+  height: 100%;
+  color: var(--gray600);
+  @include text-body\:lg;
 
   &:hover {
     background-color: var(--main0);

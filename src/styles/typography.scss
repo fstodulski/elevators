@@ -1,77 +1,129 @@
-.text-h900 {
+@mixin text-h900 {
   font-weight: bold;
   font-size: 72px;
   line-height: 108px;
 }
 
-.text-h800 {
+.text-h900 {
+  @include text-h900;
+}
+
+@mixin text-h800 {
   font-weight: bold;
   font-size: 56px;
   line-height: 84px;
 }
 
-.text-h700 {
+.text-h800 {
+  @include text-h800;
+}
+
+@mixin text-h700 {
   font-weight: bold;
   font-size: 40px;
   line-height: 60px;
 }
 
-.text-h600 {
+.text-h700 {
+  @include text-h700;
+}
+
+@mixin text-h600 {
   font-weight: 500;
   font-size: 32px;
   line-height: 48px;
 }
 
-.text-h500 {
+.text-h600 {
+  @include text-h600;
+}
+
+@mixin text-h500 {
   font-weight: 600;
   font-size: 24px;
   line-height: 36px;
 }
 
-.text-h400 {
+.text-h500 {
+  @include text-h500;
+}
+
+@mixin text-h400 {
   font-weight: 500;
   font-size: 20px;
   line-height: 32px;
+}
+
+.text-h400 {
+  @include text-h400;
+}
+
+@mixin text-h300 {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .text-h300 {
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
+  @include text-h300;
 }
 
-.text-h200 {
+@mixin text-h200 {
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
 }
 
-.text-h100 {
+.text-h200 {
+  @include text-h200;
+}
+
+@mixin text-h100 {
   font-weight: 600;
   font-size: 12px;
   line-height: 16px;
 }
 
-.text-subtitle {
+.text-h100 {
+  @include text-h100;
+}
+
+@mixin text-subtitle {
   font-weight: normal;
   font-size: 20px;
   line-height: 32px;
 }
 
-.text-body\:lg {
+.text-subtitle {
+  @include text-subtitle;
+}
+
+@mixin text-body\:lg {
   font-weight: normal;
   font-size: 16px;
   line-height: 24px;
 }
 
-.text-body\:md {
+.text-body\:lg {
+  @include text-body\:lg;
+}
+
+@mixin text-body\:md {
   font-weight: normal;
   font-size: 14px;
   line-height: 20px;
 }
 
-.text-body\:sm {
+.text-body\:md {
+  @include text-body\:md;
+}
+
+@mixin text-body\:sm {
   font-weight: normal;
   font-size: 12px;
   line-height: 16px;
+}
+
+.text-body\:sm {
+  @include text-body\:sm;
 }

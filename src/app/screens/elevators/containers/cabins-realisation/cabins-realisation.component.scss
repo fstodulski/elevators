@@ -1,0 +1,15 @@
+@import "typography";
+
+.cabins-hero-title {
+  @include text-h500;
+  color: var(--gray600);
+}
+
+.cabins-hero-subtitle {
+  @include text-body\:lg;
+  color: var(--gray600);
+}
+
+.tag {
+  @include text-body\:md;
+}

@@ -11,18 +11,36 @@ import { Component } from '@angular/core';
           <img src="assets/icons/logo.svg" alt="" />
         </figure>
 
-        <h2 class="text-sm ml-6 text-gray-600">
+        <span class="text-sm ml-6 text-gray-600">
           Pomagamy Polskim biznesom wybrać najlepszą windę
-        </h2>
+        </span>
       </div>
 
       <app-main-navigation class="ml-auto"> </app-main-navigation>
 
-      <button t-button class="ml-8">Zamów ofertę</button>
+      <nb-select class="lang-select ml-8">
+        <nb-option *ngFor="let lang of langs" [value]="lang">
+          <nb-icon [icon]="lang.icon"></nb-icon>
+          {{ lang.lang }}
+        </nb-option>
+      </nb-select>
     </header>
   `,
   styleUrls: ['./top-bar-header.component.scss'],
 })
 export class TopBarHeaderComponent {
-  constructor() {}
+  public readonly langs: Array<{
+    icon: string;
+    lang: string;
+    key: string;
+  }>;
+  constructor() {
+    this.langs = [
+      {
+        icon: 'bell',
+        lang: 'Polish',
+        key: 'pl',
+      },
+    ];
+  }
 }
