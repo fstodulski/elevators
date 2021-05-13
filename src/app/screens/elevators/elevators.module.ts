@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { TableOneModule } from '@shared/containers';
 
 import { CabinsHeroModule } from './containers/cabins-hero/cabins-hero.module';
 import { CabinsMaterialsModule } from './containers/cabins-materials/cabins-materials.module';
@@ -11,6 +12,7 @@ const modules = [
   CabinsHeroModule,
   CabinsRealisationModule,
   CabinsMaterialsModule,
+  TableOneModule,
 ];
 
 @NgModule({

@@ -13,11 +13,11 @@ import { CabinsRealisationService } from './cabins-realisation.service';
     >
       <article class="flex items-center justify-center">
         <div class="flex flex-col max-w-lg">
-          <h2 class="cabins-hero-title">
+          <h2 class="cabins-realisation-title">
             {{ cabinsRealisation.title }}
           </h2>
           <div class="separator"></div>
-          <p class="cabins-hero-subtitle">
+          <p class="cabins-realisation-subtitle">
             {{ cabinsRealisation.subTitle }}
           </p>
 

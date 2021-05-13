@@ -19,16 +19,16 @@ import { CabinsMaterialsService } from './cabins-materials.service';
       <figure class="images-preview">
         <div #leftMask class="mask mask:left"></div>
         <div class="mask mask:right"></div>
-        <button
+
+        <nb-icon
           cdkDragLockAxis="x"
           cdkDrag
           cdkDragBoundary=".images-preview"
-          t-icon-button
           (cdkDragMoved)="moved($event)"
-          type="button"
-          icon="drag-indicator"
           class="drag"
-        ></button>
+          status="control"
+          icon="move-outline"
+        ></nb-icon>
         <img
           class="relative z-10"
           [src]="cabinsMaterials.images[0].url"
@@ -38,13 +38,13 @@ import { CabinsMaterialsService } from './cabins-materials.service';
 
       <article class="flex items-center justify-center">
         <div class="flex flex-col max-w-lg">
-          <h2 class="text-h500 text-gray-900">
+          <h2 class="cabins-materials-title">
             {{ cabinsMaterials.title }}
           </h2>
 
           <div class="separator"></div>
 
-          <p class="text-body:lg text-gray-600 ">
+          <p class="cabins-materials-subtitle">
             {{ cabinsMaterials.subTitle }}
           </p>
 
@@ -66,13 +66,9 @@ import { CabinsMaterialsService } from './cabins-materials.service';
                 >
               </div>
 
-              <button
-                class="ml-auto"
-                t-icon-button
-                tWithContrast
-                size="sm"
-                icon="open-in-new"
-              ></button>
+              <button nbButton class="ml-auto" status="primary" size="small">
+                <nb-icon icon="external-link-outline"></nb-icon>
+              </button>
             </div>
           </nav>
         </div>

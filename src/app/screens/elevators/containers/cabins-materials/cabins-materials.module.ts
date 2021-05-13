@@ -1,22 +1,11 @@
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import {
-  ButtonsModule,
-  tDragIndicator,
-  tOpenInNew,
-  WithContrastModule,
-} from '@fstodulski/ngx-tetris';
-import { SvgIconsModule } from '@ngneat/svg-icon';
+import { NbButtonModule, NbIconModule } from '@nebular/theme';
 
 import { CabinsMaterialsComponent } from './cabins-materials.component';
 
-export const modules = [
-  ButtonsModule,
-  WithContrastModule,
-  DragDropModule,
-  SvgIconsModule.forChild([tOpenInNew, tDragIndicator]),
-];
+export const modules = [NbButtonModule, DragDropModule, NbIconModule];
 
 @NgModule({
   declarations: [CabinsMaterialsComponent],

@@ -1,3 +1,15 @@
+@import "typography";
+
+.cabins-materials-title {
+  @include text-h500;
+  color: var(--gray900);
+}
+
+.cabins-materials-subtitle {
+  @include text-body\:md;
+  color: var(--gray600);
+}
+
 .images-preview {
   position: relative;
   overflow: hidden;
@@ -15,6 +27,7 @@
     background-color: #4624d1;
     opacity: 0.5;
     z-index: 12;
+    transition: transform 0ms cubic-bezier(0, 0, 0.2, 1);
   }
 
   &\:right {
@@ -32,6 +45,13 @@
   left: 0;
   bottom: 0;
   right: 0;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  cursor: grab;
+  padding: 0.8rem;
+  background-color: var(--main800);
+  color: var(--white100);
   z-index: 13;
 }
 
