@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
           <img src="assets/icons/logo.svg" alt="" />
         </figure>
 
-        <span class="text-sm ml-6 text-gray-600">
+        <span class="text-sm ml-6 text-gray-600 hidden xl:inline">
           Pomagamy Polskim biznesom wybrać najlepszą windę
         </span>
       </div>
