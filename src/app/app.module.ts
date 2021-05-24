@@ -7,7 +7,6 @@ import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbLayoutModule, NbThemeModule } from '@nebular/theme';
-import { SvgIconsModule } from '@ngneat/svg-icon';
 import { FooterModule } from '@shared/components';
 import { TopBarHeaderModule } from '@shared/containers';
 
@@ -32,15 +31,6 @@ const modules = [TopBarHeaderModule, FooterModule];
       registrationStrategy: 'registerWhenStable:30000',
     }),
     ...modules,
-    SvgIconsModule.forRoot({
-      sizes: {
-        sm: '16px',
-        md: '18px',
-        lg: '20px',
-        xl: '24px',
-      },
-      defaultSize: 'md',
-    }),
     GraphQLModule,
     HttpClientModule,
     TranslocoRootModule,

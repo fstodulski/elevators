@@ -1,0 +1,45 @@
+@import "~src/styles/typography";
+
+.email-catalog {
+  width: 100%;
+  background-color: var(--main900);
+  padding: 4.5rem 0;
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+}
+
+.email-article {
+  max-width: 40rem;
+  width: 100%;
+}
+
+.image-wrapper {
+  margin-left: auto;
+}
+
+.title {
+  @include text-h600;
+  color: var(--white);
+}
+
+.subtitle {
+  @include text-body\:lg;
+  color: var(--main100);
+  margin-top: 1rem;
+}
+
+.form {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  max-width: 23rem;
+}
+
+.marketing {
+  @include text-body\:lg;
+  color: var(--main100);
+}

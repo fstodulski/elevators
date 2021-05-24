@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
       <app-cabins-realisation></app-cabins-realisation>
       <app-cabins-materials></app-cabins-materials>
       <app-cabins-details></app-cabins-details>
+      <app-email-catalog></app-email-catalog>
     </main>
   `,
   styleUrls: ['./elevators.component.scss'],

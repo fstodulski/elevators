@@ -13,12 +13,12 @@
     "test": "ng test",
     "lint": "ng lint --fix",
     "e2e": "ng e2e",
+    "ngcc": "ngcc",
     "dev:ssr": "ng run twoje-windy:serve-ssr",
     "serve:ssr": "node dist/twoje-windy/server/main.js",
-    "build:ssr": "ng build --prod && ng run twoje-windy:server:production",
+    "build:ssr": "ng build --configuration production && ng run twoje-windy:server:production",
     "prerender": "ng run twoje-windy:prerender",
-    "release": "standard-version",
-    "postinstall": "ngcc"
+    "release": "standard-version"
   },
   "private": true,
   "dependencies": {
@@ -37,7 +37,6 @@
     "@briebug/jest-schematic": "^3.1.0",
     "@datorama/akita": "^6.1.3",
     "@datorama/akita-ng-router-store": "^6.0.0",
-    "@fstodulski/ngx-tetris": "file:../ngx-tetris/dist/fstodulski/ngx-tetris/fstodulski-ngx-tetris-1.0.0.tgz",
     "@nebular/eva-icons": "7.0.0",
     "@nebular/theme": "^7.0.0",
     "@ngneat/dialog": "1.6.0",

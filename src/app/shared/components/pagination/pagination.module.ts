@@ -1,20 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import {
-  ButtonsModule,
-  tArrowLeft,
-  tArrowRight,
-  WithContrastModule,
-} from '@fstodulski/ngx-tetris';
-import { SvgIconsModule } from '@ngneat/svg-icon';
+import { NbButtonModule, NbIconModule } from '@nebular/theme';
 
 import { PaginationComponent } from './pagination.component';
 
-const modules = [
-  ButtonsModule,
-  WithContrastModule,
-  SvgIconsModule.forChild([tArrowRight, tArrowLeft]),
-];
+const modules = [NbButtonModule, NbIconModule];
 
 @NgModule({
   declarations: [PaginationComponent],

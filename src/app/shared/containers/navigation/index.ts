@@ -1,1 +1,1 @@
-export * from './main-navigation/main-navigation.module';
+export { MainNavigationModule } from './main-navigation/main-navigation.module';
