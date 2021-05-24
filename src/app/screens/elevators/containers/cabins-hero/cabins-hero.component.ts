@@ -18,17 +18,16 @@ import { CabinsHeroService } from './cabins-hero.service';
         />
       </figure>
 
-      <article class="flex items-center justify-center">
-        <div class="flex flex-col max-w-lg">
-          <h2 class="cabins-hero-title">
-            {{ cabinsHero.title }}
-          </h2>
+      <app-hero-header [rtl]="true">
+        <ng-container title>
+          {{ cabinsHero.title }}
+        </ng-container>
 
-          <div class="separator"></div>
+        <ng-container subtitle>
+          {{ cabinsHero.subTitle }}
+        </ng-container>
 
-          <p class="cabins-hero-subtitle ">
-            {{ cabinsHero.subTitle }}
-          </p>
+        <ng-container content>
           <a
             [href]="cabinsHero.buttonTargetLink"
             nbButton
@@ -39,8 +38,8 @@ import { CabinsHeroService } from './cabins-hero.service';
             {{ cabinsHero.buttonLabel }}
             <nb-icon icon="chevron-right-outline"></nb-icon>
           </a>
-        </div>
-      </article>
+        </ng-container>
+      </app-hero-header>
     </section>
   `,
   styleUrls: ['./cabins-hero.component.scss'],

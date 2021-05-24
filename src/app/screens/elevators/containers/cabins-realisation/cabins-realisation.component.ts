@@ -11,16 +11,10 @@ import { CabinsRealisationService } from './cabins-realisation.service';
         cabinsRealisationService.cabinsRealisation$ | async as cabinsRealisation
       "
     >
-      <article class="flex items-center justify-center">
-        <div class="flex flex-col max-w-lg">
-          <h2 class="cabins-realisation-title">
-            {{ cabinsRealisation.title }}
-          </h2>
-          <div class="separator"></div>
-          <p class="cabins-realisation-subtitle">
-            {{ cabinsRealisation.subTitle }}
-          </p>
-
+      <app-hero-header>
+        <ng-container title> {{ cabinsRealisation.title }} </ng-container>
+        <ng-container subtitle> {{ cabinsRealisation.subTitle }}</ng-container>
+        <ng-container content>
           <nav class="flex flex-wrap mt-10">
             <nb-tag-list>
               <nb-tag
@@ -30,10 +24,9 @@ import { CabinsRealisationService } from './cabins-realisation.service';
                 [text]="category.title"
                 *ngFor="let category of cabinsRealisation.inspirationCategories"
               ></nb-tag>
-            </nb-tag-list>
-          </nav>
-        </div>
-      </article>
+            </nb-tag-list></nav
+        ></ng-container>
+      </app-hero-header>
 
       <figure class="flex items-center">
         <img

@@ -36,43 +36,29 @@ import { CabinsMaterialsService } from './cabins-materials.service';
         />
       </figure>
 
-      <article class="flex items-center justify-center">
-        <div class="flex flex-col max-w-lg">
-          <h2 class="cabins-materials-title">
-            {{ cabinsMaterials.title }}
-          </h2>
-
-          <div class="separator"></div>
-
-          <p class="cabins-materials-subtitle">
-            {{ cabinsMaterials.subTitle }}
-          </p>
-
-          <nav class="flex flex-col mt-16">
+      <app-hero-header [rtl]="true">
+        <ng-container title> {{ cabinsMaterials.title }} </ng-container>
+        <ng-container subtitle>{{ cabinsMaterials.subTitle }}</ng-container>
+        <ng-container content>
+          <nav class="grid grid-cols-2 gap-5 mt-4">
             <div
-              class="flex items-center mb-4"
+              class="bg-white rounded-sm shadow:sm flex items-center py-3 px-2"
               *ngFor="let material of cabinsMaterials.materials"
             >
-              <figure class="mr-7">
-                <img [src]="material.image.url" alt="" />
+              <figure class="mr-7 image-wrapper">
+                <img class="image" [src]="material.image.url" alt="" />
               </figure>
 
               <div class="flex flex-col">
-                <h5 class="text-h200 text-gray-900">{{ material.title }}</h5>
-                <a
-                  [href]="material.link"
-                  class="text-body:sm text-gray-600 underline mt-2"
-                  >{{ material.link }}</a
-                >
+                <h5 class="material-title">{{ material.title }}</h5>
+                <a [href]="material.link" class="material-link" target="_blank">
+                  {{ material.link }}
+                </a>
               </div>
-
-              <button nbButton class="ml-auto" status="primary" size="small">
-                <nb-icon icon="external-link-outline"></nb-icon>
-              </button>
             </div>
           </nav>
-        </div>
-      </article>
+        </ng-container>
+      </app-hero-header>
     </section>
   `,
   styleUrls: ['./cabins-materials.component.scss'],

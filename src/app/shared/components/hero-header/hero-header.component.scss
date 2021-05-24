@@ -1,0 +1,11 @@
+@import "typography";
+
+.title {
+  @include text-h500;
+  color: var(--gray900);
+}
+
+.subtitle {
+  @include text-body\:lg;
+  color: var(--gray600);
+}
