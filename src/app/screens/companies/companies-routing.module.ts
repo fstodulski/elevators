@@ -7,6 +7,26 @@ const routes: Routes = [
   {
     path: '',
     component: CompaniesComponent,
+    children: [
+      // ALL Companies
+      {
+        path: 'all',
+        loadChildren: async () =>
+          (await import('./views/companies-list/companies-list.module'))
+            .CompaniesListModule,
+      },
+      {
+        path: 'wszystkie',
+        loadChildren: async () =>
+          (await import('./views/companies-list/companies-list.module'))
+            .CompaniesListModule,
+      },
+      {
+        path: ':id',
+        loadChildren: async () =>
+          (await import('./views/company/company.module')).CompanyModule,
+      },
+    ],
   },
 ];
 

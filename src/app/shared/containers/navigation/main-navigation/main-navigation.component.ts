@@ -33,7 +33,7 @@ export class MainNavigationComponent {
             label: 'Elevators',
           },
           {
-            path: `${lang}/companies`,
+            path: `${lang}/companies/all`,
             label: 'Companies',
           },
           {
@@ -49,7 +49,7 @@ export class MainNavigationComponent {
             label: 'Windy',
           },
           {
-            path: `${lang}/katalog-firm`,
+            path: `${lang}/katalog-firm/wszystkie`,
             label: 'Katalog firm',
           },
           {
@@ -65,7 +65,7 @@ export class MainNavigationComponent {
             label: 'Windy',
           },
           {
-            path: `${lang}/katalog firm`,
+            path: `${lang}/katalog firm/wszystkie`,
             label: 'Katalog-firm',
           },
           {
