@@ -10,7 +10,7 @@ config();
 // `environment.ts` file structure
 const envConfigFile = `export const environment = {
     baseUrl: '${process.env.BASE_URL}',
-    production: ${Boolean(process.env.PRODUCTION as string)},
+    production: ${process.env.PRODUCTION === 'true'},
     graphqlToken: '${process.env.GRAPHQL_TOKEN}',
     googleMapsAPI: '${process.env.GOOGLE_MAPS_API}'
 };

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-top-bar-filters',
@@ -7,8 +7,6 @@ import { Component, OnInit } from '@angular/core';
   `,
   styleUrls: ['./top-bar-filters.component.scss'],
 })
-export class TopBarFiltersComponent implements OnInit {
+export class TopBarFiltersComponent {
   constructor() {}
-
-  ngOnInit(): void {}
 }

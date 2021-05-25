@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { environment } from '@env';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
@@ -18,7 +18,7 @@ import { catchError, map } from 'rxjs/operators';
   styleUrls: ['./companies-map.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CompaniesMapComponent implements OnInit {
+export class CompaniesMapComponent {
   public apiLoaded: Observable<boolean>;
 
   public readonly mapOptions: google.maps.MapOptions;
@@ -40,6 +40,4 @@ export class CompaniesMapComponent implements OnInit {
         catchError(() => of(false))
       );
   }
-
-  public ngOnInit(): void {}
 }
