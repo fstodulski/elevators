@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CompanyDto } from '@core/models';
+import { CompanyDto, LocationDto } from '@core/models';
 import { Query } from '@datorama/akita';
 import { Observable } from 'rxjs';
 
@@ -13,6 +13,10 @@ export class CompaniesQuery extends Query<CompaniesState> {
 
   public readonly companiesNotEmpty$: Observable<boolean> = this.select(
     ({ companies }) => companies.length > 0
+  );
+
+  public readonly location$: Observable<LocationDto> = this.select(
+    ({ location }) => location
   );
 
   public readonly isLoading$: Observable<boolean> = this.selectLoading();

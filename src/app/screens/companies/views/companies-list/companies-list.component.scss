@@ -52,6 +52,10 @@
   align-items: center;
 }
 
+.pin-icon {
+  font-size: 1rem;
+}
+
 .company-street-name {
   @include text-body\:md;
   color: var(--gray400);
@@ -62,5 +66,10 @@
   color: var(--gray400);
   border-radius: 5000px;
   padding: 2px 8px;
+
   border: 1px solid var(--gray50);
+
+  &:not(:last-of-type) {
+    margin-right: 0.5rem;
+  }
 }

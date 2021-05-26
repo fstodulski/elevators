@@ -1,12 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  OnDestroy,
-  OnInit,
-} from '@angular/core';
-import { GeolocationService } from '@ng-web-apis/geolocation';
-import { Subscription } from 'rxjs';
-import { take } from 'rxjs/operators';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 import { CompaniesFacade } from '../../state/companies.facade';
 
@@ -25,7 +17,7 @@ import { CompaniesFacade } from '../../state/companies.facade';
           <img class="company-logo" [src]="company.logo.url" alt="" />
         </figure>
         <article class="w-full ml-4">
-          <div class="flex justify-between mb-1">
+          <div class="flex justify-between mb-2">
             <h3 class="company-name">{{ company.name }}</h3>
             <span class="company-short-description">{{
               company.shortDescription
@@ -36,15 +28,20 @@ import { CompaniesFacade } from '../../state/companies.facade';
             </a>
           </div>
 
-          <div class="flex justify-between w-full">
+          <div class="flex justify-between w-full items-center">
             <span class="company-street-name items-baseline">
-              <nb-icon icon="pin-outline"></nb-icon>
+              <nb-icon icon="pin-outline" class="pin-icon"></nb-icon>
               {{ company.city }},
               {{ company.streetName }}
             </span>
 
             <div class="flex items-center ml-auto">
-              <span class="tag"> Produkcja </span>
+              <span
+                class="tag"
+                *ngFor="let category of company.companyCategories"
+              >
+                {{ category.name }}
+              </span>
             </div>
           </div>
         </article>
@@ -54,34 +51,10 @@ import { CompaniesFacade } from '../../state/companies.facade';
   styleUrls: ['./companies-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CompaniesListComponent implements OnInit, OnDestroy {
-  public subs$: Subscription;
-
-  constructor(
-    public readonly companiesFacade: CompaniesFacade,
-    private readonly geolocation$: GeolocationService
-  ) {
-    this.subs$ = new Subscription();
-  }
+export class CompaniesListComponent implements OnInit {
+  constructor(public readonly companiesFacade: CompaniesFacade) {}
 
   public ngOnInit(): void {
     this.companiesFacade.all();
-    this.getCoords();
-  }
-
-  public ngOnDestroy(): void {
-    this.subs$.unsubscribe();
-  }
-
-  private getCoords(): void {
-    this.subs$.add(
-      this.geolocation$.pipe(take(1)).subscribe(
-        ({ coords }) =>
-          (this.companiesFacade.location = {
-            lat: coords.latitude,
-            lng: coords.longitude,
-          })
-      )
-    );
   }
 }

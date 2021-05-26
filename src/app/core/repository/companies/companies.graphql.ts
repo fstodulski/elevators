@@ -12,6 +12,13 @@ export const companies = gql`
       logo {
         url
       }
+      companyCategories {
+        id
+        name
+        icon {
+          url
+        }
+      }
       shortDescription
       longDescription
       city

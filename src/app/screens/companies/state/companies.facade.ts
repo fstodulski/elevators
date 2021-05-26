@@ -28,6 +28,10 @@ export class CompaniesFacade {
     });
   }
 
+  public get location$(): Observable<LocationDto> {
+    return this.companiesQuery.location$;
+  }
+
   public async all(): Promise<void> {
     try {
       this.companiesStore.setLoading(true);

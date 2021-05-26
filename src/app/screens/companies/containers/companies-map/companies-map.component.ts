@@ -1,14 +1,17 @@
 import { HttpClient } from '@angular/common/http';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { environment } from '@env';
-import { Observable, of } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { catchError, map, skip } from 'rxjs/operators';
+
+import { CompaniesFacade } from '../../state/companies.facade';
 
 @Component({
   selector: 'app-companies-map',
   template: `
     <div *ngIf="apiLoaded | async" class="companies-map">
       <google-map
+        *ngIf="hasCoords$ | async"
         width="100%"
         height="100%"
         [options]="mapOptions"
@@ -18,12 +21,19 @@ import { catchError, map } from 'rxjs/operators';
   styleUrls: ['./companies-map.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CompaniesMapComponent {
+export class CompaniesMapComponent implements OnInit {
   public apiLoaded: Observable<boolean>;
 
-  public readonly mapOptions: google.maps.MapOptions;
+  public mapOptions: google.maps.MapOptions;
 
-  constructor(public readonly httpClient: HttpClient) {
+  public readonly hasCoords$: BehaviorSubject<boolean>;
+
+  constructor(
+    public readonly httpClient: HttpClient,
+    private readonly companiesFacade: CompaniesFacade
+  ) {
+    this.hasCoords$ = new BehaviorSubject<boolean>(false);
+
     this.mapOptions = {
       streetViewControl: false,
       fullscreenControl: false,
@@ -39,5 +49,19 @@ export class CompaniesMapComponent {
         map(() => true),
         catchError(() => of(false))
       );
+  }
+
+  public ngOnInit(): void {
+    this.companiesFacade.location$.pipe(skip(1)).subscribe(({ lat, lng }) => {
+      this.mapOptions = {
+        ...this.mapOptions,
+        center: {
+          lat,
+          lng,
+        },
+      };
+
+      this.hasCoords$.next(true);
+    });
   }
 }
