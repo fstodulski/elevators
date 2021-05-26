@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { GeolocationService } from '@ng-web-apis/geolocation';
 import { Subscription } from 'rxjs';
 import { take } from 'rxjs/operators';
@@ -18,7 +18,7 @@ import { CompaniesFacade } from './state/companies.facade';
   `,
   styleUrls: ['./companies.component.scss'],
 })
-export class CompaniesComponent implements OnInit {
+export class CompaniesComponent implements OnInit, OnDestroy {
   public subs$: Subscription;
 
   constructor(
