@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { MobileNavigationService } from './mobile-navigation.service';
@@ -30,13 +30,11 @@ import { MobileNavigationService } from './mobile-navigation.service';
   styleUrls: ['./mobile-navigation.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MobileNavigationComponent implements OnInit {
+export class MobileNavigationComponent {
   public readonly isOpen$: Observable<boolean> = this.mobileNavigationService
     .isOpen$;
 
   constructor(
     public readonly mobileNavigationService: MobileNavigationService
   ) {}
-
-  ngOnInit(): void {}
 }
