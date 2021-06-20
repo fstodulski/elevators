@@ -1,12 +1,7 @@
 @import "~src/styles/typography";
 
 .email-catalog {
-  width: 100%;
-  background-color: var(--main900);
   padding: 4.5rem 0;
-  display: flex;
-  flex-direction: column;
-  margin-top: 3rem;
 }
 
 .email-article {
@@ -19,8 +14,12 @@
 }
 
 .title {
-  @include text-h600;
+  @include text-h500;
   color: var(--white);
+
+  @screen md {
+    @include text-h600;
+  }
 }
 
 .subtitle {
@@ -40,6 +39,10 @@
 }
 
 .marketing {
-  @include text-body\:lg;
+  @include text-body\:md;
+
+  @screen md {
+    @include text-body\:lg;
+  }
   color: var(--main100);
 }

@@ -4,11 +4,12 @@ import { Component } from '@angular/core';
   selector: 'app-top-bar-header',
   template: `
     <header
-      class="w-full h-18 bg-white flex items-center overflow-hidden px-8 shadow-sm"
+      class="w-full h-18 bg-white flex items-center overflow-hidden px-8 shadow-sm containe"
     >
       <div class="flex items-center">
         <figure>
-          <img src="assets/icons/logo.svg" alt="" />
+          <img src="assets/icons/logo.svg" class="hidden md:flex" alt="" />
+          <img src="assets/icons/sygnet.svg" class="flex md:hidden" alt="" />
         </figure>
 
         <span class="text-sm ml-6 text-gray-600 hidden xl:inline">
@@ -17,13 +18,7 @@ import { Component } from '@angular/core';
       </div>
 
       <app-main-navigation class="ml-auto"> </app-main-navigation>
-
-      <nb-select class="lang-select ml-8">
-        <nb-option *ngFor="let lang of langs" [value]="lang">
-          <nb-icon [icon]="lang.icon"></nb-icon>
-          {{ lang.lang }}
-        </nb-option>
-      </nb-select>
+      <app-mobile-navigation></app-mobile-navigation>
     </header>
   `,
   styleUrls: ['./top-bar-header.component.scss'],
@@ -34,6 +29,7 @@ export class TopBarHeaderComponent {
     lang: string;
     key: string;
   }>;
+
   constructor() {
     this.langs = [
       {

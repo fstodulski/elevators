@@ -13,7 +13,7 @@ import { CabinsMaterialsService } from './cabins-materials.service';
   selector: 'app-cabins-materials',
   template: `
     <section
-      class="grid grid-cols-2 gap-6 px-8 py-6 max-w-screen-xl mx-auto"
+      class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:px-8 py-6 max-w-screen-xl mx-auto container"
       *ngIf="cabinsMaterialsService.cabinsHero$ | async as cabinsMaterials"
     >
       <figure class="images-preview">
@@ -45,7 +45,7 @@ import { CabinsMaterialsService } from './cabins-materials.service';
               class="bg-white rounded-sm shadow:sm flex items-center py-3 px-2"
               *ngFor="let material of cabinsMaterials.materials"
             >
-              <figure class="mr-7 image-wrapper">
+              <figure class="md:mr-7 mr-2 image-wrapper">
                 <img class="image" [src]="material.image.url" alt="" />
               </figure>
 

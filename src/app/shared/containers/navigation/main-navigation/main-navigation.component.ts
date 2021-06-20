@@ -5,7 +5,7 @@ import { TranslocoService } from '@ngneat/transloco';
 @Component({
   selector: 'app-main-navigation',
   template: `
-    <nav class="flex items-center h-full navigation">
+    <nav class="items-center h-full navigation hidden md:flex">
       <a
         [routerLink]="[link.path]"
         routerLinkActive="active"

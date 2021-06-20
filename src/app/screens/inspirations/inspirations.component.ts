@@ -6,7 +6,7 @@ import { Observable, of } from 'rxjs';
 @Component({
   selector: 'app-inspirations',
   template: `
-    <main>
+    <main class="container">
       <app-inspirations-header></app-inspirations-header>
       <app-inspirations-categories
         *ngIf="categories$ | async as categories"
@@ -15,6 +15,7 @@ import { Observable, of } from 'rxjs';
       <app-inspirations-masonry></app-inspirations-masonry>
       <app-pagination></app-pagination>
     </main>
+    <app-footer></app-footer>
   `,
   styleUrls: ['./inspirations.component.scss'],
 })

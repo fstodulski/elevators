@@ -4,9 +4,9 @@ import { FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-email-catalog',
   template: `
-    <section class="email-catalog">
+    <section class="email-catalog w-full bg-main-900 flex flex-col mt-12">
       <div
-        class="max-w-screen-xl w-full mx-auto flex justify-between items-center"
+        class="max-w-screen-xl w-full mx-auto flex flex-col-reverse md:flex-col justify-between items-center container"
       >
         <article class="email-article">
           <h6 class="title">Pobierz bezpłatny katalog kabin standardowych</h6>
@@ -16,7 +16,7 @@ import { FormControl, Validators } from '@angular/forms';
           </p>
 
           <form class="form">
-            <div class="flex w-full">
+            <div class="flex flex-col md:flex-row w-full">
               <input
                 class="input"
                 fullWidth
@@ -26,7 +26,7 @@ import { FormControl, Validators } from '@angular/forms';
                 [formControl]="formControl"
               />
 
-              <button nbButton status="primary" class="ml-6">
+              <button nbButton status="primary" class="md:ml-6 mt-4 md:mt-0">
                 <nb-icon icon="download-outline"> </nb-icon>
                 Pobierz katalog
               </button>

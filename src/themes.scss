@@ -18,7 +18,7 @@ $nb-themes: nb-register-theme(
     button-ghost-text-transform: inherit,
     button-hero-text-transform: inherit,
     button-filled-text-transform: inherit,
-    layout-padding: 0,
+    layout-padding: 0 0 0!important,
     text-decoration: inherit,
     select-medium-max-width: 10rem,
     font-family-primary: "Montserrat"

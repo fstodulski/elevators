@@ -7,7 +7,8 @@ import { Component } from '@angular/core';
       <nb-layout-column>
         <app-top-bar-header></app-top-bar-header>
         <router-outlet></router-outlet>
-        <app-footer></app-footer>
+
+        <
       </nb-layout-column>
     </nb-layout>
   `,
