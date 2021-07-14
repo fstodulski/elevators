@@ -6,7 +6,7 @@ import { FormControl, Validators } from '@angular/forms';
   template: `
     <section class="email-catalog w-full bg-main-900 flex flex-col mt-12">
       <div
-        class="max-w-screen-xl w-full mx-auto flex flex-col-reverse md:flex-col justify-between items-center container"
+        class="max-w-screen-xl w-full mx-auto flex flex-col-reverse md:flex-row justify-between items-center container"
       >
         <article class="email-article">
           <h6 class="title">Pobierz bezpłatny katalog kabin standardowych</h6>

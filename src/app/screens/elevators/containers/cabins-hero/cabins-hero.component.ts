@@ -18,7 +18,7 @@ import { CabinsHeroService } from './cabins-hero.service';
         />
       </figure>
 
-      <app-hero-header [rtl]="true">
+      <app-hero-header position="rtl">
         <ng-container title>
           {{ cabinsHero.title }}
         </ng-container>

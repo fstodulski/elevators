@@ -23,15 +23,18 @@ html {
 
 .separator {
   position: relative;
-  margin: 1rem 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  height: 0.25rem;
+  width: 5.75rem;
 
   &:after {
     position: absolute;
     top: 0;
     left: 0;
     content: "";
-    height: 0.25rem;
-    width: 5.75rem;
+    height: 100%;
+    width: 100%;
     background-color: var(--main800);
   }
 }
@@ -40,8 +43,15 @@ html {
   text-decoration: none;
 }
 
+.max-container {
+  max-width: 1216px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 .container {
   padding: 1rem;
+  margin: 0 auto;
 }
 
 .cdk-drag,

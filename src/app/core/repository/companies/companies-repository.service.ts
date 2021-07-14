@@ -5,7 +5,12 @@ import { Apollo } from 'apollo-angular';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { companies, CompaniesQuery } from './companies.graphql';
+import {
+  companies,
+  companiesInRange,
+  CompaniesInRangeQuery,
+  CompaniesQuery,
+} from './companies.graphql';
 
 @Injectable({
   providedIn: 'root',
@@ -23,6 +28,14 @@ export class CompaniesRepositoryService {
         variables: {
           lang: this.translocoService.getActiveLang(),
         },
+      })
+      .pipe(map(({ data }) => data.companies));
+  }
+
+  public companiesInRange(): Observable<Array<Partial<CompanyDto>>> {
+    return this.apollo
+      .query<CompaniesInRangeQuery>({
+        query: companiesInRange,
       })
       .pipe(map(({ data }) => data.companies));
   }

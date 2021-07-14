@@ -36,7 +36,7 @@ import { CabinsMaterialsService } from './cabins-materials.service';
         />
       </figure>
 
-      <app-hero-header [rtl]="true">
+      <app-hero-header position="rtl">
         <ng-container title> {{ cabinsMaterials.title }} </ng-container>
         <ng-container subtitle>{{ cabinsMaterials.subTitle }}</ng-container>
         <ng-container content>

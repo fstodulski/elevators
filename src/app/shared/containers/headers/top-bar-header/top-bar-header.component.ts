@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-top-bar-header',
   template: `
     <header
-      class="w-full h-18 bg-white flex items-center overflow-hidden px-8 shadow-sm containe"
+      class="w-full h-18 bg-white flex items-center overflow-hidden px-8 shadow-sm"
     >
       <div class="flex items-center">
         <figure>
@@ -18,7 +18,7 @@ import { Component } from '@angular/core';
       </div>
 
       <app-main-navigation class="ml-auto"> </app-main-navigation>
-      <app-mobile-navigation></app-mobile-navigation>
+      <app-mobile-navigation class="md:hidden"></app-mobile-navigation>
     </header>
   `,
   styleUrls: ['./top-bar-header.component.scss'],

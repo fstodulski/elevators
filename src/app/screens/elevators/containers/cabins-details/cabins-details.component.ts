@@ -9,7 +9,7 @@ import { CabinsDetailsService } from './cabins-details.service';
       class="flex flex-col lg:px-8 py-6 max-w-screen-xl mx-auto container"
       *ngIf="cabinsDetailsService.cabinDetails$ | async as cabinDetails"
     >
-      <app-hero-header>
+      <app-hero-header position="ltr">
         <ng-container title>{{ cabinDetails.title }}</ng-container>
       </app-hero-header>
 

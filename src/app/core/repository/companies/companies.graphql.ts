@@ -33,3 +33,25 @@ export const companies = gql`
     }
   }
 `;
+
+export interface CompaniesInRangeQuery {
+  companies: Array<Partial<CompanyDto>>;
+}
+export const companiesInRange = gql`
+  query companies {
+    companies(first: 2) {
+      id
+      name
+      logo {
+        url
+      }
+      companyCategories {
+        id
+        name
+      }
+      city
+      streetName
+      phoneNumber
+    }
+  }
+`;

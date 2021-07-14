@@ -11,7 +11,7 @@ import { CabinsRealisationService } from './cabins-realisation.service';
         cabinsRealisationService.cabinsRealisation$ | async as cabinsRealisation
       "
     >
-      <app-hero-header>
+      <app-hero-header position="ltr">
         <ng-container title> {{ cabinsRealisation.title }} </ng-container>
         <ng-container subtitle> {{ cabinsRealisation.subTitle }}</ng-container>
         <ng-container content>

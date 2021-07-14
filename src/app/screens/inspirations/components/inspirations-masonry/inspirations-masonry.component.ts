@@ -4,7 +4,7 @@ import { NgxMasonryOptions } from 'ngx-masonry';
 @Component({
   selector: 'app-inspirations-masonry',
   template: `
-    <section class="w-full px-8">
+    <section class="w-full px-8 max-w-screen-xl container">
       <div ngx-masonry class="masonry" [options]="options">
         <div
           ngxMasonryItem

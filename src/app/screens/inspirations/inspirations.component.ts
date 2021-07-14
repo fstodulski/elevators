@@ -6,14 +6,14 @@ import { Observable, of } from 'rxjs';
 @Component({
   selector: 'app-inspirations',
   template: `
-    <main class="container">
+    <main>
       <app-inspirations-header></app-inspirations-header>
       <app-inspirations-categories
         *ngIf="categories$ | async as categories"
         [categories]="categories"
       ></app-inspirations-categories>
       <app-inspirations-masonry></app-inspirations-masonry>
-      <app-pagination></app-pagination>
+      <app-pagination class="container"></app-pagination>
     </main>
     <app-footer></app-footer>
   `,
