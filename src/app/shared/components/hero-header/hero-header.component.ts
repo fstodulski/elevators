@@ -12,7 +12,7 @@ import { Component, Input } from '@angular/core';
       }"
     >
       <div class="flex flex-col max-w-lg">
-        <h2 class="title">
+        <h2 class="text-h500">
           <ng-content select="[title]"></ng-content>
         </h2>
 
@@ -25,7 +25,7 @@ import { Component, Input } from '@angular/core';
           }"
         ></div>
 
-        <p class="subtitle">
+        <p class="text-body:lg font-light text-gray-600">
           <ng-content select="[subtitle]"></ng-content>
         </p>
 

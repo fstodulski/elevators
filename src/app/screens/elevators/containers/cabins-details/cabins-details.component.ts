@@ -6,7 +6,7 @@ import { CabinsDetailsService } from './cabins-details.service';
   selector: 'app-cabins-details',
   template: `
     <section
-      class="flex flex-col lg:px-8 py-6 max-w-screen-xl mx-auto container"
+      class="flex flex-col lg:px-8 py-12 max-w-screen-xl mx-auto "
       *ngIf="cabinsDetailsService.cabinDetails$ | async as cabinDetails"
     >
       <app-hero-header position="ltr">

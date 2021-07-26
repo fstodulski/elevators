@@ -17,8 +17,9 @@ import { Observable } from 'rxjs';
             dobraniu najlepszego dla Ciebie rozwiązania
           </p>
         </app-hero-header>
-        <div class="grid grid-cols-2 gap-8 mt-14">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-14">
           <app-company-preview-card
+            [richView]="false"
             *ngFor="let company of companiesInRange$ | async"
             [company]="company"
           ></app-company-preview-card>

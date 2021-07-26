@@ -9,7 +9,7 @@ import { CompanyDto } from '@core/models';
         <img class="company-logo" [src]="company.logo?.url" alt="" />
       </figure>
       <article class="w-full ml-4">
-        <div class="flex justify-between mb-2">
+        <div class="flex flex-col md:flex-row justify-between mb-2">
           <div class="flex w-full">
             <h3 class="company-name">{{ company?.name }}</h3>
             <span
@@ -19,15 +19,16 @@ import { CompanyDto } from '@core/models';
             >
           </div>
 
-          <a class="phone" [href]="'tel:' + company?.phoneNumber">
-            <nb-icon icon="phone-outline"></nb-icon>
+          <a
+            class="phone ml-0 md:ml-auto"
+            [href]="'tel:' + company?.phoneNumber"
+          >
             {{ company?.phoneNumber }}
           </a>
         </div>
 
-        <div class="flex justify-between w-full items-center">
+        <div class="flex justify-between w-full items-center" *ngIf="richView">
           <span class="company-street-name items-baseline">
-            <nb-icon icon="pin-outline" class="pin-icon"></nb-icon>
             {{ company?.city }},
             {{ company?.streetName }}
           </span>
@@ -49,6 +50,7 @@ import { CompanyDto } from '@core/models';
 })
 export class CompanyPreviewCardComponent {
   @Input() public company?: Partial<CompanyDto>;
+  @Input() public richView: boolean = true;
 
   constructor() {}
 }

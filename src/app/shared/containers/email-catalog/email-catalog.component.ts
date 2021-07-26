@@ -18,26 +18,24 @@ import { FormControl, Validators } from '@angular/forms';
           <form class="form">
             <div class="flex flex-col md:flex-row w-full">
               <input
-                class="input"
-                fullWidth
-                nbInput
+                class="input flex-grow"
                 placeholder="Twój Email"
                 type="email"
                 [formControl]="formControl"
               />
 
-              <button nbButton status="primary" class="md:ml-6 mt-4 md:mt-0">
-                <nb-icon icon="download-outline"> </nb-icon>
+              <button class="btn md:ml-6 mt-4 md:mt-0">
+                <span class="material-icons">file_download</span>
                 Pobierz katalog
               </button>
             </div>
 
-            <div class="flex w-full mt-6">
-              <nb-checkbox status="basic">
-                <span class="marketing">
-                  Zgadzam się na przetwarzanie danych w celach marketingowych.
-                </span>
-              </nb-checkbox>
+            <div class="flex w-full items-center mt-6">
+              <input type="checkbox" class="mr-3" />
+              <span class="marketing">
+                Zgadzam się na <a>przetwarzanie danych</a> w celach
+                marketingowych.
+              </span>
             </div>
           </form>
         </article>

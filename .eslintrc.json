@@ -1,18 +1,10 @@
 {
   "root": true,
-  "ignorePatterns": [
-    "projects/**/*"
-  ],
   "overrides": [
     {
-      "files": [
-        "*.ts"
-      ],
+      "files": ["*.ts"],
       "parserOptions": {
-        "project": [
-          "tsconfig.json",
-          "e2e/tsconfig.json"
-        ],
+        "project": ["tsconfig.json", "e2e/tsconfig.json"],
         "createDefaultProgram": true
       },
       "plugins": [
@@ -29,9 +21,7 @@
         "simple-import-sort/exports": "error",
         "no-unused-vars": "off",
         "unused-imports/no-unused-imports": "error",
-        "unused-imports/no-unused-vars": [
-          "error"
-        ],
+        "unused-imports/no-unused-vars": ["error"],
         "@typescript-eslint/explicit-member-accessibility": [
           "error",
           {
@@ -45,9 +35,7 @@
             }
           }
         ],
-        "@typescript-eslint/explicit-module-boundary-types": [
-          "error"
-        ],
+        "@typescript-eslint/explicit-module-boundary-types": ["error"],
         "@angular-eslint/component-selector": [
           "error",
           {
@@ -66,12 +54,8 @@
       }
     },
     {
-      "files": [
-        "*.html"
-      ],
-      "extends": [
-        "plugin:@angular-eslint/template/recommended"
-      ],
+      "files": ["*.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended"],
       "rules": {}
     }
   ]

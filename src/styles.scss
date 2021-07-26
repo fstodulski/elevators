@@ -1,10 +1,3 @@
-@import "themes";
-
-@import "~@nebular/theme/styles/globals";
-
-@include nb-install() {
-  @include nb-theme-global();
-}
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
@@ -14,6 +7,7 @@
 @import "./styles/content";
 @import "./styles/shadows";
 @import "./styles/typography";
+@import "./styles/button";
 
 body,
 html {
@@ -37,10 +31,6 @@ html {
     width: 100%;
     background-color: var(--main800);
   }
-}
-
-.nb-theme-default a {
-  text-decoration: none;
 }
 
 .max-container {

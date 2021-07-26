@@ -9,10 +9,7 @@ import { Observable, Subscription } from 'rxjs';
   template: `
     <section class="w-full bg-white shadow:sm py-4 px-8 flex items-center">
       <form>
-        <nb-form-field class="search-field">
-          <nb-icon nbPrefix icon="search-outline"></nb-icon>
-          <input fullWidth type="text" placeholder="Szukaj" nbInput />
-        </nb-form-field>
+        <input type="text" placeholder="Szukaj" />
       </form>
 
       <div class="flex items-center ml-auto">
@@ -21,12 +18,7 @@ import { Observable, Subscription } from 'rxjs';
           {{ category.name }}
         </span>
 
-        <button nbButton ghost class="ml-6 more-btn">
-          <nb-icon
-            icon="more-horizontal-outline"
-            class="more-btn-icon"
-          ></nb-icon>
-
+        <button class="ml-6">
           <div class="dropdown-menu">Hello world</div>
         </button>
       </div>
