@@ -1,6 +1,10 @@
 steps:
   - name: node:12
     entrypoint: npm
+    args: ['cache', 'verify']
+
+  - name: node:12
+    entrypoint: npm
     args: ['install']
 
   - name: node:13
