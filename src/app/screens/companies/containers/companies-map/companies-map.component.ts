@@ -1,10 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { LocationService } from '@core/services';
 import { environment } from '@env';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { catchError, map, skip } from 'rxjs/operators';
-
-import { CompaniesFacade } from '../../state/companies.facade';
 
 @Component({
   selector: 'app-companies-map',
@@ -30,7 +29,7 @@ export class CompaniesMapComponent implements OnInit {
 
   constructor(
     public readonly httpClient: HttpClient,
-    private readonly companiesFacade: CompaniesFacade
+    private readonly locationService: LocationService
   ) {
     this.hasCoords$ = new BehaviorSubject<boolean>(false);
 
@@ -52,7 +51,7 @@ export class CompaniesMapComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.companiesFacade.location$.pipe(skip(1)).subscribe(({ lat, lng }) => {
+    this.locationService.coords$.pipe(skip(1)).subscribe(({ lat, lng }) => {
       this.mapOptions = {
         ...this.mapOptions,
         center: {

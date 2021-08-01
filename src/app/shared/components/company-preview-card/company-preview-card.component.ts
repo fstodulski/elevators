@@ -4,20 +4,17 @@ import { CompanyDto } from '@core/models';
 @Component({
   selector: 'app-company-preview-card',
   template: `
-    <div class="card" *ngIf="company">
+    <div
+      class="flex w-full bg-white rounded-sm shadow:sm py-2 px-3 items-center overflow-hidden"
+      *ngIf="company"
+    >
       <figure class="company-logo-wrapper">
         <img class="company-logo" [src]="company.logo?.url" alt="" />
       </figure>
+
       <article class="w-full ml-4">
-        <div class="flex flex-col md:flex-row justify-between mb-2">
-          <div class="flex w-full">
-            <h3 class="company-name">{{ company?.name }}</h3>
-            <span
-              class="company-short-description"
-              *ngIf="company?.shortDescription"
-              >{{ company?.shortDescription }}</span
-            >
-          </div>
+        <div class="flex flex-col md:flex-row mb-2">
+          <h3 class="company-name">{{ company?.name }}</h3>
 
           <a
             class="phone ml-0 md:ml-auto"
@@ -28,7 +25,7 @@ import { CompanyDto } from '@core/models';
         </div>
 
         <div class="flex justify-between w-full items-center" *ngIf="richView">
-          <span class="company-street-name items-baseline">
+          <span class="company-street-name items-baseline truncate">
             {{ company?.city }},
             {{ company?.streetName }}
           </span>

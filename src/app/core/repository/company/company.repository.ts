@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CompanyDto } from '@core/models';
+import { CompaniesQueryDto, CompanyDto } from '@core/models';
 import { TranslocoService } from '@ngneat/transloco';
 import { Apollo } from 'apollo-angular';
 import { Observable } from 'rxjs';
@@ -10,23 +10,26 @@ import {
   companiesInRange,
   CompaniesInRangeQuery,
   CompaniesQuery,
-} from './companies.graphql';
+} from './company.graphql';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CompaniesRepositoryService {
+export class CompanyRepository {
   constructor(
     private readonly apollo: Apollo,
     private readonly translocoService: TranslocoService
   ) {}
 
-  public companies(): Observable<Array<CompanyDto>> {
+  public companies(
+    variables?: CompaniesQueryDto
+  ): Observable<Array<CompanyDto>> {
     return this.apollo
       .query<CompaniesQuery>({
         query: companies,
         variables: {
           lang: this.translocoService.getActiveLang(),
+          ...variables,
         },
       })
       .pipe(map(({ data }) => data.companies));

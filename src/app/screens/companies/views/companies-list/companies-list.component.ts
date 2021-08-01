@@ -1,17 +1,16 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-
-import { CompaniesFacade } from '../../state/companies.facade';
+import { CompanyDto } from '@core/models';
+import { CompanyQuery, CompanyService } from '@core/repository';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-companies-list',
   template: `
-    <ul
-      class="flex flex-col py-4 px-8"
-      *ngIf="companiesFacade.companiesNotEmpty$ | async"
-    >
+    <ul class="flex flex-col py-4 px-8">
       <app-company-preview-card
+        class="mb-6"
         [company]="company"
-        *ngFor="let company of companiesFacade.companies$ | async"
+        *ngFor="let company of companies$ | async"
       ></app-company-preview-card>
     </ul>
   `,
@@ -19,9 +18,21 @@ import { CompaniesFacade } from '../../state/companies.facade';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CompaniesListComponent implements OnInit {
-  constructor(public readonly companiesFacade: CompaniesFacade) {}
+  public readonly companies$: Observable<
+    Array<CompanyDto>
+  > = this.companyQuery.selectAll();
+
+  constructor(
+    private readonly companyQuery: CompanyQuery,
+    private readonly companyService: CompanyService
+  ) {}
 
   public ngOnInit(): void {
-    this.companiesFacade.all();
+    this.companyService
+      .getAll({
+        region: '',
+        name: '',
+      })
+      .subscribe();
   }
 }

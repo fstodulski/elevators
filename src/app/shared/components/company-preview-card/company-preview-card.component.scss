@@ -9,6 +9,7 @@
   padding: 0.75rem 1.5rem;
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 
 .company-name {
@@ -32,8 +33,12 @@
 
 .company-logo-wrapper {
   overflow: hidden;
-  width: 5.5rem;
-  height: 3.5rem;
+  flex-basis: 85px;
+  height: 56px;
+  display: flex;
+  flex-shrink: 0;
+  background: linear-gradient(180deg, #fafafa 0%, #e7e7e7 100%);
+  padding: 0.25rem;
 }
 
 .company-logo {

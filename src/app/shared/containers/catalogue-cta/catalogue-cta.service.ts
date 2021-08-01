@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CompanyDto } from '@core/models';
-import { CompaniesRepositoryService } from '@core/repository';
+import { CompanyRepository } from '@core/repository';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
@@ -9,14 +9,12 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class CatalogueCtaService {
   private readonly subs$: BehaviorSubject<Array<Partial<CompanyDto>>>;
 
-  constructor(
-    private readonly companiesRepositoryService: CompaniesRepositoryService
-  ) {
+  constructor(private readonly companyRepository: CompanyRepository) {
     this.subs$ = new BehaviorSubject<Array<Partial<CompanyDto>>>([]);
   }
 
   public getCompaniesInRange(): void {
-    this.companiesRepositoryService
+    this.companyRepository
       .companiesInRange()
       .subscribe((res) => this.subs$.next(res));
   }

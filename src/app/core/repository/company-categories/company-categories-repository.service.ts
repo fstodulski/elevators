@@ -19,12 +19,15 @@ export class CompanyCategoriesRepositoryService {
     private readonly translocoService: TranslocoService
   ) {}
 
-  public companyCategories(): Observable<Array<CompanyCategoryDto>> {
+  public companyCategories(
+    region?: string
+  ): Observable<Array<CompanyCategoryDto>> {
     return this.apollo
       .query<CompanyCategoriesQuery>({
         query: companyCategories,
         variables: {
           lang: this.lang,
+          region,
         },
       })
       .pipe(map(({ data }) => data.companyCategories));

@@ -1,4 +1,5 @@
 @import "~src/styles/shadows";
+@import "~src/styles/typography";
 
 .search-field {
   max-width: 13rem;
@@ -13,6 +14,7 @@
   border-radius: 5000px;
   border: 1px solid var(--gray100);
   color: var(--gray900);
+  @include text-body\:md;
 
   &:not(:first-of-type) {
     margin-left: 1rem;

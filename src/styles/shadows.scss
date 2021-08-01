@@ -1,6 +1,5 @@
 @mixin shadow\:sm {
-  box-shadow: 0px 6px 16px rgba(38, 99, 191, 0.1);
-  border-radius: 4px;
+  filter: drop-shadow(0px 6px 16px rgba(38, 99, 191, 0.1));
 }
 
 @mixin shadow\:md {

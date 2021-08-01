@@ -67,7 +67,7 @@ module.exports = {
           200: "var(--main200)",
           100: "var(--main100)",
           50: "var(--main50)",
-          0: "var(--main50)",
+          0: "var(--main0)",
         },
       },
     },
