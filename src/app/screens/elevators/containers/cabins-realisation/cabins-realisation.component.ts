@@ -6,26 +6,25 @@ import { CabinsRealisationService } from './cabins-realisation.service';
   selector: 'app-cabins-realisation',
   template: `
     <section
-      class="grid grid-cols-2 gap-6 px-8 py-6 max-w-screen-xl mx-auto"
+      class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:px-8 py-12 max-w-screen-xl mx-auto"
       *ngIf="
         cabinsRealisationService.cabinsRealisation$ | async as cabinsRealisation
       "
     >
-      <app-hero-header>
+      <app-hero-header position="ltr">
         <ng-container title> {{ cabinsRealisation.title }} </ng-container>
         <ng-container subtitle> {{ cabinsRealisation.subTitle }}</ng-container>
         <ng-container content>
           <nav class="flex flex-wrap mt-10">
-            <nb-tag-list>
-              <nb-tag
-                class="tag"
-                status="primary"
-                appearance="outline"
-                [text]="category.title"
-                *ngFor="let category of cabinsRealisation.inspirationCategories"
-              ></nb-tag>
-            </nb-tag-list></nav
-        ></ng-container>
+            <span
+              chip
+              size="sm"
+              *ngFor="let category of cabinsRealisation.inspirationCategories"
+            >
+              {{ category.title }}
+            </span>
+          </nav>
+        </ng-container>
       </app-hero-header>
 
       <figure class="flex items-center">

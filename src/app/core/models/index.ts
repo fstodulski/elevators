@@ -6,3 +6,4 @@ export * from './company';
 export * from './image';
 export * from './inspiration-category';
 export * from './location';
+export * from './region';

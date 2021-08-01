@@ -1,6 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { EmailCatalogModule, TableOneModule } from '@shared/containers';
+import { FooterModule } from '@shared/components';
+import {
+  CatalogueCtaModule,
+  EmailCatalogModule,
+  TableOneModule,
+} from '@shared/containers';
 
 import { CabinsDetailsModule } from './containers/cabins-details/cabins-details.module';
 import { CabinsHeroModule } from './containers/cabins-hero/cabins-hero.module';
@@ -16,6 +21,8 @@ const modules = [
   CabinsDetailsModule,
   TableOneModule,
   EmailCatalogModule,
+  CatalogueCtaModule,
+  FooterModule,
 ];
 
 @NgModule({

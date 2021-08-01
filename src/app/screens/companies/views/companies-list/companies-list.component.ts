@@ -1,60 +1,38 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-
-import { CompaniesFacade } from '../../state/companies.facade';
+import { CompanyDto } from '@core/models';
+import { CompanyQuery, CompanyService } from '@core/repository';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-companies-list',
   template: `
-    <ul
-      class="flex flex-col py-4 px-8"
-      *ngIf="companiesFacade.companiesNotEmpty$ | async"
-    >
-      <li
-        class="card"
-        *ngFor="let company of companiesFacade.companies$ | async"
-      >
-        <figure class="company-logo-wrapper">
-          <img class="company-logo" [src]="company.logo.url" alt="" />
-        </figure>
-        <article class="w-full ml-4">
-          <div class="flex justify-between mb-2">
-            <h3 class="company-name">{{ company.name }}</h3>
-            <span class="company-short-description">{{
-              company.shortDescription
-            }}</span>
-            <a class="phone" [href]="'tel:' + company.phoneNumber">
-              <nb-icon icon="phone-outline"></nb-icon>
-              {{ company.phoneNumber }}
-            </a>
-          </div>
-
-          <div class="flex justify-between w-full items-center">
-            <span class="company-street-name items-baseline">
-              <nb-icon icon="pin-outline" class="pin-icon"></nb-icon>
-              {{ company.city }},
-              {{ company.streetName }}
-            </span>
-
-            <div class="flex items-center ml-auto">
-              <span
-                class="tag"
-                *ngFor="let category of company.companyCategories"
-              >
-                {{ category.name }}
-              </span>
-            </div>
-          </div>
-        </article>
-      </li>
+    <ul class="flex flex-col py-4 px-8">
+      <app-company-preview-card
+        class="mb-6"
+        [company]="company"
+        *ngFor="let company of companies$ | async"
+      ></app-company-preview-card>
     </ul>
   `,
   styleUrls: ['./companies-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CompaniesListComponent implements OnInit {
-  constructor(public readonly companiesFacade: CompaniesFacade) {}
+  public readonly companies$: Observable<
+    Array<CompanyDto>
+  > = this.companyQuery.selectAll();
+
+  constructor(
+    private readonly companyQuery: CompanyQuery,
+    private readonly companyService: CompanyService
+  ) {}
 
   public ngOnInit(): void {
-    this.companiesFacade.all();
+    this.companyService
+      .getAll({
+        region: '',
+        name: '',
+      })
+      .subscribe();
   }
 }

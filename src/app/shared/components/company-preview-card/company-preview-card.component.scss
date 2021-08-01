@@ -1,0 +1,78 @@
+@import "~src/styles/typography";
+@import "~src/styles/shadows";
+
+.card {
+  width: 100%;
+  background-color: var(--white);
+  border-radius: 4px;
+  @include shadow\:sm();
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.company-name {
+  @include text-h200;
+  color: var(--gray900);
+  max-width: 40%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.company-short-description {
+  @include text-body\:md;
+  color: var(--gray600);
+  max-width: 60%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-left: 1rem;
+}
+
+.company-logo-wrapper {
+  overflow: hidden;
+  flex-basis: 85px;
+  height: 56px;
+  display: flex;
+  flex-shrink: 0;
+  background: linear-gradient(180deg, #fafafa 0%, #e7e7e7 100%);
+  padding: 0.25rem;
+}
+
+.company-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.phone {
+  @include text-h200;
+  color: var(--main900);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+.pin-icon {
+  font-size: 1rem;
+}
+
+.company-street-name {
+  @include text-body\:md;
+  color: var(--gray400);
+}
+
+.tag {
+  @include text-body\:sm;
+  color: var(--gray400);
+  border-radius: 5000px;
+  padding: 2px 8px;
+
+  border: 1px solid var(--gray50);
+
+  &:not(:last-of-type) {
+    margin-right: 0.5rem;
+  }
+}

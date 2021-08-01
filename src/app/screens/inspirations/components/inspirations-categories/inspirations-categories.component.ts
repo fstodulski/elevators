@@ -4,7 +4,9 @@ import { InspirationCategoryDto } from '@core/models';
 @Component({
   selector: 'app-inspirations-categories',
   template: `
-    <section class="flex flex-wrap px-8 pt-6 pb-12">
+    <section
+      class="flex flex-wrap px-8 pt-6 pb-12 w-full max-w-screen-xl container"
+    >
       <a
         [routerLink]="['/inspirations']"
         [queryParams]="{ category: category.slug }"

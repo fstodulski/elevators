@@ -9,6 +9,8 @@ import { Component } from '@angular/core';
       <app-cabins-materials></app-cabins-materials>
       <app-cabins-details></app-cabins-details>
       <app-email-catalog></app-email-catalog>
+      <app-catalogue-cta></app-catalogue-cta>
+      <app-footer></app-footer>
     </main>
   `,
   styleUrls: ['./elevators.component.scss'],

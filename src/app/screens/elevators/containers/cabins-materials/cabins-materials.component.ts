@@ -13,22 +13,22 @@ import { CabinsMaterialsService } from './cabins-materials.service';
   selector: 'app-cabins-materials',
   template: `
     <section
-      class="grid grid-cols-2 gap-6 px-8 py-6 max-w-screen-xl mx-auto"
+      class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:px-8 py-12 max-w-screen-xl mx-auto"
       *ngIf="cabinsMaterialsService.cabinsHero$ | async as cabinsMaterials"
     >
       <figure class="images-preview">
         <div #leftMask class="mask mask:left"></div>
         <div class="mask mask:right"></div>
 
-        <nb-icon
-          cdkDragLockAxis="x"
-          cdkDrag
-          cdkDragBoundary=".images-preview"
-          (cdkDragMoved)="moved($event)"
-          class="drag"
-          status="control"
-          icon="move-outline"
-        ></nb-icon>
+        <!--        <nb-icon-->
+        <!--          cdkDragLockAxis="x"-->
+        <!--          cdkDrag-->
+        <!--          cdkDragBoundary=".images-preview"-->
+        <!--          (cdkDragMoved)="moved($event)"-->
+        <!--          class="drag"-->
+        <!--          status="control"-->
+        <!--          icon="move-outline"-->
+        <!--        ></nb-icon>-->
         <img
           class="relative z-10"
           [src]="cabinsMaterials.images[0].url"
@@ -36,7 +36,7 @@ import { CabinsMaterialsService } from './cabins-materials.service';
         />
       </figure>
 
-      <app-hero-header [rtl]="true">
+      <app-hero-header position="rtl">
         <ng-container title> {{ cabinsMaterials.title }} </ng-container>
         <ng-container subtitle>{{ cabinsMaterials.subTitle }}</ng-container>
         <ng-container content>
@@ -45,7 +45,7 @@ import { CabinsMaterialsService } from './cabins-materials.service';
               class="bg-white rounded-sm shadow:sm flex items-center py-3 px-2"
               *ngFor="let material of cabinsMaterials.materials"
             >
-              <figure class="mr-7 image-wrapper">
+              <figure class="md:mr-7 mr-2 image-wrapper">
                 <img class="image" [src]="material.image.url" alt="" />
               </figure>
 

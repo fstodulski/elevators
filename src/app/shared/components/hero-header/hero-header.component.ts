@@ -4,17 +4,28 @@ import { Component, Input } from '@angular/core';
   selector: 'app-hero-header',
   template: `
     <article
-      class="flex h-full items-center justify-start"
-      [ngClass]="{ 'justify-end': rtl }"
+      class="flex h-full items-center"
+      [ngClass]="{
+        'justify-end': position === 'rtl',
+        'justify-center': position === 'center',
+        'justify-start': position === 'ltr'
+      }"
     >
       <div class="flex flex-col max-w-lg">
-        <h2 class="title">
+        <h2 class="text-h500">
           <ng-content select="[title]"></ng-content>
         </h2>
 
-        <div class="separator"></div>
+        <div
+          class="separator"
+          [ngClass]="{
+            'mr-auto': textAlign === 'ltr',
+            'mx-auto': textAlign === 'center',
+            'ml-auto': textAlign === 'rtl'
+          }"
+        ></div>
 
-        <p class="subtitle">
+        <p class="text-body:lg font-light text-gray-600">
           <ng-content select="[subtitle]"></ng-content>
         </p>
 
@@ -25,5 +36,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./hero-header.component.scss'],
 })
 export class HeroHeaderComponent {
-  @Input() public rtl: boolean = false;
+  @Input() public position: 'rtl' | 'ltr' | 'center' = 'ltr';
+  @Input() public textAlign?: 'rtl' | 'ltr' | 'center' = 'ltr';
 }

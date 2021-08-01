@@ -19,3 +19,8 @@ export interface CompanyDto {
   instagram: string;
   images: Array<ImageDto>;
 }
+
+export interface CompaniesQueryDto {
+  region?: string;
+  name?: string;
+}

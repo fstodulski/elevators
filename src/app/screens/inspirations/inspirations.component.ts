@@ -13,8 +13,9 @@ import { Observable, of } from 'rxjs';
         [categories]="categories"
       ></app-inspirations-categories>
       <app-inspirations-masonry></app-inspirations-masonry>
-      <app-pagination></app-pagination>
+      <app-pagination class="container"></app-pagination>
     </main>
+    <app-footer></app-footer>
   `,
   styleUrls: ['./inspirations.component.scss'],
 })

@@ -1,10 +1,3 @@
-@import "themes";
-
-@import "~@nebular/theme/styles/globals";
-
-@include nb-install() {
-  @include nb-theme-global();
-}
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
@@ -14,6 +7,7 @@
 @import "./styles/content";
 @import "./styles/shadows";
 @import "./styles/typography";
+@import "./styles/button";
 
 body,
 html {
@@ -23,21 +17,31 @@ html {
 
 .separator {
   position: relative;
-  margin: 1rem 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  height: 0.25rem;
+  width: 5.75rem;
 
   &:after {
     position: absolute;
     top: 0;
     left: 0;
     content: "";
-    height: 0.25rem;
-    width: 5.75rem;
+    height: 100%;
+    width: 100%;
     background-color: var(--main800);
   }
 }
 
-.nb-theme-default a {
-  text-decoration: none;
+.max-container {
+  max-width: 1216px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container {
+  padding: 1rem;
+  margin: 0 auto;
 }
 
 .cdk-drag,

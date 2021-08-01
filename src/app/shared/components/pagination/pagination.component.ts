@@ -4,9 +4,7 @@ import { Component, Input } from '@angular/core';
   selector: 'app-pagination',
   template: `
     <nav class="flex items-center justify-center">
-      <button nbButton ghost class="mr-4">
-        <nb-icon icon="chevron-left-outline"></nb-icon>
-      </button>
+      <button class="mr-4"><</button>
       <a class="single-page selected" href="">1</a>
       <a class="single-page" href="">1</a>
       <a class="single-page" href="">1</a>
@@ -14,9 +12,7 @@ import { Component, Input } from '@angular/core';
       <a class="single-page" href="">1</a>
       <a class="single-page" href="">...</a>
       <a class="single-page" href="">12</a>
-      <button nbButton class="ml-4">
-        <nb-icon icon="chevron-right-outline"></nb-icon>
-      </button>
+      <button class="ml-4">></button>
     </nav>
   `,
   styleUrls: ['./pagination.component.scss'],

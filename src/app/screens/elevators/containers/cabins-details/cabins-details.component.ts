@@ -6,14 +6,16 @@ import { CabinsDetailsService } from './cabins-details.service';
   selector: 'app-cabins-details',
   template: `
     <section
-      class="flex flex-col px-8 py-6 max-w-screen-xl mx-auto"
+      class="flex flex-col lg:px-8 py-12 max-w-screen-xl mx-auto "
       *ngIf="cabinsDetailsService.cabinDetails$ | async as cabinDetails"
     >
-      <app-hero-header>
+      <app-hero-header position="ltr">
         <ng-container title>{{ cabinDetails.title }}</ng-container>
       </app-hero-header>
 
-      <ul class="grid grid-cols-4 gap-8 w-full mt-10">
+      <ul
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 w-full mt-10"
+      >
         <li
           class="flex flex-col"
           *ngFor="let element of cabinDetails.cabinsDetailElements"
