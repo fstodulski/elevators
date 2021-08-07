@@ -7,6 +7,7 @@ import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { FooterModule } from '@shared/components';
 import { TopBarHeaderModule } from '@shared/containers';
+import { MarkdownModule } from 'ngx-markdown';
 
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
@@ -34,6 +35,7 @@ const modules = [TopBarHeaderModule, FooterModule];
     TranslocoRootModule,
     environment.production ? [] : AkitaNgDevtools.forRoot(),
     AkitaNgRouterStoreModule,
+    MarkdownModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

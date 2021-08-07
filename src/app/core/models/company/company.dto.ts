@@ -7,6 +7,9 @@ export interface CompanyDto {
   companyCategories: Array<CompanyCategoryDto>;
   shortDescription: string;
   longDescription: string;
+  longDescriptionv2: {
+    markdown: string;
+  };
   logo: ImageDto;
   geoLang: number;
   geoLat: number;

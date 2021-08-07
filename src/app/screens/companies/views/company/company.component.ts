@@ -11,11 +11,12 @@ import { Observable } from 'rxjs';
   selector: 'app-company',
   template: `
     <section
-      class="flex flex-col w-full pl-8"
+      class="flex flex-col w-full pl-8 pr-4"
       *ngIf="company$ | async as company"
     >
       <app-header [company]="company"></app-header>
       <app-about [company]="company"></app-about>
+      <app-contact-details [company]="company"></app-contact-details>
     </section>
   `,
   styleUrls: ['./company.component.scss'],

@@ -16,8 +16,13 @@ export const company = gql`
         url
       }
       websiteUrl
+      city
+      streetName
       shortDescription
       longDescription
+      longDescriptionv2 {
+        markdown
+      }
       phoneNumber
       email
       facebook

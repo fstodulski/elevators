@@ -1,35 +1,31 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CompanyDto } from '@core/models';
 
 @Component({
   selector: 'app-about',
   template: `
-    <article class="flex flex-col bg-white px-4 py-5 shadow-sm mt-8 rounded-md">
-      <h4 class="text-h400 text-gray-900 mb-4">O firmie</h4>
+    <app-container>
+      <ng-container title>O firmie</ng-container>
+      <div class="flex items-center mb-4">
+        <span class="text-body:md text-gray-900 mr-6">Specjalizacja:</span>
 
-      <div class="flex flex-col mt-4">
-        <div class="flex items-center mb-4">
-          <span class="text-body:md text-gray-900 mr-6">Specjalizacja:</span>
-
-          <span class="text-gray-900 text-body:sm">Montaż</span>
-        </div>
-
-        <p class="text-body:md text-gray-600">{{ company.longDescription }}</p>
+        <span class="text-gray-900 text-body:sm">Montaż</span>
       </div>
-    </article>
+
+      <article
+        markdown
+        ngPreserveWhitespaces
+        class="text-body:md text-gray-600"
+      >
+        {{ company.longDescriptionv2.markdown }}
+      </article>
+    </app-container>
   `,
   styleUrls: ['./about.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent {
   @Input() public company!: CompanyDto;
 
   constructor() {}
-
-  ngOnInit(): void {}
 }
