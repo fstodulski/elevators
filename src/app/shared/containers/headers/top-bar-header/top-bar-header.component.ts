@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslocoService } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-top-bar-header',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
       class="w-full h-18 bg-white flex items-center overflow-hidden px-8 shadow-sm"
     >
       <div class="flex items-center">
-        <figure>
+        <figure [routerLink]="[homeUrl]" class="cursor-pointer">
           <img src="assets/icons/logo.svg" class="hidden md:flex" alt="" />
           <img src="assets/icons/sygnet.svg" class="flex md:hidden" alt="" />
         </figure>
@@ -30,7 +31,7 @@ export class TopBarHeaderComponent {
     key: string;
   }>;
 
-  constructor() {
+  constructor(private readonly translocoService: TranslocoService) {
     this.langs = [
       {
         icon: 'bell',
@@ -38,5 +39,15 @@ export class TopBarHeaderComponent {
         key: 'pl',
       },
     ];
+  }
+  public get homeUrl(): string {
+    switch (this.translocoService.getActiveLang()) {
+      case 'pl':
+        return `/pl/inspiracje`;
+      case 'en':
+        return `/en/inspirations`;
+      default:
+        return '/pl/inspiracje';
+    }
   }
 }
