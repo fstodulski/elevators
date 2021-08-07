@@ -1,6 +1,31 @@
 import { gql } from '@apollo/client/core';
 import { CompanyDto } from '@core/models';
 
+export interface CompanyQuery {
+  company: CompanyDto;
+}
+export const company = gql`
+  query company($id: ID!) {
+    company(where: { id: $id }) {
+      id
+      name
+      logo {
+        url
+      }
+      images {
+        url
+      }
+      websiteUrl
+      shortDescription
+      longDescription
+      phoneNumber
+      email
+      facebook
+      instagram
+    }
+  }
+`;
+
 export interface CompaniesQuery {
   companies: Array<CompanyDto>;
 }

@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
     <ul class="flex flex-col py-4 px-8">
       <app-company-preview-card
         class="mb-6"
+        [class.opacity-50]="isLoading$ | async"
         [company]="company"
         *ngFor="let company of companies$ | async"
       ></app-company-preview-card>
@@ -21,6 +22,8 @@ export class CompaniesListComponent implements OnInit {
   public readonly companies$: Observable<
     Array<CompanyDto>
   > = this.companyQuery.selectAll();
+
+  public readonly isLoading$: Observable<boolean> = this.companyQuery.selectLoading();
 
   constructor(
     private readonly companyQuery: CompanyQuery,

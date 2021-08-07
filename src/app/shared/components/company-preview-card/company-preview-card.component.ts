@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CompanyDto } from '@core/models';
+import { TranslocoService } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-company-preview-card',
@@ -14,7 +15,9 @@ import { CompanyDto } from '@core/models';
 
       <article class="w-full ml-4">
         <div class="flex flex-col md:flex-row mb-2">
-          <h3 class="company-name">{{ company?.name }}</h3>
+          <h3 class="company-name cursor-pointer" [routerLink]="[companyUrl]">
+            {{ company?.name }}
+          </h3>
 
           <a
             class="phone ml-0 md:ml-auto"
@@ -49,5 +52,19 @@ export class CompanyPreviewCardComponent {
   @Input() public company?: Partial<CompanyDto>;
   @Input() public richView: boolean = true;
 
-  constructor() {}
+  constructor(private readonly translocoService: TranslocoService) {}
+
+  public get companyUrl(): string {
+    switch (this.translocoService.getActiveLang()) {
+      case 'pl': {
+        return `/pl/katalog-firm/${this.company?.id}`;
+      }
+      case 'en': {
+        return `/en/companies/${this.company?.id}`;
+      }
+      default: {
+        return `/pl/katalog-firm/${this.company?.id}`;
+      }
+    }
+  }
 }

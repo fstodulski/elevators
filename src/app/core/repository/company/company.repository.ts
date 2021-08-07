@@ -10,6 +10,8 @@ import {
   companiesInRange,
   CompaniesInRangeQuery,
   CompaniesQuery,
+  company,
+  CompanyQuery,
 } from './company.graphql';
 
 @Injectable({
@@ -20,6 +22,17 @@ export class CompanyRepository {
     private readonly apollo: Apollo,
     private readonly translocoService: TranslocoService
   ) {}
+
+  public company(id: string): Observable<CompanyDto> {
+    return this.apollo
+      .query<CompanyQuery>({
+        query: company,
+        variables: {
+          id,
+        },
+      })
+      .pipe(map(({ data }) => data.company));
+  }
 
   public companies(
     variables?: CompaniesQueryDto
