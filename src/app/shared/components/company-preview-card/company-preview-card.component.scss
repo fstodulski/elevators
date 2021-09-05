@@ -48,7 +48,6 @@
 }
 
 .phone {
-  @include text-h200;
   color: var(--main900);
   white-space: nowrap;
   display: flex;

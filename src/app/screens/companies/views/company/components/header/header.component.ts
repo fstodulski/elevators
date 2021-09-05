@@ -24,7 +24,7 @@ import { TranslocoService } from '@ngneat/transloco';
           <h3 class="text-h500 font-bold text-main-0 uppercase mb-1">
             {{ company.name }}
           </h3>
-          <span class="text-body:lg text-main-0">
+          <span class="text-body-lg text-main-0">
             {{ company.shortDescription }}</span
           >
           <a

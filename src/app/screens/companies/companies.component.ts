@@ -9,10 +9,12 @@ import { take } from 'rxjs/operators';
   template: `
     <app-top-bar-filters></app-top-bar-filters>
     <section class="grid grid-cols-12">
-      <div class="flex col-start-1 col-end-8 bg-main-0">
+      <div class="flex col-start-1 col-end-13 lg:col-end-8 bg-main-0">
         <router-outlet></router-outlet>
       </div>
-      <app-companies-map class="col-start-8 col-end-13"></app-companies-map>
+      <app-companies-map
+        class="hidden lg:block col-start-8 col-end-13"
+      ></app-companies-map>
     </section>
   `,
   styleUrls: ['./companies.component.scss'],

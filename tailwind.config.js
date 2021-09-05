@@ -25,9 +25,9 @@ module.exports = {
         h200: ["0.875rem", "1.25rem"],
         h100: ["0.75rem", "1rem"],
         subtitle: ["1.25rem", "2rem"],
-        "body:lg": ["1rem", "1.5rem"],
-        "body:md": ["0.875rem", "1.25rem"],
-        "body:sm": ["0.75rem", "1rem"],
+        "body-lg": ["1rem", "1.5rem"],
+        "body-md": ["0.875rem", "1.25rem"],
+        "body-sm": ["0.75rem", "1rem"],
       },
       colors: {
         white: "var(--white)",
@@ -73,7 +73,9 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      margin: ["last"],
+    },
   },
   plugins: [
     require("@tailwindcss/aspect-ratio"),

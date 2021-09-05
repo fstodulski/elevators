@@ -26,4 +26,5 @@ export interface CompanyDto {
 export interface CompaniesQueryDto {
   region?: string;
   name?: string;
+  last?: number;
 }

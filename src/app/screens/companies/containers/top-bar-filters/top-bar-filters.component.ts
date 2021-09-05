@@ -25,10 +25,20 @@ interface FormGroupDto {
 @Component({
   selector: 'app-top-bar-filters',
   template: `
-    <section class="w-full bg-white shadow:sm py-4 px-8 flex items-center">
-      <form [formGroup]="formGroup">
-        <input type="text" placeholder="Szukaj" formControlName="name" />
-        <select class="ml-3" name="region" id="region" formControlName="region">
+    <section class="w-full bg-white py-4 px-8 flex items-center overflow-auto">
+      <form [formGroup]="formGroup" class="flex items-center">
+        <input
+          class="bg-gray-100 input"
+          type="text"
+          placeholder="Szukaj"
+          formControlName="name"
+        />
+        <select
+          class="ml-3 input"
+          name="region"
+          id="region"
+          formControlName="region"
+        >
           <option value="">Wszystkie województwa</option>
           <option *ngFor="let region of regions$ | async" [value]="region.id">
             {{ region.name }}
@@ -36,7 +46,7 @@ interface FormGroupDto {
         </select>
       </form>
 
-      <div class="flex items-center ml-auto">
+      <div class="hidden lg:flex items-center ml-auto">
         <span class="tag" *ngFor="let category of companyCategories | async">
           <img [src]="category.icon.url" alt="" class="mr-2" />
           {{ category.name }}

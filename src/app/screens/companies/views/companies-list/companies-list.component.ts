@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-companies-list',
   template: `
-    <ul class="flex flex-col py-4 px-8">
+    <app-sort-by></app-sort-by>
+    <ul class="flex flex-col py-4 px-4 lg:px-8">
       <app-company-preview-card
         class="mb-6"
         [class.opacity-50]="isLoading$ | async"

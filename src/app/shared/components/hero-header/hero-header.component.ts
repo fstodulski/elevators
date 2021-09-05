@@ -25,7 +25,7 @@ import { Component, Input } from '@angular/core';
           }"
         ></div>
 
-        <p class="text-body:lg font-light text-gray-600">
+        <p class="text-body-lg font-light text-gray-600">
           <ng-content select="[subtitle]"></ng-content>
         </p>
 

@@ -1,12 +1,13 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CompanyDto } from '@core/models';
+import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons/faMapMarkerAlt';
 import { TranslocoService } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-company-preview-card',
   template: `
     <div
-      class="flex w-full bg-white rounded-sm shadow:sm py-2 px-3 items-center overflow-hidden"
+      class="flex w-full bg-white rounded-sm shadow:md py-2 px-3 items-center overflow-hidden"
       *ngIf="company"
     >
       <figure class="company-logo-wrapper">
@@ -14,21 +15,28 @@ import { TranslocoService } from '@ngneat/transloco';
       </figure>
 
       <article class="w-full ml-4">
-        <div class="flex flex-col md:flex-row mb-2">
-          <h3 class="company-name cursor-pointer" [routerLink]="[companyUrl]">
+        <div class="flex flex-col md:flex-row  lg:mb-2">
+          <h3
+            class="company-name cursor-pointer mb-2 lg:mb-0"
+            [routerLink]="[companyUrl]"
+          >
             {{ company?.name }}
           </h3>
 
           <a
-            class="phone ml-0 md:ml-auto"
+            class="phone text-h300 font-bold ml-0 md:ml-auto"
             [href]="'tel:' + company?.phoneNumber"
           >
             {{ company?.phoneNumber }}
           </a>
         </div>
 
-        <div class="flex justify-between w-full items-center" *ngIf="richView">
+        <div
+          class="hidden sm:flex justify-between w-full items-center"
+          *ngIf="richView"
+        >
           <span class="company-street-name items-baseline truncate">
+            <fa-icon [icon]="placeIcon"></fa-icon>
             {{ company?.city }},
             {{ company?.streetName }}
           </span>
@@ -51,6 +59,8 @@ import { TranslocoService } from '@ngneat/transloco';
 export class CompanyPreviewCardComponent {
   @Input() public company?: Partial<CompanyDto>;
   @Input() public richView: boolean = true;
+
+  public readonly placeIcon: typeof faMapMarkerAlt = faMapMarkerAlt;
 
   constructor(private readonly translocoService: TranslocoService) {}
 

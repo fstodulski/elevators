@@ -5,7 +5,7 @@ import { TranslocoService } from '@ngneat/transloco';
   selector: 'app-top-bar-header',
   template: `
     <header
-      class="w-full h-18 bg-white flex items-center overflow-hidden px-8 shadow-sm"
+      class="w-full h-18 bg-white flex items-center overflow-hidden px-4 md:px-8 shadow-sm"
     >
       <div class="flex items-center">
         <figure [routerLink]="[homeUrl]" class="cursor-pointer">
@@ -14,7 +14,7 @@ import { TranslocoService } from '@ngneat/transloco';
         </figure>
 
         <span class="text-sm ml-6 text-gray-600 hidden xl:inline">
-          Pomagamy Polskim biznesom wybrać najlepszą windę
+          Siemanko
         </span>
       </div>
 
