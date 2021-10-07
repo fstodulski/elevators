@@ -19,7 +19,7 @@ export abstract class Navigation {
             label: 'Elevators',
           },
           {
-            path: `${lang}/companies/all`,
+            path: `${lang}/companies`,
             label: 'Companies',
           },
           {
@@ -35,7 +35,7 @@ export abstract class Navigation {
             label: 'Windy',
           },
           {
-            path: `${lang}/katalog-firm/wszystkie`,
+            path: `${lang}/katalog-firm`,
             label: 'Katalog firm',
           },
           {
@@ -51,7 +51,7 @@ export abstract class Navigation {
             label: 'Windy',
           },
           {
-            path: `${lang}/katalog firm/wszystkie`,
+            path: `${lang}/katalog firm`,
             label: 'Katalog-firm',
           },
           {

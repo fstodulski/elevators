@@ -14,6 +14,7 @@ body,
 html {
   font-family: "Montserrat", sans-serif;
   background-color: var(--white100);
+  height: 100%;
 }
 
 .separator {
@@ -53,4 +54,8 @@ html {
 
 .cdk-drag-animating {
   transition: transform 0ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.full-height {
+  overflow: hidden;
 }

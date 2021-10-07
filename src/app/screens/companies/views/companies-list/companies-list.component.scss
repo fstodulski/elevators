@@ -5,71 +5,9 @@
   width: 100%;
 }
 
-.companies-list {
+.list {
   display: flex;
   flex-direction: column;
-  padding: 1rem 2rem;
-}
-
-.card {
-  width: 100%;
-  background-color: var(--white);
-  border-radius: 4px;
-  @include shadow\:sm();
-  padding: 0.75rem 1.5rem;
-  display: flex;
-  align-items: center;
-}
-
-.company-name {
-  @include text-h200;
-  color: var(--gray900);
-}
-
-.company-short-description {
-  @include text-body\:md;
-  color: var(--gray600);
-  margin-left: 1rem;
-}
-
-.company-logo-wrapper {
-  overflow: hidden;
-  width: 5.5rem;
-  height: 3.5rem;
-}
-
-.company-logo {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.phone {
-  @include text-h200;
-  color: var(--main900);
-  margin-left: auto;
-  display: flex;
-  align-items: center;
-}
-
-.pin-icon {
-  font-size: 1rem;
-}
-
-.company-street-name {
-  @include text-body\:md;
-  color: var(--gray400);
-}
-
-.tag {
-  @include text-body\:sm;
-  color: var(--gray400);
-  border-radius: 5000px;
-  padding: 2px 8px;
-
-  border: 1px solid var(--gray50);
-
-  &:not(:last-of-type) {
-    margin-right: 0.5rem;
-  }
+  flex: 1 1 0%;
+  height: calc(100vh - 194px);
 }

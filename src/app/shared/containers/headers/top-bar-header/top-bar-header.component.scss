@@ -1,4 +1,7 @@
-.lang-select {
-  margin-left: 4rem;
-  max-width: 150px;
+:host {
+  top: 0;
+  left: auto;
+  right: 0;
+  position: sticky;
+  display: flex;
 }

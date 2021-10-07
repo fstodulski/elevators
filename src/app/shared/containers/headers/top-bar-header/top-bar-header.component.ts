@@ -14,7 +14,7 @@ import { TranslocoService } from '@ngneat/transloco';
         </figure>
 
         <span class="text-sm ml-6 text-gray-600 hidden xl:inline">
-          Siemanko
+          Pomagamy Polskim biznesom wybrać najlepszą windę
         </span>
       </div>
 

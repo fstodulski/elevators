@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { CompaniesQueryDto, CompanyDto } from '@core/models';
+import { CompanyRepository } from '@core/repository';
 import { RouterQuery } from '@datorama/akita-ng-router-store';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
-import { CompanyRepository } from '../company.repository';
 import { CompanyStore } from './company.store';
 
 @Injectable({ providedIn: 'root' })
@@ -31,8 +31,7 @@ export class CompanyService {
     this.companyStore.setLoading(true);
     const id = this.routerQuery.getParams('id');
     return this.companyRepository.company(id).pipe(
-      tap((res) => {
-        this.companyStore.set([res]);
+      tap(() => {
         this.companyStore.setLoading(false);
       })
     );

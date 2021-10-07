@@ -15,6 +15,8 @@ export const company = gql`
       images {
         url
       }
+      geoLat
+      geoLang
       websiteUrl
       city
       streetName
@@ -27,6 +29,10 @@ export const company = gql`
       email
       facebook
       instagram
+      companyCategories {
+        id
+        name
+      }
     }
   }
 `;
@@ -63,6 +69,13 @@ export const companies = gql`
       email
       images {
         url
+      }
+      geoLat
+      geoLang
+      websiteUrl
+      city
+      longDescriptionv2 {
+        markdown
       }
     }
   }

@@ -8,21 +8,9 @@ const routes: Routes = [
     path: '',
     component: CompaniesComponent,
     children: [
-      {
-        path: '',
-        redirectTo: 'wszystkie',
-        pathMatch: 'full',
-      },
       // ALL Companies
       {
-        path: 'all',
-        pathMatch: 'full',
-        loadChildren: async () =>
-          (await import('./views/companies-list/companies-list.module'))
-            .CompaniesListModule,
-      },
-      {
-        path: 'wszystkie',
+        path: '',
         pathMatch: 'full',
         loadChildren: async () =>
           (await import('./views/companies-list/companies-list.module'))
@@ -32,6 +20,11 @@ const routes: Routes = [
         path: ':id',
         loadChildren: async () =>
           (await import('./views/company/company.module')).CompanyModule,
+      },
+      {
+        path: '',
+        redirectTo: '',
+        pathMatch: 'full',
       },
     ],
   },

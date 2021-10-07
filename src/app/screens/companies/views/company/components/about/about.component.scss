@@ -1,5 +1,3 @@
-article {
-  p {
-    margin-bottom: 1.5rem;
-  }
+::ng-deep article p {
+  margin-bottom: 1.5rem;
 }
