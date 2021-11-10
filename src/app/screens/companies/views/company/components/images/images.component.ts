@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { ImageDto } from '@core/models';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-images',
@@ -7,10 +9,10 @@ import { ImageDto } from '@core/models';
     <app-container>
       <ng-container title>Zdjęcia</ng-container>
 
-      <ng-container *ngIf="images">
+      <ng-container *ngIf="allImages$ | async">
         <div class="grid gap-4 grid-cols-5">
           <figure
-            *ngFor="let image of images"
+            *ngFor="let image of displayedImages$ | async"
             class="h-48 overflow-hidden rounded-md"
           >
             <img
@@ -27,7 +29,17 @@ import { ImageDto } from '@core/models';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ImagesComponent {
-  @Input() public images: Array<ImageDto> | undefined = undefined;
+  public allImages$: BehaviorSubject<Array<ImageDto>>;
 
-  constructor() {}
+  @Input() public set images(imgs: Array<ImageDto>) {
+    this.allImages$.next(imgs);
+  }
+
+  constructor() {
+    this.allImages$ = new BehaviorSubject<Array<ImageDto>>([]);
+  }
+
+  public get displayedImages$(): Observable<Array<ImageDto>> {
+    return this.allImages$.pipe(map((res) => res.slice(0, 5)));
+  }
 }

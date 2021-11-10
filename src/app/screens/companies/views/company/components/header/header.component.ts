@@ -35,19 +35,14 @@ import { TranslocoService } from '@ngneat/transloco';
           </div>
         </div>
 
-        <article class="mt-2 flex">
+        <article class="mt-2 grid grid-cols-12 gap-4">
           <figure
-            class="mr-4 w-48 bg-white flex items-center justify-center rounded-sm overflow-hidden"
+            class="col-start-1 col-end-4 bg-white rounded-sm overflow-hidden flex items-center justify-center"
           >
-            <img
-              class="w-full object-scale-down"
-              loading="lazy"
-              [src]="company.logo?.url"
-              alt=""
-            />
+            <img class="" loading="lazy" [src]="company.logo?.url" alt="" />
           </figure>
 
-          <div class="flex flex-col">
+          <div class="flex flex-col col-start-4 col-end-13">
             <h3 class="text-h500 font-bold text-main-0 uppercase mb-1">
               {{ company.name }}
             </h3>

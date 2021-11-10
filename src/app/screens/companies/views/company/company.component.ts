@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { CompanyDto } from '@core/models';
 import { faPhone } from '@fortawesome/free-solid-svg-icons/faPhone';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
@@ -32,7 +37,7 @@ import { CompanyDatasourceService } from './company-datasource.service';
   styleUrls: ['./company.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CompanyComponent implements OnInit {
+export class CompanyComponent implements OnInit, OnDestroy {
   public readonly company$: Observable<CompanyDto | undefined> =
     this._companyDatasourceService.company$;
 
@@ -51,5 +56,9 @@ export class CompanyComponent implements OnInit {
       .fetchCompany()
       .pipe(untilDestroyed(this))
       .subscribe();
+  }
+
+  public ngOnDestroy(): void {
+    this._companyDatasourceService.destroy();
   }
 }

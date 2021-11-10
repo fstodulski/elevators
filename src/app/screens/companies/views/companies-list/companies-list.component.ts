@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   selector: 'app-companies-list',
   template: `
     <app-sort-by></app-sort-by>
-    <ul class="list flex flex-col py-4 px-4 lg:px-8">
+    <ul class="list flex flex-col py-4 px-4 lg:px-8 overflow-auto">
       <app-company-preview-card
         class="mb-6"
         [class.opacity-50]="isLoading$ | async"

@@ -25,9 +25,12 @@ export class CompanyDatasourceService {
   public fetchCompany(): Observable<CompanyDto> {
     return this._companyService.company().pipe(
       tap((res) => {
-        console.log(res);
         this.company = res;
       })
     );
+  }
+
+  public destroy(): void {
+    this._company$.next(undefined);
   }
 }
