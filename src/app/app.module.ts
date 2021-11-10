@@ -8,6 +8,7 @@ import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterModule } from '@shared/components';
 import { TopBarHeaderModule } from '@shared/containers';
+import { LightboxModule } from 'ngx-lightbox';
 import { MarkdownModule } from 'ngx-markdown';
 
 import { environment } from '../environments/environment';
@@ -33,6 +34,7 @@ const modules = [TopBarHeaderModule, FooterModule];
     ...modules,
     GraphQLModule,
     HttpClientModule,
+    LightboxModule,
     TranslocoRootModule,
     environment.production ? [] : AkitaNgDevtools.forRoot(),
     AkitaNgRouterStoreModule,
