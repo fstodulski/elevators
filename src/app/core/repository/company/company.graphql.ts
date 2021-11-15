@@ -5,8 +5,8 @@ export interface CompanyQuery {
   company: CompanyDto;
 }
 export const company = gql`
-  query company($id: ID!) {
-    company(where: { id: $id }) {
+  query company($id: ID!, $lang: Locale!) {
+    company(where: { id: $id }, locales: [$lang]) {
       id
       name
       logo {

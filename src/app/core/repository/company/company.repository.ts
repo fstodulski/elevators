@@ -28,6 +28,7 @@ export class CompanyRepository {
       .query<CompanyQuery>({
         query: company,
         variables: {
+          lang: this.translocoService.getActiveLang(),
           id,
         },
       })
