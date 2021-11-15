@@ -7,7 +7,7 @@ import { TranslocoService } from '@ngneat/transloco';
   selector: 'app-company-preview-card',
   template: `
     <div
-      class="flex w-full bg-white rounded-sm shadow:md py-2 px-3 items-center overflow-hidden"
+      class="flex w-full bg-white rounded-sm shadow:sm py-2 px-3 items-center overflow-hidden"
       *ngIf="company"
     >
       <figure class="company-logo-wrapper">

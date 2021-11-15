@@ -6,7 +6,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'pl/inspiracje',
+    redirectTo: 'pl/katalog-firm',
   },
   {
     path: ':lang/elevators',

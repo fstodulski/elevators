@@ -9,6 +9,13 @@ module.exports = {
   darkMode: "class", // or 'media' or 'class'
   theme: {
     extend: {
+      flex: {
+        70: "0 0 70%",
+        60: "0 0 60%",
+        50: "0 0 50%",
+        40: "0 0 40%",
+        30: "0 0 30%",
+      },
       height: {
         18: "4.5rem",
         22: "5.5rem",

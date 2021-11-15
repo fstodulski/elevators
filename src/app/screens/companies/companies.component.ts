@@ -11,10 +11,12 @@ import { take } from 'rxjs/operators';
   template: `
     <app-top-bar-filters></app-top-bar-filters>
     <section class="flex flex-1">
-      <div class="flex list">
+      <div class="flex 2xl:flex-50 flex-60">
         <router-outlet></router-outlet>
       </div>
-      <app-companies-map class="hidden lg:block map"></app-companies-map>
+      <app-companies-map
+        class="hidden lg:block 2xl:flex-50 flex-40"
+      ></app-companies-map>
     </section>
   `,
   styleUrls: ['./companies.component.scss'],
