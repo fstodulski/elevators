@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { ImageDto } from '@core/models';
 import { WINDOW } from '@ng-web-apis/common';
-import { IAlbum, Lightbox } from 'ngx-lightbox';
+import { Lightbox } from 'ngx-lightbox';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 
@@ -36,12 +36,7 @@ import { map, switchMap } from 'rxjs/operators';
                 </div>
               </div>
             </ng-container>
-            <img
-              [src]="image.src"
-              alt=""
-              class="h-full w-full object-cover"
-              (click)="openImage(i)"
-            />
+            <img [src]="image.url" alt="" class="h-full w-full object-cover" />
           </figure>
         </div>
       </ng-container>
@@ -52,18 +47,10 @@ import { map, switchMap } from 'rxjs/operators';
 })
 export class ImagesComponent {
   public readonly isExtraLargeScreen$: BehaviorSubject<boolean>;
-  public allImages$: BehaviorSubject<Array<IAlbum>>;
+  public allImages$: BehaviorSubject<Array<ImageDto>>;
 
   @Input() public set images(imgs: Array<ImageDto>) {
-    this.allImages$.next(
-      imgs.map(
-        ({ url }: ImageDto): IAlbum => ({
-          src: url,
-          caption: 'caption',
-          thumb: url,
-        })
-      )
-    );
+    this.allImages$.next(imgs);
   }
 
   @HostListener('window:resize', ['$event.target'])
@@ -83,13 +70,13 @@ export class ImagesComponent {
     @Inject(WINDOW) private readonly _window: Window,
     private readonly _lightBox: Lightbox
   ) {
-    this.allImages$ = new BehaviorSubject<Array<IAlbum>>([]);
+    this.allImages$ = new BehaviorSubject<Array<ImageDto>>([]);
     this.isExtraLargeScreen$ = new BehaviorSubject<boolean>(
       this.isExtraLarge(this._window.innerWidth)
     );
   }
 
-  public get displayedImages$(): Observable<Array<IAlbum>> {
+  public get displayedImages$(): Observable<Array<ImageDto>> {
     return this.columnsToDisplay$.pipe(
       switchMap((res) =>
         this.allImages$.pipe(map((images) => images.slice(0, res)))
@@ -103,10 +90,6 @@ export class ImagesComponent {
         return allImages.length - displayedImages.length;
       })
     );
-  }
-
-  public openImage(index: number): void {
-    this._lightBox.open(this.allImages$.value, index);
   }
 
   private isExtraLarge(width: number): boolean {

@@ -5,6 +5,8 @@ import { faInstagram } from '@fortawesome/free-brands-svg-icons/faInstagram';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons/faArrowLeft';
 import { TranslocoService } from '@ngneat/transloco';
 
+import { CompaniesMapService } from '../../../../containers/companies-map/companies-map.service';
+
 @Component({
   selector: 'app-header',
   template: `
@@ -13,7 +15,10 @@ import { TranslocoService } from '@ngneat/transloco';
     >
       <ng-container *ngIf="company">
         <div class="flex justify-between py-2 pr-2">
-          <button [routerLink]="backUrl">
+          <button
+            [routerLink]="backUrl"
+            (click)="companiesMapService.setInitialMapOptions()"
+          >
             <fa-icon class="text-white" [icon]="arrowBackIcon"></fa-icon>
           </button>
 
@@ -82,7 +87,10 @@ export class HeaderComponent {
   public readonly arrowBackIcon: typeof faArrowLeft = faArrowLeft;
   public readonly facebookIcon: typeof faFacebookF = faFacebookF;
   public readonly instagramIcon: typeof faInstagram = faInstagram;
-  constructor(private readonly translocoService: TranslocoService) {}
+  constructor(
+    private readonly translocoService: TranslocoService,
+    public readonly companiesMapService: CompaniesMapService
+  ) {}
 
   public get backUrl(): string {
     switch (this.translocoService.getActiveLang()) {

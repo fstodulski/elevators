@@ -8,6 +8,7 @@ import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterModule } from '@shared/components';
 import { TopBarHeaderModule } from '@shared/containers';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 import { LightboxModule } from 'ngx-lightbox';
 import { MarkdownModule } from 'ngx-markdown';
 
@@ -40,6 +41,7 @@ const modules = [TopBarHeaderModule, FooterModule];
     AkitaNgRouterStoreModule,
     MarkdownModule.forRoot(),
     FontAwesomeModule,
+    AngularSvgIconModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

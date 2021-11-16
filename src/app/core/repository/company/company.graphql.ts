@@ -55,9 +55,7 @@ export const companies = gql`
       companyCategories {
         id
         name
-        icon {
-          url
-        }
+        icon
       }
       shortDescription
       longDescription

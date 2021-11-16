@@ -10,9 +10,7 @@ export const companyCategories = gql`
     companyCategories(locales: [$lang]) {
       id
       name
-      icon {
-        url
-      }
+      icon
     }
   }
 `;

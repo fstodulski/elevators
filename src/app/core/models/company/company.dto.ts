@@ -21,6 +21,7 @@ export interface CompanyDto {
   facebook: string;
   instagram: string;
   images: Array<ImageDto>;
+  isMarkerSelected?: boolean;
 }
 
 export interface CompaniesQueryDto {

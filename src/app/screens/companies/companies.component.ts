@@ -10,7 +10,7 @@ import { take } from 'rxjs/operators';
   selector: 'app-companies',
   template: `
     <app-top-bar-filters></app-top-bar-filters>
-    <section class="flex flex-1">
+    <section class="flex">
       <div class="flex 2xl:flex-50 flex-60">
         <router-outlet></router-outlet>
       </div>

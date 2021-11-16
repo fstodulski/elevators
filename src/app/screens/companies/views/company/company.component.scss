@@ -1,5 +1,26 @@
 :host {
   width: 100%;
-  height: calc(100vh - 194px);
+  height: calc(100vh - 154px);
   overflow: auto;
+  padding-bottom: 2rem;
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: red;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
 }

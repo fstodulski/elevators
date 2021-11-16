@@ -15,6 +15,12 @@ export class CompanyService {
     private readonly routerQuery: RouterQuery
   ) {}
 
+  public select(id: string): void {
+    this.companyStore.update(null, { isMarkerSelected: false });
+
+    this.companyStore.update(id as any, { isMarkerSelected: true });
+  }
+
   public getAll(params?: CompaniesQueryDto): Observable<Array<CompanyDto>> {
     this.companyStore.setLoading(true);
 

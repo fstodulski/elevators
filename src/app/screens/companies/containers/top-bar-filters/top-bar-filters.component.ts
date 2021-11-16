@@ -12,6 +12,7 @@ import { CompanyCategoriesService } from '@core/repository/company-categories/st
 import { CompanyCategory } from '@core/repository/company-categories/state/company-category.model';
 import { RegionQuery } from '@core/repository/region/state/region.query';
 import { RegionService } from '@core/repository/region/state/region.service';
+import { CategoryIcons } from '@shared/category-icons.map';
 import { Observable, Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
@@ -48,7 +49,11 @@ interface FormGroupDto {
 
       <div class="hidden lg:flex items-center ml-auto">
         <span class="tag" *ngFor="let category of companyCategories | async">
-          <img [src]="category.icon.url" alt="" class="mr-2" />
+          <svg-icon
+            class="mr-2"
+            [src]="categoryIconsMap[category.icon]"
+            [svgStyle]="{ 'width.px': 22 }"
+          ></svg-icon>
           {{ category.name }}
         </span>
 
@@ -61,13 +66,12 @@ interface FormGroupDto {
   styleUrls: ['./top-bar-filters.component.scss'],
 })
 export class TopBarFiltersComponent implements OnInit, OnDestroy {
-  public readonly companyCategories: Observable<
-    Array<CompanyCategory>
-  > = this.companyCategoriesQuery.selectAll();
+  public readonly categoryIconsMap: any = CategoryIcons;
+  public readonly companyCategories: Observable<Array<CompanyCategory>> =
+    this.companyCategoriesQuery.selectAll();
 
-  public readonly regions$: Observable<
-    Array<RegionDto>
-  > = this.regionQuery.selectAll();
+  public readonly regions$: Observable<Array<RegionDto>> =
+    this.regionQuery.selectAll();
 
   public readonly formGroup: FormGroup;
 
