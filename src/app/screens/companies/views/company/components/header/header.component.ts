@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { CompanyDto } from '@core/models';
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons/faFacebookF';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons/faInstagram';
@@ -15,10 +21,7 @@ import { CompaniesMapService } from '../../../../containers/companies-map/compan
     >
       <ng-container *ngIf="company">
         <div class="flex justify-between py-2 pr-2">
-          <button
-            [routerLink]="backUrl"
-            (click)="companiesMapService.setInitialMapOptions()"
-          >
+          <button [routerLink]="backUrl">
             <fa-icon class="text-white" [icon]="arrowBackIcon"></fa-icon>
           </button>
 
@@ -81,7 +84,7 @@ import { CompaniesMapService } from '../../../../containers/companies-map/compan
   styleUrls: ['./header.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit, OnDestroy {
   @Input() public company: CompanyDto | undefined = undefined;
 
   public readonly arrowBackIcon: typeof faArrowLeft = faArrowLeft;
@@ -89,7 +92,7 @@ export class HeaderComponent {
   public readonly instagramIcon: typeof faInstagram = faInstagram;
   constructor(
     private readonly translocoService: TranslocoService,
-    public readonly companiesMapService: CompaniesMapService
+    private readonly _companiesMapService: CompaniesMapService
   ) {}
 
   public get backUrl(): string {
@@ -104,5 +107,19 @@ export class HeaderComponent {
         return '/pl/katalog-firm';
       }
     }
+  }
+
+  public ngOnInit(): void {
+    this._companiesMapService.updateMapOptions({
+      center: {
+        lat: this.company?.geoLat as number,
+        lng: this.company?.geoLang as number,
+      },
+      zoom: 15,
+    });
+  }
+
+  public ngOnDestroy(): void {
+    this._companiesMapService.setInitialMapOptions();
   }
 }
