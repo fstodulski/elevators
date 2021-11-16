@@ -7,7 +7,6 @@ import {
 } from '@angular/core';
 import { ImageDto } from '@core/models';
 import { WINDOW } from '@ng-web-apis/common';
-import { Lightbox } from 'ngx-lightbox';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 
@@ -66,10 +65,7 @@ export class ImagesComponent {
     );
   }
 
-  constructor(
-    @Inject(WINDOW) private readonly _window: Window,
-    private readonly _lightBox: Lightbox
-  ) {
+  constructor(@Inject(WINDOW) private readonly _window: Window) {
     this.allImages$ = new BehaviorSubject<Array<ImageDto>>([]);
     this.isExtraLargeScreen$ = new BehaviorSubject<boolean>(
       this.isExtraLarge(this._window.innerWidth)
