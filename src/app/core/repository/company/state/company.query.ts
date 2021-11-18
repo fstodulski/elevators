@@ -31,7 +31,6 @@ export class CompanyQuery extends QueryEntity<CompanyState> {
             ({ id, geoLat, geoLang, companyCategories, isMarkerSelected }) => {
               const icon = () => {
                 if (companyCategories[0]) {
-                  console.log(companyCategories[0].icon);
                   if (isMarkerSelected) {
                     return this._categoryIconsMapWithBgSelected[
                       companyCategories[0].icon

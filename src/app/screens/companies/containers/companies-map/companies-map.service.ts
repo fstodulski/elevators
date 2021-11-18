@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { CompanyQuery } from '@core/repository';
 import { BehaviorSubject, Observable } from 'rxjs';
 
-const INITAL_MAP_COORDS: google.maps.LatLngLiteral = {
+export const INITAL_MAP_COORDS: google.maps.LatLngLiteral = {
   lat: 51.9194,
   lng: 19.1451,
 };

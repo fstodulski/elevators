@@ -6,8 +6,9 @@ import {
   GEOLOCATION_SUPPORT,
   GeolocationService,
 } from '@ng-web-apis/geolocation';
-import { Subscription } from 'rxjs';
-import { take } from 'rxjs/operators';
+import { HotToastService } from '@ngneat/hot-toast';
+import { Subscription, throwError } from 'rxjs';
+import { catchError, take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-companies',
@@ -32,13 +33,14 @@ export class CompaniesComponent implements OnInit, OnDestroy {
     @Inject(GEOLOCATION_SUPPORT) private readonly _geolocationSupport: boolean,
     private readonly _locationService: LocationService,
     private readonly _companyService: CompanyService,
+    private readonly _toastService: HotToastService,
     @Inject(DOCUMENT) private readonly document: Document
   ) {
     this.subs$ = new Subscription();
   }
 
   public ngOnInit(): void {
-    this._getCoords();
+    this._geolocationSupport && this._getCoords();
     this._fetchAllCompanies();
     this.document.body.classList.add('full-height');
   }
@@ -58,16 +60,27 @@ export class CompaniesComponent implements OnInit, OnDestroy {
   }
 
   private _getCoords(): void {
-    if (this._geolocationSupport) {
-      this.subs$.add(
-        this._geolocation$.pipe(take(1)).subscribe(
-          ({ coords }) =>
-            (this._locationService.coords = {
-              lat: coords.latitude,
-              lng: coords.longitude,
-            })
+    this.subs$.add(
+      this._geolocation$
+        .pipe(
+          take(1),
+          catchError((e: Error): any => {
+            return throwError(e.message);
+          })
         )
-      );
-    }
+        .subscribe(
+          (res) => {
+            if (res) {
+              this._locationService.coords = {
+                lat: (res as GeolocationPosition).coords.latitude,
+                lng: (res as GeolocationPosition).coords.longitude,
+              };
+            }
+          },
+          (e: string) => {
+            this._toastService.error(e);
+          }
+        )
+    );
   }
 }

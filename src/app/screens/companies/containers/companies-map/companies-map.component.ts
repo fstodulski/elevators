@@ -5,7 +5,7 @@ import { MarkerType } from '@core/models/marker/marker.type';
 import { CompanyQuery, CompanyService } from '@core/repository';
 import { LocationService } from '@core/services';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { share, skip } from 'rxjs/operators';
+import { share } from 'rxjs/operators';
 
 import { CompaniesMapService } from './companies-map.service';
 
@@ -16,12 +16,7 @@ import { CompaniesMapService } from './companies-map.service';
       *ngIf="_companiesMapService.mapOptions$ | async as mapOptions"
     >
       <div class="companies-map">
-        <google-map
-          *ngIf="hasCoords$ | async"
-          width="100%"
-          height="100%"
-          [options]="mapOptions"
-        >
+        <google-map width="100%" height="100%" [options]="mapOptions">
           <map-marker
             *ngFor="let marker of mapMarkers$ | async"
             [position]="marker.position"
@@ -53,10 +48,7 @@ export class CompaniesMapComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
-    this.locationService.coords$.pipe(skip(1)).subscribe(() => {
-      this._companiesMapService.setInitialMapOptions();
-      this.hasCoords$.next(true);
-    });
+    this._companiesMapService.setInitialMapOptions();
   }
 
   public clickOnMarker(marker: MarkerType): void {

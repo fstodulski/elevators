@@ -46,6 +46,8 @@
     "@ng-web-apis/common": "^1.9.0",
     "@ng-web-apis/geolocation": "^1.0.4",
     "@ngneat/dialog": "1.6.0",
+    "@ngneat/hot-toast": "^3.4.3",
+    "@ngneat/overview": "^2.0.2",
     "@ngneat/svg-icon": "3.1.1",
     "@ngneat/tailwind": "^7.0.3",
     "@ngneat/transloco": "^2.23.4",

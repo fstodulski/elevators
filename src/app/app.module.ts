@@ -6,6 +6,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HotToastModule } from '@ngneat/hot-toast';
 import { FooterModule } from '@shared/components';
 import { TopBarHeaderModule } from '@shared/containers';
 import { AngularSvgIconModule } from 'angular-svg-icon';
@@ -40,6 +41,7 @@ const modules = [TopBarHeaderModule, FooterModule];
     MarkdownModule.forRoot(),
     FontAwesomeModule,
     AngularSvgIconModule.forRoot(),
+    HotToastModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
