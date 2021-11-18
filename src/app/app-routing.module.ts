@@ -20,20 +20,20 @@ const routes: Routes = [
       (await import('./screens/elevators/elevators.module')).ElevatorsModule,
     resolve: [LanguageGuard],
   },
-  //
-  // {
-  //   path: ':lang/companies',
-  //   loadChildren: async () =>
-  //     (await import('./screens/companies/companies.module')).CompaniesModule,
-  //   resolve: [LanguageGuard],
-  // },
-  // {
-  //   path: ':lang/katalog-firm',
-  //   loadChildren: async () =>
-  //     (await import('./screens/companies/companies.module')).CompaniesModule,
-  //   resolve: [LanguageGuard],
-  // },
-  //
+
+  {
+    path: ':lang/companies',
+    loadChildren: async () =>
+      (await import('./screens/companies/companies.module')).CompaniesModule,
+    resolve: [LanguageGuard],
+  },
+  {
+    path: ':lang/katalog-firm',
+    loadChildren: async () =>
+      (await import('./screens/companies/companies.module')).CompaniesModule,
+    resolve: [LanguageGuard],
+  },
+
   {
     path: ':lang/inspirations',
     loadChildren: async () =>

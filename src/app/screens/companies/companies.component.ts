@@ -2,7 +2,10 @@ import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { CompanyService } from '@core/repository';
 import { LocationService } from '@core/services';
-import { GeolocationService } from '@ng-web-apis/geolocation';
+import {
+  GEOLOCATION_SUPPORT,
+  GeolocationService,
+} from '@ng-web-apis/geolocation';
 import { Subscription } from 'rxjs';
 import { take } from 'rxjs/operators';
 
@@ -26,6 +29,7 @@ export class CompaniesComponent implements OnInit, OnDestroy {
 
   constructor(
     private readonly _geolocation$: GeolocationService,
+    @Inject(GEOLOCATION_SUPPORT) private readonly _geolocationSupport: boolean,
     private readonly _locationService: LocationService,
     private readonly _companyService: CompanyService,
     @Inject(DOCUMENT) private readonly document: Document
@@ -54,14 +58,16 @@ export class CompaniesComponent implements OnInit, OnDestroy {
   }
 
   private _getCoords(): void {
-    this.subs$.add(
-      this._geolocation$.pipe(take(1)).subscribe(
-        ({ coords }) =>
-          (this._locationService.coords = {
-            lat: coords.latitude,
-            lng: coords.longitude,
-          })
-      )
-    );
+    if (this._geolocationSupport) {
+      this.subs$.add(
+        this._geolocation$.pipe(take(1)).subscribe(
+          ({ coords }) =>
+            (this._locationService.coords = {
+              lat: coords.latitude,
+              lng: coords.longitude,
+            })
+        )
+      );
+    }
   }
 }

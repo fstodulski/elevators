@@ -4,9 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MarkerType } from '@core/models/marker/marker.type';
 import { CompanyQuery, CompanyService } from '@core/repository';
 import { LocationService } from '@core/services';
-import { environment } from '@env';
-import { BehaviorSubject, Observable, of } from 'rxjs';
-import { catchError, map, share, skip } from 'rxjs/operators';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { share, skip } from 'rxjs/operators';
 
 import { CompaniesMapService } from './companies-map.service';
 
@@ -16,7 +15,7 @@ import { CompaniesMapService } from './companies-map.service';
     <ng-container
       *ngIf="_companiesMapService.mapOptions$ | async as mapOptions"
     >
-      <div *ngIf="apiKeyLoaded$ | async" class="companies-map">
+      <div class="companies-map">
         <google-map
           *ngIf="hasCoords$ | async"
           width="100%"
@@ -37,8 +36,6 @@ import { CompaniesMapService } from './companies-map.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CompaniesMapComponent implements OnInit {
-  public apiKeyLoaded$: Observable<boolean>;
-
   public readonly hasCoords$: BehaviorSubject<boolean> =
     this._companiesMapService.hasCoords$;
 
@@ -53,17 +50,7 @@ export class CompaniesMapComponent implements OnInit {
     private readonly _router: Router,
     private readonly _route: ActivatedRoute,
     public readonly _companiesMapService: CompaniesMapService
-  ) {
-    this.apiKeyLoaded$ = _httpClient
-      .jsonp(
-        `https://maps.googleapis.com/maps/api/js?key=${environment.googleMapsAPI}`,
-        'callback'
-      )
-      .pipe(
-        map(() => true),
-        catchError(() => of(false))
-      );
-  }
+  ) {}
 
   public ngOnInit(): void {
     this.locationService.coords$.pipe(skip(1)).subscribe(() => {
