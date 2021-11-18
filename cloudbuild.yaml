@@ -14,6 +14,7 @@ steps:
       - 'GRAPHQL_TOKEN=${_GRAPHQL_TOKEN}'
       - 'BASE_URL=${_BASE_URL}'
       - 'PRODUCTION=${_PRODUCTION}'
+      - 'GOOGLE_MAPS_API=${_GOOGLE_MAPS_API}'
 
   - name: node:12
     entrypoint: npm
