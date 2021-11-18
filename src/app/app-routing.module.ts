@@ -6,7 +6,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'pl/katalog-firm',
+    redirectTo: 'pl/windy',
   },
   {
     path: ':lang/elevators',
@@ -21,18 +21,18 @@ const routes: Routes = [
     resolve: [LanguageGuard],
   },
   //
-  {
-    path: ':lang/companies',
-    loadChildren: async () =>
-      (await import('./screens/companies/companies.module')).CompaniesModule,
-    resolve: [LanguageGuard],
-  },
-  {
-    path: ':lang/katalog-firm',
-    loadChildren: async () =>
-      (await import('./screens/companies/companies.module')).CompaniesModule,
-    resolve: [LanguageGuard],
-  },
+  // {
+  //   path: ':lang/companies',
+  //   loadChildren: async () =>
+  //     (await import('./screens/companies/companies.module')).CompaniesModule,
+  //   resolve: [LanguageGuard],
+  // },
+  // {
+  //   path: ':lang/katalog-firm',
+  //   loadChildren: async () =>
+  //     (await import('./screens/companies/companies.module')).CompaniesModule,
+  //   resolve: [LanguageGuard],
+  // },
   //
   {
     path: ':lang/inspirations',
