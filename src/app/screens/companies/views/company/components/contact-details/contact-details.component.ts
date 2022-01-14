@@ -18,13 +18,13 @@ import { ContactDetailsInterface } from './contact-details.interface';
         <div class="flex flex-col">
           <div class="grid gap-6 grid-cols-6">
             <ng-container *ngFor="let company of companyDetails">
-              <div class="col-start-1 col-end-2">
+              <div class="col-start-1 col-end-3 md:col-end-2">
                 <span class="text-h200 text-gray-900 font-bold">
                   {{ company.label }}
                 </span>
               </div>
 
-              <div class="col-start-2 col-end-6">
+              <div class="col-start-3 md:col-start-2 col-end-6">
                 <span
                   class="text-body:md text-gray-600"
                   [class.cursor-pointer]="company.onClick"

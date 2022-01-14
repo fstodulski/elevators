@@ -17,7 +17,7 @@ import { map, switchMap } from 'rxjs/operators';
       <ng-container title>Zdjęcia</ng-container>
 
       <ng-container *ngIf="allImages$ | async">
-        <div class="grid gap-4 2xl:grid-cols-6 grid-cols-5">
+        <div class="grid gap-4 grid-cols-2 md:grid-cols-5 2xl:grid-cols-6">
           <figure
             *ngFor="let image of displayedImages$ | async; let i = index"
             class="h-48 overflow-hidden rounded-md relative cursor-pointer"

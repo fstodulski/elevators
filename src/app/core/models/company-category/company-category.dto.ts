@@ -1,5 +1,6 @@
 export interface CompanyCategoryDto {
-  id: string | number;
+  id: string;
   name: string;
   icon: string;
+  slug: string;
 }

@@ -43,14 +43,16 @@ import { CompaniesMapService } from '../../../../containers/companies-map/compan
           </div>
         </div>
 
-        <article class="mt-2 grid grid-cols-12 gap-4">
+        <article class="mt-2 grid grid-cols-1 sm:grid-cols-12 gap-4">
           <figure
-            class="col-start-1 2xl:col-end-3 col-end-4 bg-white rounded-sm overflow-hidden flex items-center justify-center"
+            class="image col-start-1 2xl:col-end-3 col-end-13 sm:col-end-4 bg-white rounded-xl flex items-center justify-center"
           >
             <img class="" loading="lazy" [src]="company.logo?.url" alt="" />
           </figure>
 
-          <div class="flex flex-col 2xl:col-start-3 col-start-4 col-end-13">
+          <div
+            class="flex flex-col 2xl:col-start-3 col-start-1 sm:col-start-4 col-end-13"
+          >
             <h3 class="text-h500 font-bold text-main-0 uppercase mb-1">
               {{ company.name }}
             </h3>
@@ -63,10 +65,10 @@ import { CompaniesMapService } from '../../../../containers/companies-map/compan
               class="text-h200 mt-6 text-main-0"
               >{{ company.websiteUrl }}</a
             >
-            <div class="flex mt-2">
+            <div class="flex flex-col sm:flex-row mt-2">
               <a
                 [href]="'tel:' + company.phoneNumber"
-                class="text-h200 text-main-100 font-bold mr-6"
+                class="text-h200 text-main-100 font-bold mr-6 mb-2 sm:mb-0"
               >
                 {{ company.phoneNumber }}
               </a>

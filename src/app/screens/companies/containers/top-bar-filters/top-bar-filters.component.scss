@@ -47,3 +47,13 @@
   visibility: visible;
   pointer-events: all;
 }
+
+.active-category {
+  background-color: var(--primary800);
+  color: var(--white);
+
+  svg,
+  path {
+    fill: var(--white);
+  }
+}

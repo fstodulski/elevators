@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+import { CompaniesMapModule } from '../../containers/companies-map/companies-map.module';
 import { CompanyComponent } from './company.component';
 import { CompanyRoutingModule } from './company-routing.module';
 import { AboutModule } from './components/about/about.module';
@@ -18,6 +19,6 @@ export const modules = [
 ];
 @NgModule({
   declarations: [CompanyComponent],
-  imports: [CommonModule, CompanyRoutingModule, ...modules],
+  imports: [CommonModule, CompanyRoutingModule, ...modules, CompaniesMapModule],
 })
 export class CompanyModule {}

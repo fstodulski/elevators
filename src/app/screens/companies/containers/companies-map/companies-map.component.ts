@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MarkerType } from '@core/models/marker/marker.type';
 import { CompanyQuery, CompanyService } from '@core/repository';
 import { LocationService } from '@core/services';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { share } from 'rxjs/operators';
 
 import { CompaniesMapService } from './companies-map.service';
@@ -31,9 +31,6 @@ import { CompaniesMapService } from './companies-map.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CompaniesMapComponent implements OnInit {
-  public readonly hasCoords$: BehaviorSubject<boolean> =
-    this._companiesMapService.hasCoords$;
-
   public readonly mapMarkers$: Observable<Array<MarkerType>> =
     this._companyQuery.mapMarkers$.pipe(share());
 

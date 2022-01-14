@@ -11,6 +11,7 @@ export const companyCategories = gql`
       id
       name
       icon
+      slug
     }
   }
 `;

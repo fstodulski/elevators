@@ -41,10 +41,20 @@ export interface CompaniesQuery {
   companies: Array<CompanyDto>;
 }
 export const companies = gql`
-  query companies($lang: Locale!, $region: ID, $name: String, $last: Int) {
+  query companies(
+    $lang: Locale!
+    $region: ID
+    $name: String
+    $slug: String
+    $last: Int
+  ) {
     companies(
       locales: [$lang]
-      where: { region: { id_contains: $region }, name_contains: $name }
+      where: {
+        region: { id_contains: $region }
+        name_contains: $name
+        companyCategories_some: { slug_contains: $slug }
+      }
       last: $last
     ) {
       id

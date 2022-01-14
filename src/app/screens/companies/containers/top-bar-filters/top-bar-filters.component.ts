@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RegionDto } from '@core/models';
 import { CompanyService } from '@core/repository/company';
 import { CompanyCategoriesQuery } from '@core/repository/company-categories/state/company-categories.query';
@@ -48,14 +49,20 @@ interface FormGroupDto {
       </form>
 
       <div class="hidden lg:flex items-center ml-auto">
-        <span class="tag" *ngFor="let category of companyCategories | async">
+        <a
+          routerLink="[]"
+          routerLinkActive="active-category"
+          [queryParams]="{ slug: category.slug }"
+          class="tag cursor-pointer"
+          *ngFor="let category of companyCategories | async"
+        >
           <svg-icon
             class="mr-2"
             [src]="categoryIconsMap[category.icon]"
             [svgStyle]="{ 'width.px': 22 }"
           ></svg-icon>
           {{ category.name }}
-        </span>
+        </a>
 
         <button class="ml-6">
           <div class="dropdown-menu">Hello world</div>
@@ -84,7 +91,9 @@ export class TopBarFiltersComponent implements OnInit, OnDestroy {
     private readonly regionService: RegionService,
     private readonly regionQuery: RegionQuery,
     private readonly topBarFiltersQuery: TopBarFiltersQuery,
-    private readonly fb: FormBuilder
+    private readonly fb: FormBuilder,
+    private readonly _router: Router,
+    private readonly _route: ActivatedRoute
   ) {
     this.subs$ = new Subscription();
     this.formGroup = this.fb.group({
@@ -118,6 +127,14 @@ export class TopBarFiltersComponent implements OnInit, OnDestroy {
         )
         .subscribe()
     );
+  }
+
+  public selectCategory(slug: string): void {
+    this._router.navigate([], {
+      queryParams: {
+        slug,
+      },
+    });
   }
 
   private get regionField(): FormControl {

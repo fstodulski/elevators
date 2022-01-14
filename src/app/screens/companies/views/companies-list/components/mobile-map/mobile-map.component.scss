@@ -1,0 +1,22 @@
+.map {
+  bottom: -100%;
+  transition: 800ms;
+  left: 0;
+  opacity: 0;
+  height: calc(100vh - 180px);
+
+  &--opened {
+    bottom: 0%;
+    opacity: 1;
+  }
+}
+
+.centered-absolute {
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.map-btn {
+  transform: translate(-50%, 0);
+  left: 50%;
+}

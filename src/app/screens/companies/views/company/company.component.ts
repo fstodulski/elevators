@@ -18,16 +18,18 @@ import { CompanyDatasourceService } from './company-datasource.service';
   selector: 'app-company',
   template: `
     <section
-      class="flex flex-col w-full pl-8 pr-4"
+      class="flex flex-col w-full md:pl-8 md:pr-4"
       *ngIf="company$ | async as company"
     >
       <app-header [company]="company"></app-header>
+
+      <app-companies-map></app-companies-map>
       <app-about [company]="company"></app-about>
       <app-contact-details [company]="company"></app-contact-details>
       <app-images [images]="company.images"></app-images>
       <a
         [href]="'tel:' + company.phoneNumber"
-        class="flex rounded-md mt-8 w-full items-center justify-center py-3  bg-main-800 transition duration-300 hover:bg-main-900 text-h300 text-white"
+        class="flex rounded-md mt-8 w-full items-center justify-center py-3 bg-main-800 transition duration-300 hover:bg-main-900 text-h300 text-white"
       >
         <fa-icon class="mr-2" [icon]="phoneIcon"></fa-icon
         >{{ company.phoneNumber }}
