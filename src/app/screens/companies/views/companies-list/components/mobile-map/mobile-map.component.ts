@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
@@ -28,14 +28,12 @@ import { BehaviorSubject, Observable } from 'rxjs';
   styleUrls: ['./mobile-map.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MobileMapComponent implements OnInit {
+export class MobileMapComponent {
   private _isMapOpen$: BehaviorSubject<boolean>;
 
   constructor() {
     this._isMapOpen$ = new BehaviorSubject<boolean>(false);
   }
-
-  ngOnInit(): void {}
 
   public get isMapOpen$(): Observable<boolean> {
     return this._isMapOpen$.asObservable();
