@@ -1,6 +1,7 @@
 {
   "name": "twoje-windy",
   "version": "0.2.1",
+  "author": "Franek",
   "repository": {
     "url": "https://github.com/fstodulski/elevators"
   },
