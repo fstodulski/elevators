@@ -20,7 +20,6 @@ const routes: Routes = [
       (await import('./screens/elevators/elevators.module')).ElevatorsModule,
     resolve: [LanguageGuard],
   },
-
   {
     path: ':lang/companies',
     loadChildren: async () =>

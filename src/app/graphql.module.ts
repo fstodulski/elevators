@@ -5,10 +5,9 @@ import {
   InMemoryCache,
 } from '@apollo/client/core';
 import { setContext } from '@apollo/client/link/context';
+import { environment } from '@env';
 import { APOLLO_OPTIONS } from 'apollo-angular';
 import { HttpLink } from 'apollo-angular/http';
-
-import { environment } from '../environments/environment';
 
 const uri =
   'https://api-eu-central-1.graphcms.com/v2/cko31b8sybkjr01yz6xvg4dy9/master'; // <-- add the URL of the GraphQL server here
