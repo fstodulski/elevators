@@ -4,13 +4,13 @@ import { CompanyCategoryDto } from '@core/models/company-category';
 export interface CompanyDto {
   id: string;
   name: string;
+  logo: ImageDto;
   companyCategories: Array<CompanyCategoryDto>;
   shortDescription: string;
   longDescription: string;
   longDescriptionv2: {
     markdown: string;
   };
-  logo: ImageDto;
   geoLang: number;
   geoLat: number;
   websiteUrl: string;

@@ -10,6 +10,7 @@ export const company = gql`
       id
       name
       logo {
+        id
         url
       }
       images {
