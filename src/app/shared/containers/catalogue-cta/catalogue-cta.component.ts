@@ -24,6 +24,15 @@ import { Observable } from 'rxjs';
             [company]="company"
           ></app-company-preview-card>
         </div>
+          <div class="flex w-full bg-white items-center">
+            <a
+              href="pl/katalog-firm"
+              class="btn mt-8 p-6 mx-auto max-w-screen-xl md:w-auto "
+            >
+              Zobacz nasze firmy
+              <span class="material-icons">chevron_right</span>
+            </a>
+          </div>
       </article>
     </section>
   `,
@@ -35,7 +44,7 @@ export class CatalogueCtaComponent implements OnInit {
     Array<Partial<CompanyDto>>
   > = this.catalogueCta.companiesInRange$;
 
-  constructor(private readonly catalogueCta: CatalogueCtaService) {}
+  constructor(private readonly catalogueCta: CatalogueCtaService) { }
 
   public ngOnInit(): void {
     this.catalogueCta.getCompaniesInRange();

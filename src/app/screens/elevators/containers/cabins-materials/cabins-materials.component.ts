@@ -13,12 +13,12 @@ import { CabinsMaterialsService } from './cabins-materials.service';
   selector: 'app-cabins-materials',
   template: `
     <section
-      class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:px-8 py-12 max-w-screen-xl mx-auto"
+      class="grid grid-cols-1 md:grid-cols-2 gap-6 px-8 py-12 max-w-screen-xl mx-auto"
       *ngIf="cabinsMaterialsService.cabinsHero$ | async as cabinsMaterials"
     >
       <figure class="images-preview">
-        <div #leftMask class="mask mask:left"></div>
-        <div class="mask mask:right"></div>
+        <!-- <div #leftMask class="mask mask:left"></div>
+        <div class="mask mask:right"></div> -->
 
         <!--        <nb-icon-->
         <!--          cdkDragLockAxis="x"-->

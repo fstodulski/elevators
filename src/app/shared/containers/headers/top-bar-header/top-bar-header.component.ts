@@ -43,11 +43,11 @@ export class TopBarHeaderComponent {
   public get homeUrl(): string {
     switch (this.translocoService.getActiveLang()) {
       case 'pl':
-        return `/pl/inspiracje`;
+        return `/pl/windy`;
       case 'en':
-        return `/en/inspirations`;
+        return `/en/elevators`;
       default:
-        return '/pl/inspiracje';
+        return '/pl/windy';
     }
   }
 }

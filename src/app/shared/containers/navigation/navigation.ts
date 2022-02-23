@@ -22,10 +22,10 @@ export abstract class Navigation {
             path: `${lang}/companies`,
             label: 'Companies',
           },
-          {
-            path: `${lang}/inspirations`,
-            label: 'Inspirations',
-          },
+          // {
+          //   path: `${lang}/inspirations`,
+          //   label: 'Inspirations',
+          // },
         ];
       }
       case 'pl': {
@@ -38,10 +38,10 @@ export abstract class Navigation {
             path: `${lang}/katalog-firm`,
             label: 'Katalog firm',
           },
-          {
-            path: `${lang}/inspiracje`,
-            label: 'Inspiracje',
-          },
+          // {
+          //   path: `${lang}/inspiracje`,
+          //   label: 'Inspiracje',
+          // },
         ];
       }
       default: {
@@ -54,10 +54,10 @@ export abstract class Navigation {
             path: `${lang}/katalog firm`,
             label: 'Katalog-firm',
           },
-          {
-            path: `${lang}/inspiracje`,
-            label: 'Inspiracje',
-          },
+          // {
+          //   path: `${lang}/inspiracje`,
+          //   label: 'Inspiracje',
+          // },
         ];
       }
     }

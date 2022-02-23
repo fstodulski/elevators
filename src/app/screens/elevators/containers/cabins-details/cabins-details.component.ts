@@ -6,7 +6,7 @@ import { CabinsDetailsService } from './cabins-details.service';
   selector: 'app-cabins-details',
   template: `
     <section
-      class="flex flex-col lg:px-8 py-12 max-w-screen-xl mx-auto "
+      class="flex flex-col px-8 py-12 max-w-screen-xl mx-auto "
       *ngIf="cabinsDetailsService.cabinDetails$ | async as cabinDetails"
     >
       <app-hero-header position="ltr">
@@ -32,7 +32,7 @@ import { CabinsDetailsService } from './cabins-details.service';
   styleUrls: ['./cabins-details.component.scss'],
 })
 export class CabinsDetailsComponent implements OnInit {
-  constructor(public readonly cabinsDetailsService: CabinsDetailsService) {}
+  constructor(public readonly cabinsDetailsService: CabinsDetailsService) { }
 
   public ngOnInit(): void {
     this.cabinsDetailsService.cabinDetails();

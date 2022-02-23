@@ -6,7 +6,7 @@ import { CabinsHeroService } from './cabins-hero.service';
   selector: 'app-cabins-hero',
   template: `
     <section
-      class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:px-8 py-12 max-w-screen-xl mx-auto"
+      class="grid grid-cols-1 md:grid-cols-2 gap-6 px-8 py-12 max-w-screen-xl mx-auto"
       *ngIf="cabinsHeroService.cabinsHero$ | async as cabinsHero"
     >
       <figure class="flex items-center">
@@ -42,7 +42,7 @@ import { CabinsHeroService } from './cabins-hero.service';
   styleUrls: ['./cabins-hero.component.scss'],
 })
 export class CabinsHeroComponent implements OnInit {
-  constructor(public readonly cabinsHeroService: CabinsHeroService) {}
+  constructor(public readonly cabinsHeroService: CabinsHeroService) { }
 
   public ngOnInit(): void {
     this.cabinsHeroService.cabinsHero();
