@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { SubscribeService } from '@core/services/mailchimp/subscribe.service';
 
 @Component({
   selector: 'app-email-catalog',
@@ -14,7 +15,7 @@ import { FormControl, Validators } from '@angular/forms';
             Katalog zawiera kilka możliwych realizacji, opisy poszczególnych
             komponentów oraz wartości techniczne.
           </p>
-
+          <button (click)="subscribe()">asd</button>
           <form class="form">
             <div class="flex flex-col md:flex-row w-full">
               <input
@@ -24,7 +25,7 @@ import { FormControl, Validators } from '@angular/forms';
                 [formControl]="formControl"
               />
 
-              <button class="btn md:ml-6 mt-4 md:mt-0">
+              <button class="btn md:ml-6 mt-4 md:mt-0" (click)="subscribe()">
                 <span class="material-icons">file_download</span>
                 Pobierz katalog
               </button>
@@ -50,10 +51,17 @@ import { FormControl, Validators } from '@angular/forms';
 export class EmailCatalogComponent {
   public formControl: FormControl;
 
-  constructor() {
+  constructor(
+    private subscribeService: SubscribeService
+  ) {
     this.formControl = new FormControl('', [
       Validators.required,
       Validators.email,
     ]);
+  }
+
+  subscribe() {
+    console.log('1')
+    this.subscribeService.subscribeToList(this.formControl.value)
   }
 }
