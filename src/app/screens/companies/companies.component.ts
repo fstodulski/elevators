@@ -10,14 +10,14 @@ import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
         <router-outlet></router-outlet>
       </div>
       <app-companies-map
-        class="hidden lg:block 2xl:flex-50 flex-40"
+        class="hidden lg:block 2xl:flex-50 flex-40 p-5"
       ></app-companies-map>
     </section>
   `,
   styleUrls: ['./companies.component.scss'],
 })
 export class CompaniesComponent implements OnInit, OnDestroy {
-  constructor(@Inject(DOCUMENT) private readonly document: Document) {}
+  constructor(@Inject(DOCUMENT) private readonly document: Document) { }
 
   public ngOnInit(): void {
     this.document.body.classList.add('full-height');
