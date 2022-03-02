@@ -7,7 +7,7 @@ import { TranslocoService } from '@ngneat/transloco';
   selector: 'app-company-preview-card',
   template: `
     <div
-      class="flex w-full bg-white rounded-sm shadow:sm py-2 px-3 items-center overflow-hidden"
+      class="flex w-full bg-white rounded-sm shadow:sm py-2 px-3 items-center"
       *ngIf="company"
     >
       <figure class="company-logo-wrapper">
@@ -22,10 +22,9 @@ import { TranslocoService } from '@ngneat/transloco';
           >
             {{ company?.name }}
           </h3>
-
+          <!-- [href]="'tel:' + company?.phoneNumber" REUSE FOR PHONE NUMBER-->
           <a
             class="phone text-h300 font-bold ml-0 md:ml-auto"
-            [href]="'tel:' + company?.phoneNumber"
           >
             {{ company?.phoneNumber }}
           </a>
@@ -41,14 +40,14 @@ import { TranslocoService } from '@ngneat/transloco';
             {{ company?.streetName }}
           </span>
 
-          <div class="flex items-center ml-auto">
+          <!-- <div class="flex items-center ml-auto">
             <span
               class="tag"
-              *ngFor="let category of company?.companyCategories"
+              *ngFor="let category of company?.companyCategories | slice:0:3"
             >
               {{ category.name }}
             </span>
-          </div>
+          </div> -->
         </div>
       </article>
     </div>
@@ -62,7 +61,7 @@ export class CompanyPreviewCardComponent {
 
   public readonly placeIcon: typeof faMapMarkerAlt = faMapMarkerAlt;
 
-  constructor(private readonly translocoService: TranslocoService) {}
+  constructor(private readonly translocoService: TranslocoService) { }
 
   public get companyUrl(): string {
     switch (this.translocoService.getActiveLang()) {

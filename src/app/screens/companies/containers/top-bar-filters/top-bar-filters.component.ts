@@ -121,7 +121,7 @@ export class TopBarFiltersComponent implements OnInit, OnDestroy {
           switchMap(({ region, name }: FormGroupDto) => {
             return this.companyService.getAll({
               region,
-              name,
+              name
             });
           })
         )

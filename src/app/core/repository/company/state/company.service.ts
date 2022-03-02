@@ -13,7 +13,7 @@ export class CompanyService {
     private companyStore: CompanyStore,
     private readonly companyRepository: CompanyRepository,
     private readonly routerQuery: RouterQuery
-  ) {}
+  ) { }
 
   public select(id: string): void {
     this.companyStore.update(null, { isMarkerSelected: false });
@@ -23,6 +23,7 @@ export class CompanyService {
 
   public getAll(params?: CompaniesQueryDto): Observable<Array<CompanyDto>> {
     this.companyStore.setLoading(true);
+    if (params?.slug === undefined && params) params.slug = ""
 
     return this.companyRepository.companies(params).pipe(
       tap((entities) => {
