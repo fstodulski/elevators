@@ -12,7 +12,8 @@ const envConfigFile = `export const environment = {
     baseUrl: '${process.env.BASE_URL}',
     production: ${process.env.PRODUCTION === 'true'},
     graphqlToken: '${process.env.GRAPHQL_TOKEN}',
-    googleMapsAPI: '${process.env.GOOGLE_MAPS_API}'
+    googleMapsAPI: '${process.env.GOOGLE_MAPS_API}',
+    mailChimpAPI: '${process.env.MAILCHIMP_API}'
 };
 `;
 console.log(

@@ -27,7 +27,7 @@ interface FormGroupDto {
 @Component({
   selector: 'app-top-bar-filters',
   template: `
-    <section class="w-full bg-white py-4 px-8 flex items-center overflow-auto">
+    <section class="w-full bg-white py-4 px-8 flex items-center overflow-auto shadow-md">
       <form [formGroup]="formGroup" class="flex items-center">
         <input
           class="bg-gray-100 input"
@@ -48,13 +48,14 @@ interface FormGroupDto {
         </select>
       </form>
 
-      <div class="hidden lg:flex items-center ml-auto">
+      <div class="lg:flex items-center ml-auto">
         <a
           routerLink="[]"
           routerLinkActive="active-category"
           [queryParams]="{ slug: category.slug }"
           class="tag cursor-pointer"
           *ngFor="let category of companyCategories | async"
+          (click)="selectCategory(category.slug)"
         >
           <svg-icon
             class="mr-2"
@@ -62,6 +63,9 @@ interface FormGroupDto {
             [svgStyle]="{ 'width.px': 22 }"
           ></svg-icon>
           {{ category.name }}
+          <!-- <span 
+            class="material-icons p-1 text-lg cursor-pointer"
+          >close</span> -->
         </a>
 
         <button class="ml-6">
@@ -135,6 +139,9 @@ export class TopBarFiltersComponent implements OnInit, OnDestroy {
         slug,
       },
     });
+    this.companyService.getAll({
+      slug
+    }).subscribe();
   }
 
   private get regionField(): FormControl {
