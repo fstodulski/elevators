@@ -20,7 +20,7 @@ import { catchError, take } from 'rxjs/operators';
 @Component({
   selector: 'app-companies-list',
   template: `
-    <ul class="list flex flex-col py-8 px-4 lg:px-8 overflow-auto relative">
+    <ul class="list flex flex-col py-8 px-4 lg:px-8 overflow-auto relative" >
       <app-company-preview-card
         class="mb-6"
         [class.opacity-50]="isLoading$ | async"
