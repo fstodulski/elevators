@@ -25,8 +25,10 @@ export class CompanyService {
     this.companyStore.setLoading(true);
     if (params?.slug === undefined && params) params.slug = ""
 
+
     return this.companyRepository.companies(params).pipe(
       tap((entities) => {
+        // console.log(entities)
         this.companyStore.set(entities);
 
         this.companyStore.setLoading(false);

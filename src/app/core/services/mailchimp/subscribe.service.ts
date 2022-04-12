@@ -1,33 +1,18 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SubscribeService {
+  private mailChimpEndpoint =
+    'https://gmail.us14.list-manage.com/subscribe/post?u=1c633aedee7ca4c18e19a286a&amp;id=d9af2460bc';
+  constructor(private http: HttpClient) {}
 
-  mailChimpEndpoint = 'https://us14.api.mailchimp.com/3.0/lists/d9af2460bc';
-  constructor(
-    private http: HttpClient
-  ) { }
-  subscribeToList(data: string) {
-
-
-    const mailchimpFactory = import("@mailchimp/mailchimp_transactional/src/index.js");
-    const client = mailchimpFactory("2c5261a5d743779ae1f2e3653fe3d773-us14");
-
-    client.setConfig({
-      apiKey: "2c5261a5d743779ae1f2e3653fe3d773-us14",
-      server: "us14",
-    });
-    const response = client.lists.batchListMembers("list_id", {
-      members: [{
-        email_adresss: data
-      }],
-    });
-    console.log(response);
-
-
+  public subscribeToList(data: string): any {
+    const params = new HttpParams().set('EMAIL', data);
+    const mailChimpUrl = `${this.mailChimpEndpoint}&${params.toString()}`;
+    console.log(mailChimpUrl);
+    return this.http.jsonp(mailChimpUrl, 'c');
   }
 }

@@ -15,20 +15,26 @@ import { SubscribeService } from '@core/services/mailchimp/subscribe.service';
             Katalog zawiera kilka możliwych realizacji, opisy poszczególnych
             komponentów oraz wartości techniczne.
           </p>
-          <button (click)="subscribe()">asd</button>
-          <form class="form">
+          <form class="form" action="#">
             <div class="flex flex-col md:flex-row w-full">
               <input
                 class="input flex-grow"
                 placeholder="Twój Email"
                 type="email"
+                id="email"
                 [formControl]="formControl"
+                (keyup)="onKey($event)"
               />
 
-              <button class="btn md:ml-6 mt-4 md:mt-0" (click)="subscribe()">
+              <button
+                class="btn md:ml-6 mt-4 md:mt-0"
+                (click)="subscribe()"
+                [ngClass]="this.formControl.value.errors ? 'disabled' : ''"
+              >
                 <span class="material-icons">file_download</span>
                 Pobierz katalog
               </button>
+              <p id="error"></p>
             </div>
 
             <div class="flex w-full items-center mt-6">
@@ -50,18 +56,37 @@ import { SubscribeService } from '@core/services/mailchimp/subscribe.service';
 })
 export class EmailCatalogComponent {
   public formControl: FormControl;
+  private error;
+  private email;
+  private value = '';
 
-  constructor(
-    private subscribeService: SubscribeService
-  ) {
+  constructor(private subscribeService: SubscribeService) {
     this.formControl = new FormControl('', [
       Validators.required,
       Validators.email,
     ]);
+    this.error = document.querySelector('error') as HTMLParagraphElement;
+    this.email = document.querySelector('email') as HTMLInputElement;
   }
 
-  subscribe() {
-    console.log('1')
-    this.subscribeService.subscribeToList(this.formControl.value)
+  public subscribe(): any {
+    return this.subscribeService
+      .subscribeToList(this.formControl.value)
+      .subscribe(
+        (res: any) => {
+          console.log(res);
+        },
+        (err: any) => {
+          console.log(err);
+        }
+      );
+  }
+  public onKey(event: KeyboardEvent): void {
+    this.value += (event.target as HTMLInputElement).value;
+    console.log(this.error);
+    if (!this.email?.validity.valid) {
+      var txt = document.createTextNode('Please enter correct email');
+      this.error.appendChild(txt);
+    } else this.error.textContent = '';
   }
 }

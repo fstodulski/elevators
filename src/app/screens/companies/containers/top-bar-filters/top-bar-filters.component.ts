@@ -27,7 +27,9 @@ interface FormGroupDto {
 @Component({
   selector: 'app-top-bar-filters',
   template: `
-    <section class="w-full bg-white py-4 px-8 flex items-center overflow-auto shadow-md">
+    <section
+      class="w-full bg-white py-4 px-8 flex items-center overflow-auto shadow-md"
+    >
       <form [formGroup]="formGroup" class="flex items-center">
         <input
           class="bg-gray-100 input"
@@ -49,24 +51,41 @@ interface FormGroupDto {
       </form>
 
       <div class="lg:flex items-center ml-auto">
-        <a
-          routerLink="[]"
-          routerLinkActive="active-category"
-          [queryParams]="{ slug: category.slug }"
+        <div
           class="tag cursor-pointer"
+          [ngClass]="{
+            'active-category': getActiveGategory(
+              this._router.url.split('=')[1],
+              category.name.toLowerCase()
+            )
+          }"
           *ngFor="let category of companyCategories | async"
-          (click)="selectCategory(category.slug)"
         >
-          <svg-icon
-            class="mr-2"
-            [src]="categoryIconsMap[category.icon]"
-            [svgStyle]="{ 'width.px': 22 }"
-          ></svg-icon>
-          {{ category.name }}
-          <!-- <span 
+          <a
+            [routerLink]="[]"
+            [queryParams]="{ slug: category.slug }"
+            class="inline-flex"
+          >
+            <svg-icon
+              class="mr-2"
+              [src]="categoryIconsMap[category.icon]"
+              [svgStyle]="{ 'width.px': 22 }"
+            ></svg-icon>
+            {{ category.name }}
+          </a>
+          <span
+            [ngClass]="{
+              hidden: getCustomCss(
+                this._router.url.split('=')[1],
+                category.name.toLowerCase()
+              )
+            }"
+            [routerLink]="[]"
+            [queryParams]="{ slug: '' }"
             class="material-icons p-1 text-lg cursor-pointer"
-          >close</span> -->
-        </a>
+            >close</span
+          >
+        </div>
 
         <button class="ml-6">
           <div class="dropdown-menu">Hello world</div>
@@ -96,7 +115,7 @@ export class TopBarFiltersComponent implements OnInit, OnDestroy {
     private readonly regionQuery: RegionQuery,
     private readonly topBarFiltersQuery: TopBarFiltersQuery,
     private readonly fb: FormBuilder,
-    private readonly _router: Router,
+    public readonly _router: Router,
     private readonly _route: ActivatedRoute
   ) {
     this.subs$ = new Subscription();
@@ -125,7 +144,7 @@ export class TopBarFiltersComponent implements OnInit, OnDestroy {
           switchMap(({ region, name }: FormGroupDto) => {
             return this.companyService.getAll({
               region,
-              name
+              name,
             });
           })
         )
@@ -139,9 +158,27 @@ export class TopBarFiltersComponent implements OnInit, OnDestroy {
         slug,
       },
     });
-    this.companyService.getAll({
-      slug
-    }).subscribe();
+
+    // this.router.navigate(
+    //   [],
+    //   {
+    //     relativeTo: activatedRoute,
+    //     queryParams: queryParams,
+    //     queryParamsHandling: 'merge', // remove to replace all query params by provided
+    //   });
+  }
+  public getCustomCss(slug: string, category: string): boolean {
+    if (slug !== category) {
+      if (slug == 'montaz' && category == 'montaż') return false;
+      return true;
+    }
+    return false;
+  }
+  public getActiveGategory(slug: string, category: string): boolean {
+    if (!slug || !category) return false;
+    if (slug == 'montaz' && category == 'montaż') return true;
+    if (slug === category) return true;
+    return false;
   }
 
   private get regionField(): FormControl {

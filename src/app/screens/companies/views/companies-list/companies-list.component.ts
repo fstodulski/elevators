@@ -58,8 +58,11 @@ export class CompaniesListComponent implements OnInit, OnDestroy {
   public ngOnInit(): void {
     this._geolocationSupport && this._getCoords();
 
-    this._route.queryParams.subscribe((res) =>
-      this._fetchAllCompanies(res.slug)
+    this._route.queryParams.subscribe((res) => {
+      this._fetchAllCompanies(res.slug);
+      console.log(res)
+    }
+
     );
   }
 

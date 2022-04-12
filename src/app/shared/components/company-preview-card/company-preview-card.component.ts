@@ -7,7 +7,7 @@ import { TranslocoService } from '@ngneat/transloco';
   selector: 'app-company-preview-card',
   template: `
     <div
-      class="flex w-full bg-white rounded-sm shadow:sm py-2 px-3 items-center hover:bg-gray-50 cursor-pointer"
+      class="card flex w-full bg-white rounded-sm shadow:sm py-2 px-3 items-center cursor-pointer"
       [routerLink]="[companyUrl]"
       *ngIf="company"
     >
@@ -17,16 +17,11 @@ import { TranslocoService } from '@ngneat/transloco';
 
       <article class="w-full ml-4">
         <div class="flex flex-col md:flex-row  lg:mb-2">
-          <h3
-            class="company-name cursor-pointer mb-2 lg:mb-0"
-            
-          >
+          <h3 class="company-name cursor-pointer mb-2 lg:mb-0">
             {{ company?.name }}
           </h3>
           <!-- [href]="'tel:' + company?.phoneNumber" REUSE FOR PHONE NUMBER-->
-          <a
-            class="phone text-h300 font-bold ml-0 md:ml-auto"
-          >
+          <a class="phone text-h300 font-bold ml-0 md:ml-auto">
             {{ company?.phoneNumber }}
           </a>
         </div>
@@ -62,7 +57,7 @@ export class CompanyPreviewCardComponent {
 
   public readonly placeIcon: typeof faMapMarkerAlt = faMapMarkerAlt;
 
-  constructor(private readonly translocoService: TranslocoService) { }
+  constructor(private readonly translocoService: TranslocoService) {}
 
   public get companyUrl(): string {
     switch (this.translocoService.getActiveLang()) {
