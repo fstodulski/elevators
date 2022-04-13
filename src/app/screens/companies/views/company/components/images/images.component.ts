@@ -6,6 +6,15 @@ import {
   Input,
 } from '@angular/core';
 import { ImageDto } from '@core/models';
+import {
+  Image,
+  ModalGalleryConfig,
+  ModalGalleryRef,
+  ModalGalleryService,
+  ModalImage,
+  ModalLibConfig,
+  PlainLibConfig,
+} from '@ks89/angular-modal-gallery';
 import { WINDOW } from '@ng-web-apis/common';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
@@ -35,7 +44,13 @@ import { map, switchMap } from 'rxjs/operators';
                 </div>
               </div>
             </ng-container>
-            <img [src]="image.url" alt="" class="h-full w-full object-cover" />
+            <img
+              (click)="openModal(500, i)"
+              [src]="image.url"
+              alt=""
+              id="{{ i }}"
+              class="h-full w-full object-cover"
+            />
           </figure>
         </div>
       </ng-container>
@@ -65,7 +80,10 @@ export class ImagesComponent {
     );
   }
 
-  constructor(@Inject(WINDOW) private readonly _window: Window) {
+  constructor(
+    @Inject(WINDOW) private readonly _window: Window,
+    private modalGalleryService: ModalGalleryService
+  ) {
     this.allImages$ = new BehaviorSubject<Array<ImageDto>>([]);
     this.isExtraLargeScreen$ = new BehaviorSubject<boolean>(
       this.isExtraLarge(this._window.innerWidth)
@@ -91,13 +109,21 @@ export class ImagesComponent {
   private isExtraLarge(width: number): boolean {
     return width > 1536;
   }
-  private getImages(images: Array<ImageDto>): Array<typeof Image> {
-    var imgArr = new Array();
 
-    for (var i = 0; i < images.length; i++) {
-      imgArr[i] = new Image();
-      imgArr[i].src = images[i].url;
+  openModal(id: number, imageIndex: number, libConfig?: ModalLibConfig): void {
+    var imgArr = [] as Image[];
+    for (var i = 0; i < this.allImages$.value.length; i++) {
+      imgArr[i] = new Image(i, {
+        img: this.allImages$.value[i].url,
+        extUrl: 'http://www.google.com',
+      });
     }
-    return imgArr;
+    const imageToShow: Image = imgArr[imageIndex];
+    this.modalGalleryService.open({
+      id,
+      images: imgArr,
+      currentImage: imageToShow,
+      libConfig,
+    });
   }
 }

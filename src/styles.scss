@@ -10,6 +10,8 @@
 @import "./styles/button";
 @import "./styles/input";
 
+@import "~@angular/cdk/overlay-prebuilt.css";
+
 body,
 html {
   font-family: "Montserrat", sans-serif;
@@ -58,4 +60,12 @@ html {
 
 .full-height {
   overflow: hidden;
+}
+
+.ks-modal-gallery-backdrop {
+  background: #000 !important;;
+  opacity: 0.85 !important;;
+}
+.ks-modal-gallery-panel {
+  z-index: 90000 !important;
 }
