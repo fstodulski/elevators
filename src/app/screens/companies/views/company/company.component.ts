@@ -23,7 +23,7 @@ import { CompanyDatasourceService } from './company-datasource.service';
     >
       <app-header [company]="company"></app-header>
 
-      <app-companies-map></app-companies-map>
+      <!-- <app-companies-map></app-companies-map> -->
       <app-about [company]="company"></app-about>
       <app-contact-details [company]="company"></app-contact-details>
       <app-images [images]="company.images"></app-images>

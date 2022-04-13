@@ -91,4 +91,13 @@ export class ImagesComponent {
   private isExtraLarge(width: number): boolean {
     return width > 1536;
   }
+  private getImages(images: Array<ImageDto>): Array<typeof Image> {
+    var imgArr = new Array();
+
+    for (var i = 0; i < images.length; i++) {
+      imgArr[i] = new Image();
+      imgArr[i].src = images[i].url;
+    }
+    return imgArr;
+  }
 }

@@ -26,16 +26,12 @@ import { SubscribeService } from '@core/services/mailchimp/subscribe.service';
                 (keyup)="onKey($event)"
               />
 
-              <button
-                class="btn md:ml-6 mt-4 md:mt-0"
-                (click)="subscribe()"
-                [ngClass]="this.formControl.value.errors ? 'disabled' : ''"
-              >
+              <button class="btn md:ml-6 mt-4 md:mt-0" (click)="subscribe()">
                 <span class="material-icons">file_download</span>
                 Pobierz katalog
               </button>
-              <p id="error"></p>
             </div>
+            <p class="text-xl text-red-200" id="error"></p>
 
             <div class="flex w-full items-center mt-6">
               <input type="checkbox" class="mr-3" />
@@ -56,17 +52,14 @@ import { SubscribeService } from '@core/services/mailchimp/subscribe.service';
 })
 export class EmailCatalogComponent {
   public formControl: FormControl;
-  private error;
-  private email;
   private value = '';
+  public validity = false;
 
   constructor(private subscribeService: SubscribeService) {
     this.formControl = new FormControl('', [
       Validators.required,
       Validators.email,
     ]);
-    this.error = document.querySelector('error') as HTMLParagraphElement;
-    this.email = document.querySelector('email') as HTMLInputElement;
   }
 
   public subscribe(): any {
@@ -82,11 +75,15 @@ export class EmailCatalogComponent {
       );
   }
   public onKey(event: KeyboardEvent): void {
+    var error = document.getElementById('error') as HTMLParagraphElement;
+    var email = document.getElementById('email') as HTMLInputElement;
     this.value += (event.target as HTMLInputElement).value;
-    console.log(this.error);
-    if (!this.email?.validity.valid) {
-      var txt = document.createTextNode('Please enter correct email');
-      this.error.appendChild(txt);
-    } else this.error.textContent = '';
+    if (!email?.validity.valid) {
+      error.innerHTML = 'Wprowadź poprawny email';
+      this.validity = false;
+    } else {
+      this.validity = true;
+      error.innerHTML = '';
+    }
   }
 }
