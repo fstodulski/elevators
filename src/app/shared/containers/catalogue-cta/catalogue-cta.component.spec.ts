@@ -8,8 +8,9 @@ describe('CatalogueCtaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CatalogueCtaComponent ]
-    })
+    declarations: [CatalogueCtaComponent],
+    teardown: { destroyAfterEach: false }
+})
     .compileComponents();
   });
 

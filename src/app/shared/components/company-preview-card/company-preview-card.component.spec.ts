@@ -8,8 +8,9 @@ describe('CompanyPreviewCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CompanyPreviewCardComponent ]
-    })
+    declarations: [CompanyPreviewCardComponent],
+    teardown: { destroyAfterEach: false }
+})
     .compileComponents();
   });
 

@@ -8,8 +8,9 @@ describe('TableOneComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TableOneComponent ]
-    })
+    declarations: [TableOneComponent],
+    teardown: { destroyAfterEach: false }
+})
     .compileComponents();
   });
 

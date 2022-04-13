@@ -6,7 +6,7 @@ describe('RegionService', () => {
   let service: RegionRepository;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({ teardown: { destroyAfterEach: false } });
     service = TestBed.inject(RegionRepository);
   });
 

@@ -8,8 +8,9 @@ describe('HeroHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeroHeaderComponent ]
-    })
+    declarations: [HeroHeaderComponent],
+    teardown: { destroyAfterEach: false }
+})
     .compileComponents();
   });
 

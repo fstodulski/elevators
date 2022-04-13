@@ -8,8 +8,9 @@ describe('MapComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MapComponent ]
-    })
+    declarations: [MapComponent],
+    teardown: { destroyAfterEach: false }
+})
     .compileComponents();
   });
 

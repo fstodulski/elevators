@@ -8,8 +8,9 @@ describe('MobileMapComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MobileMapComponent ]
-    })
+    declarations: [MobileMapComponent],
+    teardown: { destroyAfterEach: false }
+})
     .compileComponents();
   });
 

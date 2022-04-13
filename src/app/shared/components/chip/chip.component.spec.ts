@@ -8,8 +8,9 @@ describe('ChipComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ChipComponent ]
-    })
+    declarations: [ChipComponent],
+    teardown: { destroyAfterEach: false }
+})
     .compileComponents();
   });
 

@@ -6,7 +6,7 @@ describe('CabinsRealisationRepositoryService', () => {
   let service: CabinsRealisationRepositoryService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({ teardown: { destroyAfterEach: false } });
     service = TestBed.inject(CabinsRealisationRepositoryService);
   });
 

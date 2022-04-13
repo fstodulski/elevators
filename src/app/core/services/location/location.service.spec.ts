@@ -6,7 +6,7 @@ describe('LocationService', () => {
   let service: LocationService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({ teardown: { destroyAfterEach: false } });
     service = TestBed.inject(LocationService);
   });
 

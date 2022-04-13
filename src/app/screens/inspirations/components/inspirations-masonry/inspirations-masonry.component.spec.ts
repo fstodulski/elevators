@@ -8,8 +8,9 @@ describe('InspirationsMasonryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InspirationsMasonryComponent ]
-    })
+    declarations: [InspirationsMasonryComponent],
+    teardown: { destroyAfterEach: false }
+})
     .compileComponents();
   });
 

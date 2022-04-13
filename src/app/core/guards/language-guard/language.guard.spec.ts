@@ -6,7 +6,7 @@ describe('LanguageGuard', () => {
   let guard: LanguageGuard;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({ teardown: { destroyAfterEach: false } });
     guard = TestBed.inject(LanguageGuard);
   });
 

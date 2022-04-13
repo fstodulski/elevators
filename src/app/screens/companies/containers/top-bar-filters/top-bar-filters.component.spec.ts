@@ -8,8 +8,9 @@ describe('TopBarFiltersComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TopBarFiltersComponent ]
-    })
+    declarations: [TopBarFiltersComponent],
+    teardown: { destroyAfterEach: false }
+})
     .compileComponents();
   });
 

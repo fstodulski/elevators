@@ -8,8 +8,9 @@ describe('CabinsHeroComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CabinsHeroComponent ]
-    })
+    declarations: [CabinsHeroComponent],
+    teardown: { destroyAfterEach: false }
+})
     .compileComponents();
   });
 

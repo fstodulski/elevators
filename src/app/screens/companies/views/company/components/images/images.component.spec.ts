@@ -8,8 +8,9 @@ describe('ImagesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ImagesComponent ]
-    })
+    declarations: [ImagesComponent],
+    teardown: { destroyAfterEach: false }
+})
     .compileComponents();
   });
 

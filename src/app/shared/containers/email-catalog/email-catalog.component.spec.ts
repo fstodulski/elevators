@@ -8,8 +8,9 @@ describe('EmailCatalogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EmailCatalogComponent ]
-    })
+    declarations: [EmailCatalogComponent],
+    teardown: { destroyAfterEach: false }
+})
     .compileComponents();
   });
 
