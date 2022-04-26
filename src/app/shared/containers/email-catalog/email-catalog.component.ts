@@ -15,7 +15,11 @@ import { SubscribeService } from '@core/services/mailchimp/subscribe.service';
             Katalog zawiera kilka możliwych realizacji, opisy poszczególnych
             komponentów oraz wartości techniczne.
           </p>
-          <form class="form" action="#">
+          <form
+            class="form"
+            target="_blank"
+            action="http://www.lechlifts.eu/www/download/Kat_Lech-min_PL.pdf"
+          >
             <div class="flex flex-col md:flex-row w-full">
               <input
                 class="input flex-grow"
@@ -26,21 +30,30 @@ import { SubscribeService } from '@core/services/mailchimp/subscribe.service';
                 (keyup)="onKey($event)"
               />
 
-              <button class="btn md:ml-6 mt-4 md:mt-0" (click)="subscribe()">
+              <button
+                [ngClass]="validity ? 'btn' : 'btn-disabled'"
+                class="md:ml-6 mt-4 md:mt-0"
+                (click)="subscribe()"
+              >
                 <span class="material-icons">file_download</span>
                 Pobierz katalog
               </button>
             </div>
-            <p class="text-xl text-red-200" id="error"></p>
 
             <div class="flex w-full items-center mt-6">
-              <input type="checkbox" class="mr-3" />
+              <input
+                type="checkbox"
+                id="check"
+                class="mr-3"
+                (change)="onKey($event)"
+              />
               <span class="marketing">
                 Zgadzam się na <a>przetwarzanie danych</a> w celach
                 marketingowych.
               </span>
             </div>
           </form>
+          <p class="text-body-md mt-5 text-red-200" id="error"></p>
         </article>
         <figure>
           <img src="/assets/images/katalogi.png" alt="" />
@@ -74,16 +87,23 @@ export class EmailCatalogComponent {
         }
       );
   }
-  public onKey(event: KeyboardEvent): void {
+  public onKey(event: Event): void {
+    console.log('dupa');
     var error = document.getElementById('error') as HTMLParagraphElement;
     var email = document.getElementById('email') as HTMLInputElement;
+    var checkbox = document.getElementById('check') as HTMLInputElement;
     this.value += (event.target as HTMLInputElement).value;
-    if (!email?.validity.valid) {
+    if (!email?.validity.valid || email.value == '') {
       error.innerHTML = 'Wprowadź poprawny email';
       this.validity = false;
     } else {
-      this.validity = true;
-      error.innerHTML = '';
+      if (checkbox.checked) {
+        this.validity = true;
+        error.innerHTML = '';
+      } else {
+        error.innerHTML = 'Zaznacz zgodę na przetwarzanie danych';
+        this.validity = false;
+      }
     }
   }
 }

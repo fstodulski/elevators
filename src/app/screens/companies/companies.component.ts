@@ -9,7 +9,7 @@ import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
       <div class="flex flex-1 2xl:flex-50 md:flex-60">
         <router-outlet></router-outlet>
       </div>
-      <div class="hidden lg:block 2xl:flex-50 flex-40 p-5">
+      <div class="hidden lg:block 2xl:flex-50 flex-40">
         <app-companies-map></app-companies-map>
       </div>
     </section>

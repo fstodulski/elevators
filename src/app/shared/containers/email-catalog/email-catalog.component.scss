@@ -46,3 +46,15 @@
   }
   color: var(--main100);
 }
+.btn-disabled {
+  padding: 0.75rem 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  cursor: not-allowed;
+
+  transition: 300ms;
+  background-color: var(--gray300);
+  color: black;
+}
