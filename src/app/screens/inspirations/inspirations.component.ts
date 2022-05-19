@@ -11,10 +11,10 @@ import { Observable } from 'rxjs';
   template: `
     <main>
       <app-inspirations-header></app-inspirations-header>
-      <app-inspirations-categories
+      <!-- <app-inspirations-categories
         *ngIf="categories$ | async as categories"
         [categories]="categories"
-      ></app-inspirations-categories>
+      ></app-inspirations-categories> -->
       <app-inspirations-masonry
         *ngIf="categories$ | async"
       ></app-inspirations-masonry>
@@ -24,9 +24,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./inspirations.component.scss'],
 })
 export class InspirationsComponent implements OnInit {
-  public categories$: Observable<
-    Array<InspirationCategoryDto>
-  > = this.inspirationCategoriesQuery.selectAll();
+  public categories$: Observable<Array<InspirationCategoryDto>> =
+    this.inspirationCategoriesQuery.selectAll();
 
   constructor(
     public readonly inspirationCategoryService: InspirationCategoryService,

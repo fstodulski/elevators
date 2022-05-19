@@ -5,9 +5,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class SubscribeService {
-  private mailChimpEndpoint =
+  private readonly mailChimpEndpoint =
     'https://gmail.us14.list-manage.com/subscribe/post?u=1c633aedee7ca4c18e19a286a&amp;id=d9af2460bc';
-  constructor(private http: HttpClient) {}
+  constructor(private readonly http: HttpClient) {}
 
   public subscribeToList(data: string): any {
     const params = new HttpParams().set('EMAIL', data);

@@ -17,13 +17,13 @@ import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
   styleUrls: ['./companies.component.scss'],
 })
 export class CompaniesComponent implements OnInit, OnDestroy {
-  constructor(@Inject(DOCUMENT) private readonly document: Document) {}
+  constructor(@Inject(DOCUMENT) private readonly _document: Document) {}
 
   public ngOnInit(): void {
-    this.document.body.classList.add('full-height');
+    this._document.body.classList.add('full-height');
   }
 
   public ngOnDestroy(): void {
-    this.document.body.classList.remove('full-height');
+    this._document.body.classList.remove('full-height');
   }
 }

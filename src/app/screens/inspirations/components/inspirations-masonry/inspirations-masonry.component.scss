@@ -10,3 +10,25 @@
     width: calc((100% - 40px) / 3);
   }
 }
+
+// #pin-container > span {
+//   box-shadow: none !important;
+//   width: 100%;
+//   overflow: hidden;
+//   padding: 8px;
+// }
+// #pinterest-container > span {
+//     width: 100% !important;
+//     overflow: hidden;
+// }
+// #pinterest-container > span > span > span > span {
+//   min-width: 0;
+// }
+
+#pinterest-container {
+  display: flex;
+}
+
+#pinterest-container a {
+  flex: 1;
+}

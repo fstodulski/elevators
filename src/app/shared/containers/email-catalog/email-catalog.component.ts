@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { SubscribeService } from '@core/services/mailchimp/subscribe.service';
 
@@ -52,6 +52,11 @@ import { SubscribeService } from '@core/services/mailchimp/subscribe.service';
                 marketingowych.
               </span>
             </div>
+            <!-- do wyjasnienia -->
+            <!-- <ng-container
+              class="text-body-md mt-5 text-red-200"
+              *ngIf="formControl.invalid"
+            ></ng-container> -->
           </form>
           <p class="text-body-md mt-5 text-red-200" id="error"></p>
         </article>
@@ -87,6 +92,10 @@ export class EmailCatalogComponent {
         }
       );
   }
+  //do sprawdzenia
+  // public ngOnDestroy(): void {
+  //   this.subscribeService.unsubscribe();
+  // }
   public onKey(event: Event): void {
     console.log('dupa');
     var error = document.getElementById('error') as HTMLParagraphElement;

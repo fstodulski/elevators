@@ -54,10 +54,7 @@ interface FormGroupDto {
         <div
           class="tag cursor-pointer"
           [ngClass]="{
-            'active-category': getActiveGategory(
-              this._router.url.split('=')[1],
-              category.name.toLowerCase()
-            )
+            'active-category': getActiveGategory(category)
           }"
           *ngFor="let category of companyCategories | async"
         >
@@ -69,16 +66,13 @@ interface FormGroupDto {
             <svg-icon
               class="mr-2"
               [src]="categoryIconsMap[category.icon]"
-              [svgStyle]="{ 'width.px': 22 }"
+              [svgStyle]="{ 'width.px': 20 }"
             ></svg-icon>
             {{ category.name }}
           </a>
           <span
             [ngClass]="{
-              hidden: getCustomCss(
-                this._router.url.split('=')[1],
-                category.name.toLowerCase()
-              )
+              hidden: getCustomCss(category)
             }"
             [routerLink]="[]"
             [queryParams]="{ slug: '' }"
@@ -115,7 +109,7 @@ export class TopBarFiltersComponent implements OnInit, OnDestroy {
     private readonly regionQuery: RegionQuery,
     private readonly topBarFiltersQuery: TopBarFiltersQuery,
     private readonly fb: FormBuilder,
-    public readonly _router: Router,
+    private readonly _router: Router,
     private readonly _route: ActivatedRoute
   ) {
     this.subs$ = new Subscription();
@@ -167,14 +161,21 @@ export class TopBarFiltersComponent implements OnInit, OnDestroy {
     //     queryParamsHandling: 'merge', // remove to replace all query params by provided
     //   });
   }
-  public getCustomCss(slug: string, category: string): boolean {
+  public getCustomCss(companyCategory: CompanyCategory): boolean {
+    const slug = this._router.url.split('=')[1];
+    const category: string = companyCategory.name.toLowerCase();
+
     if (slug !== category) {
       if (slug == 'montaz' && category == 'montaż') return false;
       return true;
     }
     return false;
   }
-  public getActiveGategory(slug: string, category: string): boolean {
+  public getActiveGategory(companyCategory: CompanyCategory): boolean {
+    const slug = this._router.url.split('=')[1];
+    const category: string = companyCategory.name.toLowerCase();
+
+    //Do wyjasnienia
     if (!slug || !category) return false;
     if (slug == 'montaz' && category == 'montaż') return true;
     if (slug === category) return true;

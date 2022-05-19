@@ -33,20 +33,20 @@ const routes: Routes = [
     resolve: [LanguageGuard],
   },
 
-  // {
-  //   path: ':lang/inspirations',
-  //   loadChildren: async () =>
-  //     (await import('./screens/inspirations/inspirations.module'))
-  //       .InspirationsModule,
-  //   resolve: [LanguageGuard],
-  // },
-  // {
-  //   path: ':lang/inspiracje',
-  //   loadChildren: async () =>
-  //     (await import('./screens/inspirations/inspirations.module'))
-  //       .InspirationsModule,
-  //   resolve: [LanguageGuard],
-  // },
+  {
+    path: ':lang/inspirations',
+    loadChildren: async () =>
+      (await import('./screens/inspirations/inspirations.module'))
+        .InspirationsModule,
+    resolve: [LanguageGuard],
+  },
+  {
+    path: ':lang/inspiracje',
+    loadChildren: async () =>
+      (await import('./screens/inspirations/inspirations.module'))
+        .InspirationsModule,
+    resolve: [LanguageGuard],
+  },
 ];
 
 @NgModule({
@@ -58,4 +58,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

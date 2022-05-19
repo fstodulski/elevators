@@ -15,7 +15,7 @@ import { CompaniesMapService } from './companies-map.service';
     <ng-container
       *ngIf="_companiesMapService.mapOptions$ | async as mapOptions"
     >
-      <div class="companies-map">
+      <div class="companies-map mx-auto">
         <google-map width="100%" height="100%" [options]="mapOptions">
           <map-marker
             *ngFor="let marker of mapMarkers$ | async"
