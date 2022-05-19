@@ -95,7 +95,7 @@ export interface CompaniesInRangeQuery {
 }
 export const companiesInRange = gql`
   query companies {
-    companies(first: 2) {
+    companies(first: 4) {
       id
       name
       logo {
